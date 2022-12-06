@@ -1,8 +1,11 @@
 import React from 'react'
+import OurServices from '../OurServices/OurServices'
 
 function Main() {
   return (
-    <div>Main</div>
+    <main>
+        <OurServices/>
+    </main>
   )
 }
 
