@@ -82,3 +82,17 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+.item-content{
+  transition: bottom 0.4s;
+}
+.item-list{
+  transition: background 0.4s ease-in-out;
+}
+.item-list:hover{
+  background-image: url("../public/Images/ServicesImg/serHoverBg.png");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.item-list:hover > .item-content{
+  bottom: 0;
+}
