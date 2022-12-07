@@ -8,7 +8,7 @@ function Footer(): any {
  return (
     <footer className="w-full max-h-[250px] bg-[#282828]">
       <div className="container">
-        <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 grid grid-cols-1">
+        <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 grid grid-cols-1 max-h-[250px]">
           <div className="max-w-[354px] w-full flex-shrink-0 my-[50px] ">
             <Image src={Main} width={245} height={43} alt="logo" />
             <p className="font-light text-base leading-[19px] lg:mt-3 lg:mb-8 text-[#ffffffde]">
