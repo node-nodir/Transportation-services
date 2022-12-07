@@ -14,7 +14,7 @@ function Footer(): any {
             <p className="font-light text-base leading-[19px] lg:mt-3 lg:mb-8 text-[#ffffffde]">
               Transportation Services that you can trust
             </p>
-            <h1 className="font-light text-[#ffffff61] mt-[55px]  text-xs text-center my-8 text-start">
+            <h1 className="font-light text-[#ffffff61] mt-[55px]  text-xs my-8 text-start">
               Copyright © All rights reserved
             </h1>
           </div>
