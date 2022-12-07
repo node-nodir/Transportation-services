@@ -1,10 +1,12 @@
 import React from 'react'
+import Hero from '../Hero/Hero'
 import OurServices from '../OurServices/OurServices'
 
 function Main() {
   return (
     <main>
-        <OurServices/>
+      <Hero />
+      <OurServices />
     </main>
   )
 }
