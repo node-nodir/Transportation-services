@@ -32,7 +32,7 @@ module.exports = {
       width: {
         formWidth: "464px",
         servicesHero: "543px",
-        245: "245px",
+        
       },
       height: {
         formHeight: "619px",
