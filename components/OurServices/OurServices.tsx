@@ -51,9 +51,9 @@ function OurServices() {
     ];
 
   return (
-    <section>
+    <section className="pt-24 pb-12">
       <div className="container">
-        <div className="w-servicesHero text-center mt-24 mb-20 mx-auto">
+        <div className="max-w-servicesHero text-center mb-20 mx-auto">
           <h2 className="font-bold text-4xl mb-2">Our Services</h2>
           <p className="font-normal text-sm text-black-servicesTextColor">
             Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
