@@ -14,11 +14,10 @@ function Wedo() {
           <div className="flex flex-col text-center lg:text-left lg:flex lg:items-center lg:flex-row lg:justify-between">
             <div className="lg:w-weDoContent mb-8 lg:mb-0 mx-auto lg:mx-0">
               <h2 className="font-semibold text-white text-2xl sm:text-4xl mb-2 leading-wedoTitile">
-                We’re Pro’s at what we DO
+                We’re PROs at what we DO
               </h2>
               <p className="text-white text-sm sm:text-base leading-6 font-normal">
-                Cras ultricies ligula sed magna dictum porta. Quisque velit
-                nisi, pretium ut lacinia
+                Hire professional carriers for your shipments needs
               </p>
             </div>
             <ul className="flex flex-wrap justify-center gap-9 sm:flex sm:flex-nowrap sm:items-center sm:justify-center lg:justify-start sm:space-x-9">

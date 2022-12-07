@@ -3,6 +3,8 @@ import Hero from "../Hero/Hero";
 import Wedo from "../Wedo/Wedo";
 import AboutUs from "../AboutUs/AboutUs";
 import OurServices from "../OurServices/OurServices";
+import Shipping from "../Shipping/Shipping";
+import Frequently from "../Frequently/Frequently";
 
 function Main() {
   return (
@@ -11,6 +13,8 @@ function Main() {
       <OurServices />
       <Wedo />
       <AboutUs />
+      <Shipping />
+      <Frequently />
     </main>
   );
 }
