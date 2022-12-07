@@ -1,10 +1,12 @@
 import React from 'react'
+import FormikContainer from '../BaseComponents/FormInput/FormikContainer'
 import OurServices from '../OurServices/OurServices'
 
 function Main() {
   return (
     <main>
-        <OurServices/>
+      <FormikContainer />
+        {/* <OurServices/> */}
     </main>
   )
 }
