@@ -1,6 +1,3 @@
-
-import React from 'react'
-import OurServices from '../OurServices/OurServices'
 import React from "react";
 import Hero from "../Hero/Hero";
 import Wedo from "../Wedo/Wedo";
