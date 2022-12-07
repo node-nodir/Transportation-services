@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        servicesBg: "url('')",
+        servicesBg: "url('/Images/ServicesImg/serBg.png')",
+        learnMoreAfterImg: "url('/Images/ServicesImg/turn.svg')",
+        learnMoreModalImg: "url('/Images/ServicesImg/turn2.svg')",
       },
       colors: {
         orange: {
@@ -16,6 +18,7 @@ module.exports = {
         black: {
           dark: "#182F43",
           servicesTextColor: "#000",
+          serModalText: "rgba(0, 0, 0, 0.68)",
         },
       },
       width: {
