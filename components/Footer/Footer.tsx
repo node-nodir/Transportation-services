@@ -4,8 +4,10 @@ import React from "react";
 import Main from "./main.svg";
 
 
+
 function Footer(): any {
  return (
+  
     <footer className="w-full max-h-[250px] bg-[#282828]">
       <div className="container">
         <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 grid grid-cols-1 max-h-[250px]">
