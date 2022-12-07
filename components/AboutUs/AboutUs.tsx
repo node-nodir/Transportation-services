@@ -6,7 +6,7 @@ function AboutUs() {
     <section className="py-24">
       <div className="container">
         <div className="flex justify-between">
-          <div className="w-[45%] ">
+          <div className="w-[48%] ">
             <h2 className="font-semibold text-xl sm:text-3xl  md:text-aboutTitle md:leading-wedoTitile mb-2 md:mb-4">
               About <span className="text-orange-main">Us</span>
             </h2>
@@ -24,7 +24,7 @@ function AboutUs() {
               alt="Site bus img"
             />
           </div>
-          <div className="w-[45%]  flex flex-col-reverse">
+          <div className="w-[48%]  flex flex-col-reverse">
             <div className="flex-col-reverse">
               <h2 className="font-semibold text-xl sm:text-3xl  md:text-aboutTitle md:leading-wedoTitile mb-2 md:mb-4">
                 Our <span className="text-orange-main">Mission</span>

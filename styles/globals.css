@@ -22,69 +22,41 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-
-/* montserrat-500 - latin */
+/* inter-regular - latin */
 @font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src: local(''),
-  url('../public/fonts/montserrat-v25-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/montserrat-v25-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-600 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  src: local(''),
-  url('../public/fonts/montserrat-v25-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/montserrat-v25-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* poppins-300 - latin */
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 300;
-  src: local(''),
-  url('../public/fonts/poppins-v20-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/poppins-v20-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* poppins-regular - latin */
-@font-face {
-  font-family: 'Poppins';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   src: local(''),
-  url('../public/fonts/poppins-v20-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/poppins-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../public/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* poppins-500 - latin */
+/* inter-500 - latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   src: local(''),
-  url('../public/fonts/poppins-v20-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/poppins-v20-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../public/fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* poppins-600 - latin */
+/* inter-600 - latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   src: local(''),
-  url('../public/fonts/poppins-v20-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/poppins-v20-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../public/fonts/inter-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* poppins-700 - latin */
+/* inter-700 - latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-  url('../public/fonts/poppins-v20-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../public/fonts/poppins-v20-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../public/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 *{
@@ -96,9 +68,8 @@
 
 html,
 body {
-  scroll-behavior: smooth;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth !important;
+  font-family: 'Inter', sans-serif;
 }
 
 .container{
@@ -168,4 +139,9 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.services{
+  background-image:url("../public//Images/ServicesImg/triangle.svg"), url("../public/Images/ServicesImg/triangle2.svg");
+  background-repeat: no-repeat;
+  background-position: top left,right bottom;
 }
