@@ -24,6 +24,7 @@ module.exports = {
       width: {
         formWidth: "464px",
         servicesHero: "543px",
+        
       },
       height: {
         formHeight: "619px",
