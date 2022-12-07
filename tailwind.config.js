@@ -10,6 +10,7 @@ module.exports = {
         servicesBg: "url('/Images/ServicesImg/serBg.png')",
         learnMoreAfterImg: "url('/Images/ServicesImg/turn.svg')",
         learnMoreModalImg: "url('/Images/ServicesImg/turn2.svg')",
+        weDoBg: "url('/Images/wedoImgs/weDoBg.png')",
       },
       colors: {
         orange: {
@@ -23,10 +24,24 @@ module.exports = {
       },
       width: {
         formWidth: "464px",
+        weDoContent: "342px",
+      },
+      maxWidth: {
         servicesHero: "543px",
       },
       height: {
         formHeight: "619px",
+      },
+      lineHeight: {
+        wedoTitile: "52px",
+        numberWeDo: "70px",
+        aboutText: "26px",
+      },
+      backgroundColor: {
+        weDoNumber: "#D9D9D9",
+      },
+      fontSize: {
+        aboutTitle: "38px",
       },
     },
   },
