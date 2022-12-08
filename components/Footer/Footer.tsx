@@ -3,16 +3,20 @@ import Link from "next/link";
 import React from "react";
 import Main from "./main.svg";
 
-
-
 function Footer(): any {
- return (
-  
+  return (
     <footer className="w-full  bg-[#282828]">
       <div className="container">
         <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 sm:justify-between grid grid-cols-1 justify-center text-center md:text-start md:max-h-[250px]">
           <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-[50px] justify-center">
-           <Link href="#"> <Image src={Main} alt="logo" className="md:w-[245px] mx-auto  mb-9  md:h-[43px] w-[202px] h-10"/></Link>
+            <Link href="#">
+              {" "}
+              <Image
+                src={Main}
+                alt="logo"
+                className="md:w-[245px] mx-auto  mb-9  md:h-[43px] w-[202px] h-10"
+              />
+            </Link>
             <p className="hidden md:block font-light text-base leading-[19px] lg:mt-3 lg:mb-8 text-[#ffffffde]">
               Transportation Services that you can trust
             </p>
@@ -71,9 +75,9 @@ function Footer(): any {
               </li>
             </ul>
           </div>
-            <h1 className="md:hidden font-light text-[#ffffff61] mt-16 mb-12 text-xs my-8 text-center">
-                  Copyright © All rights reserved
-            </h1>
+          <strong className="md:hidden font-light text-[#ffffff61] mt-16 mb-12 text-xs my-8 text-center">
+            Copyright © All rights reserved
+          </strong>
         </div>
       </div>
     </footer>
@@ -81,5 +85,3 @@ function Footer(): any {
 }
 
 export default Footer;
-
-

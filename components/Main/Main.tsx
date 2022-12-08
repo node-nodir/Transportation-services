@@ -11,12 +11,12 @@ function Main() {
   return (
     <main>
       <Hero />
-      <GetTouch />
       <OurServices />
       <Wedo />
       <AboutUs />
       <Shipping />
       <Frequently />
+      <GetTouch />
     </main>
   );
 }
