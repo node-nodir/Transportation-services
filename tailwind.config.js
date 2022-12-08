@@ -34,6 +34,9 @@ module.exports = {
         hero_Form_W: "450px",
         shippingTop: "800px",
         738: "738px",
+        354: "354px",
+        155: "155px",
+        166: "166px"
       },
       width: {
         formWidth: "464px",
@@ -43,10 +46,16 @@ module.exports = {
         450: "450px",
         151: "151px",
       },
+      maxHeight:{
+        197: "197px",
+        131: "131px"
+
+      },
       height: {
         formHeight: "619px",
         43: "43px",
         112: "112px",
+        
       },
       margin: {
         10: "10px",
