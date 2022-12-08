@@ -8,10 +8,10 @@ import Main from "./main.svg";
 function Footer(): any {
  return (
   
-    <footer className="w-full max-h-[250px] bg-[#282828]">
+    <footer className="w-full  bg-[#282828]">
       <div className="container">
-        <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 grid grid-cols-1 max-h-[250px]">
-          <div className="max-w-[354px] w-full flex-shrink-0 my-[50px] ">
+        <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 sm:justify-between grid grid-cols-1 md:max-h-[250px]">
+          <div className="max-w-354 w-full flex-shrink-0 mt-12 md:my-[50px] ">
             <Image src={Main} width={245} height={43} alt="logo" />
             <p className="font-light text-base leading-[19px] lg:mt-3 lg:mb-8 text-[#ffffffde]">
               Transportation Services that you can trust
@@ -20,7 +20,7 @@ function Footer(): any {
               Copyright © All rights reserved
             </h1>
           </div>
-          <div className="max-w-[155px] max-h-[197px] w-full my-[50px]">
+          <div className="max-w-155 max-h-197 w-full my-5 md:mt-[50px]">
             <h1 className="text-lg font-semibold leading-7 text-[#ffffffde]">
               Our Services
             </h1>
@@ -39,7 +39,7 @@ function Footer(): any {
               </li>
             </ul>
           </div>
-          <div className="max-w-[166px] max-h-[131px] w-full my-[50px]">
+          <div className="max-w-166 max-h-131 w-full my-5 md:mt-[50px]">
             <h1 className="text-lg font-semibold leading-7 text-[#ffffffde]">
               Shipping Methods
             </h1>
@@ -55,7 +55,7 @@ function Footer(): any {
               </li>
             </ul>
           </div>
-          <div className="max-w-[155px] max-h-[197px] w-full  my-[50px]">
+          <div className="max-w-155 max-h-197 w-full  my-5 md:mt-[50px]">
             <h1 className="text-lg font-semibold leading-7 text-[#ffffffde]">
               About US
             </h1>
