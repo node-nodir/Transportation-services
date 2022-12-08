@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import Image from "next/image";
 
 function Wedo() {
   const [CounterOn, setCounterOn] = useState(false);
@@ -9,10 +10,10 @@ function Wedo() {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <section className="bg-weDoBg bg-center py-16 bg-no-repeat bg-cover">
+      <section className="bg-weDoBg sm:bg-center py-16 bg-no-repeat bg-cover">
         <div className="container">
           <div className="flex flex-col text-center lg:text-left lg:flex lg:items-center lg:flex-row lg:justify-between">
-            <div className="lg:w-weDoContent mb-8 lg:mb-0 mx-auto lg:mx-0">
+            <div className="w-[80%] sm:max-w-weDoContent text-left mb-8 lg:mb-0">
               <h2 className="font-semibold text-white text-2xl sm:text-4xl mb-2 leading-wedoTitile">
                 We’re PROs at what we DO
               </h2>
@@ -20,10 +21,17 @@ function Wedo() {
                 Hire professional carriers for your shipments needs
               </p>
             </div>
-            <ul className="flex flex-wrap justify-center gap-9 sm:flex sm:flex-nowrap sm:items-center sm:justify-center lg:justify-start sm:space-x-9">
-              <li className="flex flex-col items-center">
-                <span className="w-12 h-12 rounded-lg bg-weDoNumber inline-block mb-2"></span>
-                <strong className="font-semibold text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
+            <ul className="flex flex-wrap gap-9 sm:flex sm:flex-nowrap sm:items-center sm:justify-center lg:justify-start sm:space-x-9">
+              <li className="flex flex-col">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
+                  <Image
+                    src={"/Images/wedoImgs/avatar.svg"}
+                    width={22}
+                    height={25}
+                    alt="avatar img"
+                  />
+                </span>
+                <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
                   {CounterOn && (
                     <CountUp start={0} end={10} duration={1} delay={0} />
                   )}
@@ -33,9 +41,16 @@ function Wedo() {
                   Client Served
                 </p>
               </li>
-              <li className="flex flex-col items-center">
-                <span className="w-12 h-12 rounded-lg bg-weDoNumber inline-block mb-2"></span>
-                <strong className="font-semibold text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
+              <li className="flex flex-col">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
+                  <Image
+                    src={"/Images/wedoImgs/avatar.svg"}
+                    width={22}
+                    height={25}
+                    alt="avatar img"
+                  />
+                </span>
+                <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
                   {CounterOn && (
                     <CountUp start={0} end={23} duration={1} delay={0} />
                   )}
@@ -45,9 +60,16 @@ function Wedo() {
                   Vehicle shipped
                 </p>
               </li>
-              <li className="flex flex-col items-center">
-                <span className="w-12 h-12 rounded-lg bg-weDoNumber inline-block mb-2"></span>
-                <strong className="font-semibold text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
+              <li className="flex flex-col">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
+                  <Image
+                    src={"/Images/wedoImgs/avatar.svg"}
+                    width={22}
+                    height={25}
+                    alt="avatar img"
+                  />
+                </span>
+                <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
                   {CounterOn && (
                     <CountUp start={0} end={96} duration={1} delay={0} />
                   )}
@@ -57,9 +79,16 @@ function Wedo() {
                   Satisfied customer
                 </p>
               </li>
-              <li className="flex flex-col items-center">
-                <span className="w-12 h-12 rounded-lg bg-weDoNumber inline-block mb-2"></span>
-                <strong className="font-semibold text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
+              <li className="flex flex-col">
+                <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
+                  <Image
+                    src={"/Images/wedoImgs/avatar.svg"}
+                    width={22}
+                    height={25}
+                    alt="avatar img"
+                  />
+                </span>
+                <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2">
                   {CounterOn && (
                     <CountUp start={0} end={7} duration={1} delay={0} />
                   )}
