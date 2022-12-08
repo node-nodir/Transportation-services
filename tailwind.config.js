@@ -82,6 +82,56 @@ module.exports = {
         56: '56px',
         15: '15',
         aboutTitle: '38px',
+        hero_Form_W: "450px",
+        shippingTop: "800px",
+        weDoContent: "325px",
+        738: "738px",
+        354: "354px",
+        155: "155px",
+        166: "166px"
+      },
+      width: {
+        formWidth: "464px",
+        servicesHero: "543px",
+        245: "245px",
+        450: "450px",
+        151: "151px",
+        354: "354px",
+        330: "330px",
+      },
+      maxHeight:{
+        197: "197px",
+        131: "131px"
+
+      },
+      height: {
+        formHeight: "619px",
+        43: "43px",
+        112: "112px",
+        458: "458px",
+        450: "450px",
+      },
+      margin: {
+        10: "10px",
+        33: "33px",
+        30: "30px",
+        50: "50px",
+        60: "60px",
+      },
+      padding: {
+        160: "160px",
+        25: "25px",
+        70: "70px",
+        196: "196px",
+        118: "118px",
+        173: "173px",
+        100: "100px",
+        120: "120px",
+      },
+      fontSize: {
+        56: "56px",
+        aboutTitle: "38px",
+        28: "28px",
       },
       lineHeight: {
         68: '68px',

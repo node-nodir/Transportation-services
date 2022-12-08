@@ -37,7 +37,7 @@ function Header() {
             <li className="header__nav-item">
               <Link
                 className="header__nav-link font-medium text-base text-white uppercase"
-                href={"/"}
+                href={"#about-us"}
               >
                 About Us
               </Link>
@@ -45,7 +45,7 @@ function Header() {
             <li className="header__nav-item">
               <Link
                 className="header__nav-link font-medium text-base text-white uppercase"
-                href={"/"}
+                href={"#shipping"}
               >
                 Shipping Methods
               </Link>
@@ -53,7 +53,7 @@ function Header() {
             <li className="header__nav-item">
               <Link
                 className="header__nav-link font-medium text-base text-white uppercase"
-                href={"/"}
+                href={"#faq"}
               >
                 FAQ
               </Link>
