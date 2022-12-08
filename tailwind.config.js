@@ -35,6 +35,9 @@ module.exports = {
         shippingTop: "800px",
         weDoContent: "325px",
         738: "738px",
+        354: "354px",
+        155: "155px",
+        166: "166px"
       },
       width: {
         formWidth: "464px",
@@ -44,6 +47,11 @@ module.exports = {
         151: "151px",
         354: "354px",
         330: "330px",
+      },
+      maxHeight:{
+        197: "197px",
+        131: "131px"
+
       },
       height: {
         formHeight: "619px",
