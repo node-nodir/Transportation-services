@@ -6,10 +6,13 @@ import ButtonRead from "../BaseComponents/Buttons/ButtonRead";
 
 function Shipping() {
   return (
-    <section className="pt-70 pb-196 before:bg-shippingBeforeImg before:bg-no-repeat before:absolute before:left-0 before:bottom-0 before:w-[450px] before:h-[516px]  relative after:absolute after:w-450 after:h-112 after:bg-black-shippingAfter after:top-0 after:right-0">
+    <section
+      id="shipping"
+      className="pt-70 sm:pb-196 sm:before:bg-shippingBeforeImg before:bg-no-repeat before:absolute before:left-0 before:bottom-0 before:w-[450px] before:h-[516px]  relative after:absolute after:w-[183px] after:h-[76px] lg:after:w-450 lg:after:h-112 after:bg-black-shippingAfter after:top-0 after:right-0"
+    >
       <div className="container">
-        <div className="max-w-shippingTop text-center mx-auto mb-20">
-          <h2 className="font-bold text-aboutTitle mb-4">
+        <div className="max-w-shippingTop mt-6 sm:mt-0 text-center mx-auto mb-60 sm:mb-20">
+          <h2 className="font-bold text-28 sm:text-aboutTitle  mb-4">
             Shipping <span className="text-orange-main">Method</span>
           </h2>
           <p className="font-normal text-base text-black-serModalText">
@@ -20,30 +23,28 @@ function Shipping() {
           </p>
         </div>
         <ul className="space-y-12">
-          <li className="flex justify-between">
+          <li className="lg:flex lg:justify-between">
             <Image
-              className="w-[49%]"
+              className="w-full md:w-[49%] mx-auto lg:mx-0"
               src={"/Images/shippingImgs/train.png"}
               width={542}
               height={297}
               alt="train"
             />
-            <div className="w-[49%] p-6">
+            <div className="w-full md:w-[49%] mx-auto lg:mx-0 p-6">
               <h2 className="font-semibold text-2xl mb-4">Rail Transport</h2>
               <p className="font-normal text-base mb-5">
-                Railway shipping companies focus on getting cars from one point
-                to another using the vast interconnected rail network around the
-                US. They are either shipped open-air or within freight
-                containers. Its a pretty quick way of getting a car from one
-                point to another, but the speed has its attached cost.
-                Unfortunately, because of the complexities of rail transport,
-                not every shipping company offers rail freight as an option.
+                Car transportation services can fall under several different
+                categories depending on the shipping company employed to move
+                the car. Vehicle transport services may use any number of
+                transportation methods to get a vehicle from one point to
+                another.
               </p>
               <ButtonRead />
             </div>
           </li>
-          <li className="flex justify-between flex-row-reverse">
-            <div className="w-[49%] relative">
+          <li className="lg:flex lg:justify-between lg:flex-row-reverse">
+            <div className="w-full mx-auto lg:mx-0 md:w-[49%] relative">
               <Image
                 className="w-full"
                 src={"/Images/shippingImgs/pupularBus.png"}
@@ -58,7 +59,7 @@ function Shipping() {
                 Most popular
               </a>
             </div>
-            <div className="w-[49%] p-6">
+            <div className="w-full mx-auto lg:mx-0 md:w-[49%] p-6">
               <h2 className="font-semibold text-2xl mb-4">Truck Transport</h2>
               <p className="font-normal text-base mb-5">
                 One of the most well-known vehicle shipping services that youll
@@ -72,15 +73,15 @@ function Shipping() {
               <ButtonRead />
             </div>
           </li>
-          <li className="flex justify-between">
+          <li className=" lg:flex lg:justify-between">
             <Image
-              className="w-[49%]"
+              className="w-full mx-auto lg:mx-0 md:w-[49%] "
               src={"/Images/shippingImgs/palane.png"}
               width={542}
               height={297}
               alt="train"
             />
-            <div className="w-[49%] p-6">
+            <div className="w-full mx-auto lg:mx-0 md:w-[49%] p-6">
               <h2 className="font-semibold text-2xl mb-4">Air Transport</h2>
               <p className="font-normal text-base mb-5">
                 Another category of vehicle transport service is air transport.
