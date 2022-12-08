@@ -400,7 +400,7 @@ function Hero() {
   return (
     <section className="hero_bg pt-160 pb-80">
       <div className="container flex flex-col-reverse lg:flex lg:items-center lg:flex-row lg:justify-between py-24 space-x-5">
-        <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-25">
+        <div className="max-w-hero_Form_W w-full max-h-[576px] bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-25">
           <h2 className="font-semibold text-28 text-white mb-2">
             Shipping Cost Calculator
           </h2>
