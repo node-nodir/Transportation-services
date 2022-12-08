@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       backgroundImage: {
@@ -28,10 +25,16 @@ module.exports = {
           hero_Form_Bg: "rgba(58, 58, 58, 0.5)",
           line_bg: "rgba(224, 224, 224, 1)",
           shippingAfter: "rgba(46, 51, 104, 0.15)",
+          gray: "rgba(255, 255, 255, 0.8)",
+          inputPlaceholderColor: "rgba(0, 0, 0, 0.87)",
+        },
+        red: {
+          error: "#D83B3B",
         },
       },
       maxWidth: {
         hero_Form_W: "450px",
+        heroRightW: "576px",
         shippingTop: "800px",
         738: "738px",
       },
@@ -46,6 +49,7 @@ module.exports = {
       height: {
         formHeight: "619px",
         43: "43px",
+        45: "45px",
         112: "112px",
       },
       margin: {
@@ -58,19 +62,26 @@ module.exports = {
         196: "196px",
       },
       fontSize: {
+        15: "15px",
+        28: "28px",
         56: "56px",
+        35: "35px",
+        20: "20px",
         aboutTitle: "38px",
       },
       lineHeight: {
         68: "68px",
+        42: "42px",
       },
       borderRadius: {
         10: "10px",
       },
       backgroundColor: {
+        bg_color: "#FF7D44",
         weDoNumber: "#D9D9D9",
         buttonHover: "rgba(255, 125, 68, 0.15)",
         mostButtonHover: "#C24F1D",
+        heroFormMoblie: "#1F1F1F",
       },
       borderColor: {
         buttonHoverBorder: "#FF7D44",

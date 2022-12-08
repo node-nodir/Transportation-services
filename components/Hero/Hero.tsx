@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import HeroForm from "../BaseComponents/FormInput/HeroForm";
 
 const rasm = (
   <svg
@@ -363,21 +364,26 @@ const rasm = (
         strokeWidth="0.8"
         strokeLinejoin="round"
       />
+
+
+      {/* -------------------------------------- Line -------------------------------------------------- */}
+
+
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M62.4745 116.232C62.4745 113.956 64.324 112.11 66.6055 112.11C68.887 112.11 70.7365 113.956 70.7365 116.232C70.7365 118.226 69.3172 119.889 67.4317 120.271V124.475C67.4317 124.931 67.0618 125.3 66.6055 125.3C66.1492 125.3 65.7793 124.931 65.7793 124.475V120.271C63.8937 119.889 62.4745 118.226 62.4745 116.232ZM64.5306 123.734C64.5993 124.184 64.2893 124.605 63.8382 124.673C62.7829 124.834 61.9437 125.076 61.3928 125.345C61.1161 125.48 60.9517 125.603 60.8669 125.693C60.8601 125.7 60.8542 125.706 60.849 125.712C60.8763 125.744 60.9242 125.791 61.0063 125.851C61.2376 126.022 61.6251 126.21 62.1782 126.382C63.2747 126.724 64.8401 126.948 66.6055 126.948C68.3709 126.948 69.9363 126.724 71.0328 126.382C71.5859 126.21 71.9734 126.022 72.2047 125.851C72.2868 125.791 72.3346 125.744 72.362 125.712C72.3568 125.706 72.3509 125.7 72.3441 125.693C72.2593 125.603 72.0949 125.48 71.8182 125.345C71.2672 125.076 70.4282 124.834 69.3729 124.673C68.9217 124.605 68.6118 124.184 68.6804 123.734C68.7491 123.284 69.1705 122.975 69.6215 123.043C70.7675 123.217 71.7873 123.494 72.545 123.865C72.9226 124.049 73.275 124.276 73.5434 124.558C73.8155 124.845 74.0413 125.234 74.0413 125.712C74.0413 126.381 73.6081 126.866 73.1867 127.177C72.749 127.5 72.1686 127.756 71.5256 127.956C70.2299 128.36 68.4905 128.597 66.6055 128.597C64.7205 128.597 62.9811 128.36 61.6854 127.956C61.0424 127.756 60.462 127.5 60.0243 127.177C59.6029 126.866 59.1697 126.381 59.1697 125.712C59.1697 125.234 59.3955 124.845 59.6677 124.558C59.936 124.276 60.2883 124.049 60.666 123.865C61.4237 123.494 62.4435 123.217 63.5894 123.043C64.0405 122.975 64.4619 123.284 64.5306 123.734Z"
-        fill="white"
+        fill="red"
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M314.466 192.896C314.466 190.619 316.315 188.774 318.597 188.774C320.878 188.774 322.728 190.619 322.728 192.896C322.728 194.89 321.308 196.553 319.423 196.935V201.139C319.423 201.594 319.053 201.963 318.597 201.963C318.14 201.963 317.77 201.594 317.77 201.139V196.935C315.885 196.553 314.466 194.89 314.466 192.896ZM316.522 200.398C316.59 200.848 316.28 201.268 315.829 201.337C314.774 201.497 313.935 201.74 313.384 202.009C313.107 202.144 312.943 202.267 312.858 202.356C312.851 202.363 312.845 202.37 312.84 202.376C312.868 202.408 312.915 202.454 312.997 202.515C313.229 202.685 313.616 202.874 314.169 203.046C315.266 203.388 316.831 203.612 318.597 203.612C320.362 203.612 321.928 203.388 323.024 203.046C323.577 202.874 323.965 202.685 324.196 202.515C324.278 202.454 324.326 202.408 324.353 202.376C324.348 202.37 324.342 202.363 324.335 202.356C324.25 202.267 324.086 202.144 323.809 202.009C323.258 201.74 322.419 201.497 321.364 201.337C320.913 201.268 320.603 200.848 320.672 200.398C320.74 199.948 321.162 199.638 321.613 199.707C322.759 199.881 323.779 200.158 324.536 200.528C324.914 200.713 325.266 200.94 325.535 201.222C325.807 201.509 326.033 201.898 326.033 202.376C326.033 203.044 325.599 203.53 325.178 203.841C324.74 204.163 324.16 204.419 323.517 204.62C322.221 205.024 320.482 205.261 318.597 205.261C316.712 205.261 314.972 205.024 313.677 204.62C313.034 204.419 312.453 204.163 312.016 203.841C311.594 203.53 311.161 203.044 311.161 202.376C311.161 201.898 311.387 201.509 311.659 201.222C311.927 200.94 312.28 200.713 312.657 200.528C313.415 200.158 314.435 199.881 315.581 199.707C316.032 199.638 316.453 199.948 316.522 200.398Z"
-        fill="white"
+        fill="red"
       />
       <path
         d="M69.0835 127.773L74.6312 125.864C162.792 95.5236 260.337 127.255 313.639 203.612V203.612"
-        stroke="#FF7D44"
+        stroke="black"
         strokeWidth="2"
         strokeLinecap="round"
       />
@@ -393,18 +399,19 @@ const rasm = (
 function Hero() {
   return (
     <section className="hero_bg pt-160 pb-80">
-      <div className="container flex items-center justify-between py-24 h-56">
-        <div className="max-w-hero_Form_W w-full bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-25">
-          <h2 className="font-semibold text-3xl text-white mb-2">
+      <div className="container flex flex-col-reverse lg:flex lg:items-center lg:flex-row lg:justify-between py-24 space-x-5">
+        <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-25">
+          <h2 className="font-semibold text-28 text-white mb-2">
             Shipping Cost Calculator
           </h2>
-          <p className="font-normal text-base text-white">
+          <p className="font-normal text-base text-black-gray">
             Get your estimate quote in seconds
           </p>
-          <span className="w-full h-[1px] inline-block bg-black-line_bg"></span>
+          <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
+          <HeroForm />
         </div>
-        <div className="w-2/5">
-          <blockquote className="flex items-center font-medium text-sm text-white uppercase">
+        <div className="max-w-heroRightW mb-12 lg:mb-0 w-full">
+          <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
             <Image
               className="mr-10"
               src={"/Images/Hero_Img/star.svg"}
@@ -414,12 +421,13 @@ function Hero() {
             />{" "}
             World Top Rated Shipping Company
           </blockquote>
-          <h1 className="font-bold text-56 text-white leading-68">
+          <h1 className="font-bold text-35 md:text-56 text-white leading-42 md:leading-68">
             Transportation Services that you can trust
           </h1>
+          <p className="text-white font-normal text-20 mt-5">Transport your vehicle with PROs.</p>
         </div>
       </div>
-      {rasm}
+      {/* {rasm} */}
     </section>
   );
 }

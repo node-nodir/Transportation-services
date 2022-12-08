@@ -10,11 +10,11 @@ function Main() {
   return (
     <main>
       <Hero />
-      <OurServices />
-      <Wedo />
-      <AboutUs />
-      <Shipping />
-      <Frequently />
+      {/* <OurServices /> */}
+      {/* <Wedo /> */}
+      {/* <AboutUs /> */}
+      {/* <Shipping /> */}
+      {/* <Frequently /> */}
     </main>
   );
 }

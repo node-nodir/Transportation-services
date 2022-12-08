@@ -136,7 +136,7 @@ body {
 .hero_bg {
   background-image: url("../public//Images//Hero_Img/hero_bg.png");
   background-position: 0 120%;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -144,4 +144,8 @@ body {
   background-image:url("../public//Images/ServicesImg/triangle.svg"), url("../public/Images/ServicesImg/triangle2.svg");
   background-repeat: no-repeat;
   background-position: top left,right bottom;
+}
+
+.active {
+  color: #FF7D44 !important;
 }
