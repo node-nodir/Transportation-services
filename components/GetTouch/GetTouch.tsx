@@ -1,18 +1,16 @@
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
 import GetTouchForm from '../BaseComponents/FormInput/GetTouchForm'
 
-interface Props {}
+interface Props { }
 
 function GetTouch(props: Props) {
-  const {} = props
-
-  
+  const { } = props
 
   return (
     <div className="w-full h-screen bg-getTouch_bg bg-cover bg-no-repeat  750:py-20 ">
-      <div className="max-w-[1200px] mx-auto 500:px-5 flex flex-col 750:flex-row 750:justify-between  ">
-        <div className="px-5 500:px-0 mt-7 tablet:mt-24">
+      <div className="max-w-[1200px] mx-auto 500:px-5 flex flex-col 750:flex-row 750:justify-between">
+        <div className="px-3 500:px-0 mt-7 tablet:mt-24">
           <h1 className=" text-[28px] sm:text-[30px] tablet:text-[38px] text-white leading-10 font-bold">
             Get in Touch
           </h1>
@@ -27,12 +25,12 @@ function GetTouch(props: Props) {
               alt="call"
               priority={true}
             />
-            <a href="/" className="ml-5">
+            <Link href="/" className="ml-5">
               <p className="text-15 leading-5 text-gray-text">Phone Number</p>
               <span className="text-white text-lg  font-semibold">
                 +1 (513) 264-2969
               </span>
-            </a>
+            </Link>
           </div>
           <hr className="w-64 text-[#989898] my-5" />
           <div className="mt-9 flex">
@@ -43,12 +41,12 @@ function GetTouch(props: Props) {
               alt="call"
               priority={true}
             />
-            <a href="/" className="ml-5">
+            <Link href="/" className="ml-5">
               <p className="text-sm leading-5 text-gray-text">Email address</p>
               <span className="text-white text-base tablet:text-lg  font-semibold">
                 +1 (513) 264-2969
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -5,7 +5,7 @@ import Main from "./main.svg";
 
 function Footer(): any {
   return (
-    <footer className="w-full  bg-[#282828]">
+    <footer className="w-full bg-[#282828]">
       <div className="container">
         <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 sm:justify-between grid grid-cols-1 justify-center text-center md:text-start md:max-h-[250px]">
           <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-[50px] justify-center">

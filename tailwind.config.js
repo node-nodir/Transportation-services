@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "640px",
@@ -27,6 +24,14 @@ module.exports = {
         weDoBg: "url('/Images/wedoImgs/weDoBg.png')",
         getTouch_bg: "url('/Images/getTouch/touch_bg.png')",
       },
+      backgroundColor: {
+        bg_color: "#FF7D44",
+        weDoNumber: "#D9D9D9",
+        buttonHover: "rgba(255, 125, 68, 0.15)",
+        mostButtonHover: "#C24F1D",
+        heroFormMoblie: "#1F1F1F",
+        blurForm: "rgba(90, 90, 90, 0.5)",
+      },
       colors: {
         orange: {
           main: "#FF7D44",
@@ -43,11 +48,17 @@ module.exports = {
           hero_Form_Bg: "rgba(58, 58, 58, 0.5)",
           line_bg: "rgba(224, 224, 224, 1)",
           shippingAfter: "rgba(46, 51, 104, 0.15)",
+          gray: "rgba(255, 255, 255, 0.8)",
+          inputPlaceholderColor: "rgba(0, 0, 0, 0.87)",
+        },
+        red: {
+          error: "#D83B3B",
           touch: "#1F1F1F",
         },
       },
       maxWidth: {
         hero_Form_W: "450px",
+        heroRightW: "576px",
         shippingTop: "800px",
         weDoContent: "330px",
         738: "738px",
@@ -64,60 +75,25 @@ module.exports = {
       width: {
         formWidth: "464px",
         servicesHero: "543px",
-        245: "245px",
         weDoContent: "325px",
-        450: "450px",
         151: "151px",
-      },
-      height: {
-        formHeight: "619px",
-        43: "43px",
-        112: "112px",
-      },
-      margin: {
-        10: "10px",
-        40: "40",
-      },
-      padding: {
-        160: "160px",
-        25: "25px",
-        70: "70px",
-        196: "196px",
-      },
-      fontSize: {
-        56: "56px",
-        15: "15",
-        aboutTitle: "38px",
-        hero_Form_W: "450px",
-        shippingTop: "800px",
-        weDoContent: "325px",
-        738: "738px",
-        354: "354px",
-        155: "155px",
-        166: "166px",
-      },
-      width: {
-        formWidth: "464px",
-        servicesHero: "543px",
         245: "245px",
         450: "450px",
-        151: "151px",
         354: "354px",
         330: "330px",
       },
-      maxHeight: {
-        197: "197px",
-        131: "131px",
-      },
       height: {
         formHeight: "619px",
+        45: "45px",
         43: "43px",
         112: "112px",
+        100: "100px",
         458: "458px",
         450: "450px",
       },
       margin: {
         10: "10px",
+        40: "40",
         33: "33px",
         30: "30px",
         50: "50px",
@@ -134,21 +110,33 @@ module.exports = {
         120: "120px",
       },
       fontSize: {
+        15: "15px",
+        28: "28px",
+        56: "56px",
+        35: "35px",
+        20: "20px",
+        15: "15",
+        aboutTitle: "38px",
+        hero_Form_W: "450px",
+        shippingTop: "800px",
+        weDoContent: "325px",
+        738: "738px",
+        354: "354px",
+        155: "155px",
+        166: "166px",
+      },
+      fontSize: {
         56: "56px",
         aboutTitle: "38px",
         28: "28px",
       },
       lineHeight: {
         68: "68px",
+        42: "42px",
       },
       borderRadius: {
+        3: "3px",
         10: "10px",
-      },
-      backgroundColor: {
-        weDoNumber: "#D9D9D9",
-        buttonHover: "rgba(255, 125, 68, 0.15)",
-        mostButtonHover: "#C24F1D",
-        blurForm: "rgba(90, 90, 90, 0.5)",
       },
       borderColor: {
         buttonHoverBorder: "#FF7D44",

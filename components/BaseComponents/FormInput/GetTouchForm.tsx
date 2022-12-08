@@ -4,10 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 
 
-interface Props {}
+interface Props { }
 
 function GetTouchForm(props: Props) {
-  const {} = props
+  const { } = props
 
   const initialValues = {
     name: '',
@@ -19,8 +19,7 @@ function GetTouchForm(props: Props) {
   let token = '5702266536:AAFT_kPTv4ZWIJJN1-H5sGH7UmVDLI5bwKc'
   let chatId = '-1001544371098'
 
-  const onSubmit = (values: any, {resetForm}: any ) => {
-
+  const onSubmit = (values: any, { resetForm }: any) => {
     let fullText = `\u{2705} Full Name: ${values.name}%0A\u{2705} Email: ${values.email} %0A\u{2705} Phone Number: ${values.number} %0A\u{2705} Comments:${values.comment}`;
 
     // --- Sent Telegram Bot
@@ -62,10 +61,7 @@ function GetTouchForm(props: Props) {
             type="text"
             id="name"
             placeholder="Write your full name"
-            className={
-              formik.touched.name && formik.errors.name
-                ? '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none border-2 border-red-700 mb-3 sm:mb-6 '
-                : '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none  mb-3 sm:mb-6 '
+            className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.name && formik.errors.name ? "border-red-error" : ""}`
             }
             {...formik.getFieldProps('name')}
           />
@@ -85,10 +81,7 @@ function GetTouchForm(props: Props) {
               type="email"
               id="email"
               placeholder="Write your email address"
-              className={
-                formik.touched.email && formik.errors.email
-                  ? '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none border-2 border-red-700 mb-3 sm:mb-6 '
-                  : '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none  mb-3 sm:mb-6 '
+              className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.email && formik.errors.email ? "border-red-error" : ""}`
               }
               {...formik.getFieldProps('email')}
             />
@@ -104,10 +97,7 @@ function GetTouchForm(props: Props) {
               type="number"
               id="number"
               placeholder="Your phone number"
-              className={
-                formik.touched.number && formik.errors.number
-                  ? '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none border-2 border-red-700 mb-3 sm:mb-6 '
-                  : '  h-[45px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none  mb-3 sm:mb-6 '
+              className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.number && formik.errors.number ? "border-red-error" : ""}`
               }
               {...formik.getFieldProps('number')}
             />
@@ -126,10 +116,7 @@ function GetTouchForm(props: Props) {
           <textarea
             id="comment"
             placeholder="Comment"
-            className={
-              formik.touched.comment && formik.errors.comment
-                ? '  h-[100px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none border-2 border-red-700 mb-3 sm:mb-6 '
-                : '  h-[100px] mt-2 text-base rounded-[3px] p-2 sm:p-3 outline-none  mb-3 sm:mb-6 '
+            className={`h-100 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.comment && formik.errors.comment ? "border-red-error" : ""}`
             }
             {...formik.getFieldProps('comment')}
           />

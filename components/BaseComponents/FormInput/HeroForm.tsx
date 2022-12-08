@@ -1,9 +1,14 @@
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { useState } from 'react'
 
 function HeroForm() {
+  const [date, setDate] = useState("")
+
   const initialValues = {
-    name: '',
+    from: '',
+    to: '',
+    time: '',
   }
 
   const onSubmit = (values: any) => {
@@ -11,7 +16,9 @@ function HeroForm() {
   }
 
   const validationSchema = Yup.object({
-    name: Yup.string().required('Required'),
+    from: Yup.string().required('Required'),
+    to: Yup.string().required('Required'),
+    time: Yup.string().required('Required'),
   })
 
   const formik = useFormik({
@@ -20,39 +27,77 @@ function HeroForm() {
     validationSchema,
   })
 
+
+  console.log(date);
+
   return (
     <form
       onSubmit={(e) => {
         formik.handleSubmit(e)
         formik.values = initialValues
       }}
-      className=" flex flex-col"
+      className="flex flex-col"
       autoComplete="off"
     >
-      <label className="text-base relative flex flex-col">
-        name
+      <label className="text-15 relative flex flex-col text-white">
+        From
         <input
           type="text"
-          id="name"
-          placeholder="name"
+          id="from"
+          placeholder="Select ZIP code or location"
           className={
-            formik.touched.name && formik.errors.name
-              ? '  h-[45px] w-[399px]  text-base rounded-lg p-2 sm:p-4 outline-none border border-red-600 mb-3 sm:mb-6'
-              : '  h-[45px] w-[399px]  text-base rounded-lg p-2 sm:p-4 outline-none border border-gray-input_radius mb-3 sm:mb-6'
+            `h-45 w-full text-black-inputPlaceholderColor text-15 rounded-lg px-4 mt-1 outline-none border-2 border-white mb-4 ${formik.touched.from && formik.errors.from ? "border-red-error" : "border-white"}`
           }
-          {...formik.getFieldProps('name')}
+          {...formik.getFieldProps('from')}
         />
-        {formik.touched.name && formik.errors.name ? (
-          <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 left-2">
-            {formik.errors.name}
+        {formik.touched.from && formik.errors.from ? (
+          <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.from}
           </span>
         ) : null}
       </label>
+      <label className="text-15 relative flex flex-col text-white">
+        To
+        <input
+          type="text"
+          id="name"
+          placeholder="Select ZIP code or location"
+          className={
+            `h-45 w-full text-black-inputPlaceholderColor text-15 rounded-lg px-4 mt-1 outline-none border-2 mb-4 ${formik.touched.to && formik.errors.to ? "border-red-error" : "border-white"}`
+          }
+          {...formik.getFieldProps('to')}
+        />
+        {formik.touched.to && formik.errors.to ? (
+          <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.to}
+          </span>
+        ) : null}
+      </label>
+      <label className="text-15 relative flex flex-col text-white">
+        Estimate time
+        <input
+          type="date"
+          id="name"
+          min={"2022-12-08"}
+          placeholder="Select estimate time"
+          className={
+            `h-45 w-full text-black-inputPlaceholderColor text-15 rounded-lg px-4 mt-1 outline-none border-2 border-white mb-4 ${formik.touched.time && formik.errors.time ? "border-red-error" : "border-white"}`
+          }
+          {...formik.getFieldProps('time')}
+        />
+
+        {formik.touched.time && formik.errors.time ? (
+          <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.time}
+          </span>
+        ) : null}
+      </label>
+      <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4"></span>
       <button
-        className="h-[45px] w-[399px] border border-gray-400 rounded-xl  text-black-dark  "
+        className="h-45 w-full rounded-lg bg-bg_color mt-5 text-white text-base"
         type="submit"
       >
-        submit
+        Get Shipment estimate
       </button>
     </form>
   )
