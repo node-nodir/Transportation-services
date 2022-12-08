@@ -78,24 +78,6 @@ body {
   padding: 0 20px;
 }
 
-.item-content{
-  transition: bottom 0.4s;
-}
-
-.item-list{
-  transition: background 0.4s ease-in-out;
-}
-
-.item-list:hover{
-  background-image: url("../public/Images/ServicesImg/serHoverBg.png");
-  background-repeat: no-repeat;
-  background-position: top;
-}
-
-.item-list:hover > .item-content{
-  bottom: 0;
-}
-
 /* -------------------------------- */
 
 .header__nav-link{
@@ -144,4 +126,40 @@ body {
   background-image:url("../public//Images/ServicesImg/triangle.svg"), url("../public/Images/ServicesImg/triangle2.svg");
   background-repeat: no-repeat;
   background-position: top left,right bottom;
+}
+.list{
+  transition: all 1s;
+}
+.services-img{
+  transition: all 0.6s;
+  transform: scale(2) translateY(52px);
+  width: 100%;
+}
+.list:hover > .services-img{
+  width: 100%;
+  height: auto;
+  transform: scale(1);
+}
+.item-content{
+  transition: all 0.6s;
+}
+.list:hover > .item-content {
+  bottom: 0;
+}
+.swiper-slide{
+  width: 354px;
+}
+
+@media only screen and (max-width:1024px){
+  .services-img{
+    transform: scale(2) translateY(60px);
+  }
+}
+
+@media only screen and (max-width:640px){
+  .services{
+    background-image:url("../public//Images/ServicesImg/triangle.svg");
+    background-repeat: no-repeat;
+    background-position: -300px;
+  }
 }
