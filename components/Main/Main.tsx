@@ -5,11 +5,13 @@ import AboutUs from "../AboutUs/AboutUs";
 import OurServices from "../OurServices/OurServices";
 import Shipping from "../Shipping/Shipping";
 import Frequently from "../Frequently/Frequently";
+import GetTouch from "../GetTouch/GetTouch";
 
 function Main() {
   return (
     <main>
       <Hero />
+      <GetTouch />
       <OurServices />
       <Wedo />
       <AboutUs />
