@@ -31,6 +31,7 @@ module.exports = {
         mostButtonHover: "#C24F1D",
         heroFormMoblie: "#1F1F1F",
         blurForm: "rgba(90, 90, 90, 0.5)",
+        quoteform:"rgba(58, 58, 58, 0.5)"
       },
       colors: {
         orange: {
@@ -66,6 +67,8 @@ module.exports = {
         354: "354px",
         155: "155px",
         166: "166px",
+        449: "449px",
+        500: "500px"
       },
       maxHeight: {
         197: "197px",
@@ -90,6 +93,7 @@ module.exports = {
         100: "100px",
         458: "458px",
         450: "450px",
+        56: "56px"
       },
       margin: {
         10: "10px",
@@ -98,6 +102,7 @@ module.exports = {
         30: "30px",
         50: "50px",
         60: "60px",
+        83: '83px'
       },
       padding: {
         160: "160px",
@@ -108,6 +113,7 @@ module.exports = {
         173: "173px",
         100: "100px",
         120: "120px",
+        30:"30px"
       },
       fontSize: {
         15: "15px",
