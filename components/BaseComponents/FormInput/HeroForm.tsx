@@ -1,10 +1,7 @@
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import { useState } from 'react'
 
 function HeroForm() {
-  const [date, setDate] = useState("")
-
   const initialValues = {
     from: '',
     to: '',
@@ -26,9 +23,6 @@ function HeroForm() {
     onSubmit,
     validationSchema,
   })
-
-
-  console.log(date);
 
   return (
     <form

@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { Link } from "react-router-dom";
-import { render } from "react-dom";
 import ButtonRead from "../BaseComponents/Buttons/ButtonRead";
 
 function Shipping() {

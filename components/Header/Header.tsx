@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 function Header() {
-  const { asPath } = useRouter()
+  const router = useRouter(); console.log(router);
+
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black-header_bg backdrop-blur-[25px] py-4 lg:py-5">
@@ -20,17 +21,17 @@ function Header() {
         </Link>
         <div className="flex items-center space-x-[20px] lg:space-x-[50px]">
           <ul className="hidden space-x-[25px] lg:flex items-center">
-            <li className={asPath === '/' ? 'header__nav-item active' : 'header__nav-item'}>
+            <li className={'header__nav-item'}>
               <Link
                 href={"/"}
-                className="header__nav-link font-medium text-base text-white uppercase"
+                className={`header__nav-link font-medium text-base text-white uppercase ${router.pathname === "/" ? "active" : ""}`}
               >
                 Home
               </Link>
             </li>
             <li className="header__nav-item">
               <Link
-                className="header__nav-link font-medium text-base text-white uppercase"
+                className={`header__nav-link font-medium text-base text-white uppercase ${router.pathnamew === "/#our-services" ? "active" : ""}`}
                 href={"#our-services"}
               >
                 Services

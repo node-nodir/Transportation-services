@@ -8,9 +8,9 @@ function GetTouch(props: Props) {
   const { } = props
 
   return (
-    <div className="w-full h-screen bg-getTouch_bg bg-cover bg-no-repeat  750:py-20 ">
-      <div className="max-w-[1200px] mx-auto 500:px-5 flex flex-col 750:flex-row 750:justify-between">
-        <div className="px-3 500:px-0 mt-7 tablet:mt-24">
+    <div className="w-full bg-getTouch_bg_mb md:bg-getTouch_bg bg-cover bg-no-repeat bg-fixed pt-8 md:pb-12 md:py-20 ">
+      <div className="container grid grid-cols-1 md:flex md:items-center md:justify-between">
+        <div className="px-16 md:px-0 mb-50 md:mb-0">
           <h1 className=" text-[28px] sm:text-[30px] tablet:text-[38px] text-white leading-10 font-bold">
             Get in Touch
           </h1>
@@ -32,7 +32,7 @@ function GetTouch(props: Props) {
               </span>
             </Link>
           </div>
-          <hr className="w-64 text-[#989898] my-5" />
+          <hr className="w-full md:w-64 text-[#989898] my-5" />
           <div className="mt-9 flex">
             <Image
               src={'/Images/getTouch/mail.svg'}
@@ -49,7 +49,6 @@ function GetTouch(props: Props) {
             </Link>
           </div>
         </div>
-
         <GetTouchForm />
       </div>
     </div>
