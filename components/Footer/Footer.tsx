@@ -1,20 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Main from "./main.svg";
+import Main from "../../public/Images/Footer_Img/main.svg";
 
 function Footer(): any {
   return (
-    <footer className="w-full bg-[#282828]">
+    <footer className="w-full bg-black-footer_bg">
       <div className="container">
         <div className="md:flex md:justify-between gap-2 sm:grid-cols-2 sm:justify-between grid grid-cols-1 justify-center text-center md:text-start md:max-h-[250px]">
-          <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-[50px] justify-center">
-            <Link href="#">
-              {" "}
+          <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-50 justify-start">
+            <Link href="/">
               <Image
                 src={Main}
                 alt="logo"
-                className="md:w-[245px] mx-auto  mb-9  md:h-[43px] w-[202px] h-10"
+                className="md:w-[245px] mx-auto mb-9 md:h-[43px] w-[202px] h-10 md:ml-0"
               />
             </Link>
             <p className="hidden md:block font-light text-base leading-[19px] lg:mt-3 lg:mb-8 text-[#ffffffde]">

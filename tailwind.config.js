@@ -23,6 +23,7 @@ module.exports = {
         heroBg: "url('/Images/HeroImg/hero_bg.png')",
         weDoBg: "url('/Images/wedoImgs/weDoBg.png')",
         getTouch_bg: "url('/Images/getTouch/touch_bg.png')",
+        getTouch_bg_mb: "url('/Images/getTouch/touch_bg_mb.png')",
       },
       backgroundColor: {
         bg_color: "#FF7D44",
@@ -51,6 +52,7 @@ module.exports = {
           shippingAfter: "rgba(46, 51, 104, 0.15)",
           gray: "rgba(255, 255, 255, 0.8)",
           inputPlaceholderColor: "rgba(0, 0, 0, 0.87)",
+          footer_bg: "#282828",
         },
         red: {
           error: "#D83B3B",
@@ -66,6 +68,7 @@ module.exports = {
         543: "543px",
         354: "354px",
         155: "155px",
+        500: "500px",
         166: "166px",
         449: "449px",
         500: "500px"
@@ -105,8 +108,10 @@ module.exports = {
         83: '83px'
       },
       padding: {
+        16: "16px",
         160: "160px",
         25: "25px",
+        30: "30px",
         70: "70px",
         196: "196px",
         118: "118px",

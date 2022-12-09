@@ -44,7 +44,7 @@ function GetTouchForm(props: Props) {
   })
 
   return (
-    <div className="max-w-[500px] mt-[50px] tablet:mt-0 tablet:max-w-[543px] w-full bg-[#1F1F1F] 500:bg-blurForm 500:backdrop-blur-lg 500:rounded-10 px-[30px] py-6">
+    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg md:rounded-10 px-16 md:px-30 pt-6 pb-14">
       <h1 className="font-bold  text-3xl leading-9 text-white">Contact us</h1>
       <hr className="mt-5 mb-6 text-gray-line" />
       <form
@@ -52,16 +52,16 @@ function GetTouchForm(props: Props) {
           formik.handleSubmit(e)
           formik.values = initialValues
         }}
-        className=" flex flex-col "
+        className="flex flex-col"
         autoComplete="off"
       >
-        <label className=" mt-2  relative flex flex-col">
+        <label className="mt-2 relative flex flex-col">
           <span className="text-white text-sm font-normal">Full name</span>
           <input
             type="text"
             id="name"
             placeholder="Write your full name"
-            className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.name && formik.errors.name ? "border-red-error" : ""}`
+            className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.name && formik.errors.name ? "border-red-error" : ""}`
             }
             {...formik.getFieldProps('name')}
           />
@@ -72,8 +72,8 @@ function GetTouchForm(props: Props) {
           ) : null}
         </label>
 
-        <div className="flex flex-col tablet:flex-row justify-between ">
-          <label className=" relative flex flex-col tablet:max-w-[236px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-3">
+          <label className="relative flex flex-col">
             <span className="text-white text-sm font-normal">
               Email address
             </span>
@@ -81,7 +81,7 @@ function GetTouchForm(props: Props) {
               type="email"
               id="email"
               placeholder="Write your email address"
-              className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.email && formik.errors.email ? "border-red-error" : ""}`
+              className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.email && formik.errors.email ? "border-red-error" : ""}`
               }
               {...formik.getFieldProps('email')}
             />
@@ -91,13 +91,13 @@ function GetTouchForm(props: Props) {
               </span>
             ) : null}
           </label>
-          <label className="relative flex flex-col tablet:max-w-[236px]">
+          <label className="relative flex flex-col">
             <span className="text-white text-sm font-normal">Phone number</span>
             <input
               type="number"
               id="number"
               placeholder="Your phone number"
-              className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.number && formik.errors.number ? "border-red-error" : ""}`
+              className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.number && formik.errors.number ? "border-red-error" : ""}`
               }
               {...formik.getFieldProps('number')}
             />
@@ -109,14 +109,14 @@ function GetTouchForm(props: Props) {
           </label>
         </div>
 
-        <label className=" relative flex flex-col">
+        <label className="relative flex flex-col">
           <span className="text-white text-sm font-normal">
             Brief information
           </span>
           <textarea
             id="comment"
             placeholder="Comment"
-            className={`h-100 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.comment && formik.errors.comment ? "border-red-error" : ""}`
+            className={`h-100 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.comment && formik.errors.comment ? "border-red-error" : ""}`
             }
             {...formik.getFieldProps('comment')}
           />
