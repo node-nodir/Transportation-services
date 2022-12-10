@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Main from "../../public/Images/Footer_Img/main.svg";
 
 function Footer(): any {
   return (
@@ -11,8 +10,10 @@ function Footer(): any {
           <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-50 justify-start">
             <Link href="/">
               <Image
-                src={Main}
+                src={'/Images/Footer_Img/main.svg'}
                 alt="logo"
+                width={245}
+                height={40}
                 className="md:w-[245px] mx-auto mb-9 md:h-[43px] w-[202px] h-10 md:ml-0"
               />
             </Link>
