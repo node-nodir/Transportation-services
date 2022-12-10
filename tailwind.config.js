@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     screens: {
       sm: "640px",
@@ -32,7 +35,7 @@ module.exports = {
         mostButtonHover: "#C24F1D",
         heroFormMoblie: "#1F1F1F",
         blurForm: "rgba(90, 90, 90, 0.5)",
-        quoteform:"rgba(58, 58, 58, 0.5)"
+        quoteform: "rgba(58, 58, 58, 0.5)",
       },
       colors: {
         orange: {
@@ -53,6 +56,7 @@ module.exports = {
           gray: "rgba(255, 255, 255, 0.8)",
           inputPlaceholderColor: "rgba(0, 0, 0, 0.87)",
           footer_bg: "#282828",
+          modal__tel: "gba(0, 0, 0, 0.38)",
         },
         red: {
           error: "#D83B3B",
@@ -71,7 +75,7 @@ module.exports = {
         500: "500px",
         166: "166px",
         449: "449px",
-        500: "500px"
+        500: "500px",
       },
       maxHeight: {
         197: "197px",
@@ -96,7 +100,7 @@ module.exports = {
         100: "100px",
         458: "458px",
         450: "450px",
-        56: "56px"
+        56: "56px",
       },
       margin: {
         10: "10px",
@@ -104,8 +108,9 @@ module.exports = {
         33: "33px",
         30: "30px",
         50: "50px",
+        40: "40px",
         60: "60px",
-        83: '83px'
+        83: "83px",
       },
       padding: {
         16: "16px",
@@ -113,12 +118,13 @@ module.exports = {
         25: "25px",
         30: "30px",
         70: "70px",
+        75: "75px",
         196: "196px",
         118: "118px",
         173: "173px",
         100: "100px",
         120: "120px",
-        30:"30px"
+        30: "30px",
       },
       fontSize: {
         15: "15px",
