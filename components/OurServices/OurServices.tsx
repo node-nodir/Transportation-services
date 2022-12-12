@@ -23,14 +23,14 @@ function OurServices(props: Props) {
       name: "Car Shipments",
       text: "One of the most widely-known segment of the freight industry is Auto Transport. It offers car shipping services to individuals and organizations who require a car to be transferred from one place to another.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/bg-svg.svg",
+      src: "/Images/ServicesImg/car.png",
     },
     {
       id: 2,
       name: "Motorcycle shipments",
       text: "Motorcycle shipments are as popular as regular vehicles. People might need motorcycle shipments due to some reasons like moving to another state, buying or selling purposes, and the most popular one “Vintage motorcycle shows”.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/moto.svg",
+      src: "/Images/ServicesImg/moto.png",
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ function OurServices(props: Props) {
       name: "Boat Shipments",
       text: "You might have purchased a boat after making the trip to a far-off boat show, read about a great offer on a far-off yacht, or purchased a boat directly from the manufacturer.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/man.svg",
+      src: "/Images/ServicesImg/boat.png",
     },
     {
       id: 6,
