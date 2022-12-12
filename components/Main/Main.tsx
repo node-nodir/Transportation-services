@@ -29,7 +29,7 @@ function Main() {
       <AboutUs />
       <Shipping />
       <Frequently />
-      <GetTouch />
+      {/* <GetTouch /> */}
     </main>
   );
 }
