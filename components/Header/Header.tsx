@@ -153,7 +153,7 @@ function Header() {
             FAQ
           </Link>
         </nav>
-        <div className="space-y-7">
+        <div className="space-y-7 pl-25">
           <a className="flex" href="tel:+15132642969">
             <Image
               src={"/Images/Header_Img/call.svg"}

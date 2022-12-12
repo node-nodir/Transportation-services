@@ -6,7 +6,7 @@ function Shipping() {
   return (
     <section
       id="shipping"
-      className="pt-70 sm:pb-196 sm:before:bg-shippingBeforeImg before:bg-no-repeat before:absolute before:left-0 before:bottom-0 before:w-[450px] before:h-[516px]  relative after:absolute after:w-[183px] after:h-[76px] lg:after:w-450 lg:after:h-112 after:bg-black-shippingAfter after:top-0 after:right-0"
+      className="pt-70 sm:pb-196 sm:before:bg-shippingBeforeImg before:bg-no-repeat before:absolute sm:before:left-0 sm:before:bottom-0 sm:before:w-[450px] sm:before:h-[516px]  relative after:absolute after:w-[183px] after:h-[76px] lg:after:w-450 lg:after:h-112 after:bg-black-shippingAfter after:top-0 after:right-0"
     >
       <div className="container">
         <div className="max-w-shippingTop mt-6 sm:mt-0 text-center mx-auto mb-60 sm:mb-20">
