@@ -44,9 +44,7 @@ function Frequently() {
           <li className=" py-7 cursor-pointer border-b-2">
             <div
               onClick={handleClick}
-              className={`flex mb-4 sm:mb-0 items-center ${
-                rotateEl ? "sm:mb-4" : "sm:mb-0"
-              }  justify-between`}
+              className={`flex mb-4 sm:mb-0 items-center justify-between`}
             >
               <h2 className="font-semibold text-lg">
                 Is my vehicle insured during transport?
@@ -65,8 +63,8 @@ function Frequently() {
             <div
               className={`duration-300 ${
                 rotateEl
-                  ? "sm:translate-y-0 sm:h-auto sm:overflow-auto"
-                  : "sm:-translate-y-[40px] sm:h-0 sm:overflow-hidden"
+                  ? " sm:h-[65px] pt-4 sm:overflow-auto scrollbar-hide"
+                  : " sm:h-0 sm:overflow-hidden"
               }`}
             >
               <p className="font-normal text-base text-black-serModalText">
@@ -78,9 +76,7 @@ function Frequently() {
           <li className=" py-7 cursor-pointer border-b-2">
             <div
               onClick={handleClick2}
-              className={`flex mb-4 sm:mb-0 items-center ${
-                rotateEl2 ? "sm:mb-4" : "sm:mb-0"
-              }  justify-between`}
+              className={`flex mb-4 sm:mb-0 items-center justify-between`}
             >
               <h2 className="font-semibold text-lg">
                 Can I Store Luggage in My Car When It is Being Shipped?
@@ -99,8 +95,8 @@ function Frequently() {
             <div
               className={`duration-300 ${
                 rotateEl2
-                  ? "sm:translate-y-0 sm:h-auto sm:overflow-auto"
-                  : "sm:-translate-y-[40px] sm:h-0 sm:overflow-hidden"
+                  ? "sm:h-[90px] pt-4 sm:overflow-visible scrollbar-hide"
+                  : "sm:h-0 sm:overflow-hidden"
               }`}
             >
               <p className="font-normal text-base text-black-serModalText">
@@ -114,9 +110,7 @@ function Frequently() {
           <li className=" py-7 cursor-pointer border-b-2">
             <div
               onClick={handleClick3}
-              className={`flex mb-4 sm:mb-0 items-center ${
-                rotateEl3 ? "sm:mb-4" : "sm:mb-0"
-              }  justify-between`}
+              className={`flex mb-4 sm:mb-0 items-center justify-between`}
             >
               <h2 className="font-semibold text-lg">
                 When is the vehicle going to be picked-up?
@@ -135,8 +129,8 @@ function Frequently() {
             <div
               className={`duration-300 ${
                 rotateEl3
-                  ? "sm:translate-y-0 sm:h-auto sm:overflow-auto"
-                  : "sm:-translate-y-[40px] sm:h-0 sm:overflow-hidden"
+                  ? " sm:h-[60px] pt-4 sm:overflow-visible scrollbar-hide"
+                  : "sm:h-0 sm:overflow-hidden"
               }`}
             >
               <p className="font-normal text-base text-black-serModalText">
@@ -150,9 +144,7 @@ function Frequently() {
           <li className=" py-7 cursor-pointer border-b-2">
             <div
               onClick={handleClick4}
-              className={`flex mb-4 sm:mb-0 items-center ${
-                rotateEl4 ? "sm:mb-4" : "sm:mb-0"
-              }  justify-between`}
+              className={`flex mb-4 sm:mb-0 items-center justify-between`}
             >
               <h2 className="font-semibold text-lg">
                 How Do I Pay for My Auto Shipping?
@@ -171,8 +163,8 @@ function Frequently() {
             <div
               className={`duration-300 ${
                 rotateEl4
-                  ? "sm:translate-y-0 sm:h-auto sm:overflow-auto"
-                  : "sm:-translate-y-[40px] sm:h-0 sm:overflow-hidden"
+                  ? "sm:h-[60px] pt-4 sm:overflow-visible scrollbar-hide"
+                  : "sm:h-0 sm:overflow-hidden"
               }`}
             >
               <p className="font-normal text-base text-black-serModalText">
