@@ -11,7 +11,7 @@
 ::-webkit-scrollbar-track {
   background: #F2F2F2; 
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #FF7D44; 
@@ -28,8 +28,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('../public/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../public/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../public/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../public/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* inter-500 - latin */
 @font-face {
@@ -37,8 +37,8 @@
   font-style: normal;
   font-weight: 500;
   src: local(''),
-       url('../public/fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../public/fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../public/fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../public/fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* inter-600 - latin */
 @font-face {
@@ -46,8 +46,8 @@
   font-style: normal;
   font-weight: 600;
   src: local(''),
-       url('../public/fonts/inter-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../public/fonts/inter-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../public/fonts/inter-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../public/fonts/inter-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* inter-700 - latin */
 @font-face {
@@ -55,8 +55,8 @@
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('../public/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../public/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../public/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../public/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 *{
@@ -115,13 +115,39 @@ body {
   width: 50%;
 }
 
-.hero_bg {
-  background-image: url("../public//Images//Hero_Img/hero_bg.png");
-  background-position: 0 120%;
-  /* background-attachment: fixed; */
+/* --------- Input Background ----------- */
+
+.input_bg {
+  background-image: url("../public//Images//Hero_Img/input.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: 10px 10px;
 }
+
+.date_bg {
+  background-image: url("../public//Images//Hero_Img/date.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+.date#session-date {
+  display: inline-block;
+  position: relative;
+}
+
+.date[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* -------------------------------------- */
 
 .services{
   background-image:url("../public//Images/ServicesImg/triangle.svg"), url("../public/Images/ServicesImg/triangle2.svg");
@@ -129,24 +155,18 @@ body {
   background-position: top left,right bottom;
 }
 
-.active {
-  color: #FF7D44 !important;
-}
-
 .touchGet{
   background: rgba(90, 90, 90, 0.5);
-backdrop-filter: blur(15px);
-/* Note: backdrop-filter has minimal browser support */
-
-border-radius: 10px;
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
-      input[type=number]::-webkit-outer-spin-button{
-          -webkit-appearance: none;
-           margin: 0;
-      }
-      
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .list{
   transition: all 1s;
 }

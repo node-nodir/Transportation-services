@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    container: {
+      center: true,
+    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -23,7 +23,8 @@ module.exports = {
         servicesCommonBg: "url('/Images/ServicesImg/triangle.svg')",
         servicesCommonBg2: "url('/Images/ServicesImg/triangle2.svg')",
         shippingBeforeImg: "url('/Images/shippingImgs/beforeImg.svg')",
-        heroBg: "url('/Images/HeroImg/hero_bg.png')",
+        heroBg: "url('/Images/Hero_Img/hero_bg.png')",
+        heroBgMobile: "url('/Images/Hero_Img/hero_bg-mobile.png')",
         weDoBg: "url('/Images/wedoImgs/weDoBg.png')",
         getTouch_bg: "url('/Images/getTouch/touch_bg.png')",
         getTouch_bg_mb: "url('/Images/getTouch/touch_bg_mb.png')",
@@ -114,6 +115,7 @@ module.exports = {
       },
       padding: {
         16: "16px",
+        80: "80px",
         160: "160px",
         25: "25px",
         30: "30px",
@@ -129,6 +131,7 @@ module.exports = {
       fontSize: {
         15: "15px",
         28: "28px",
+        35: "35px",
         56: "56px",
         35: "35px",
         20: "20px",
@@ -141,11 +144,6 @@ module.exports = {
         354: "354px",
         155: "155px",
         166: "166px",
-      },
-      fontSize: {
-        56: "56px",
-        aboutTitle: "38px",
-        28: "28px",
       },
       lineHeight: {
         68: "68px",
