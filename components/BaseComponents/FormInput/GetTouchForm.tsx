@@ -44,8 +44,8 @@ function GetTouchForm(props: Props) {
   })
 
   return (
-    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg md:rounded-10 px-16 md:px-30 pt-6 pb-14">
-      <h1 className="font-bold  text-3xl leading-9 text-white">Contact us</h1>
+    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 px-16 md:px-30 pt-6 pb-8">
+      <h1 className="font-bold text-28 sm:text-3xl leading-9 text-white">Contact us</h1>
       <hr className="mt-5 mb-6 text-gray-line" />
       <form
         onSubmit={(e) => {
@@ -71,7 +71,6 @@ function GetTouchForm(props: Props) {
             </span>
           ) : null}
         </label>
-
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-3">
           <label className="relative flex flex-col">
             <span className="text-white text-sm font-normal">
@@ -108,7 +107,6 @@ function GetTouchForm(props: Props) {
             ) : null}
           </label>
         </div>
-
         <label className="relative flex flex-col">
           <span className="text-white text-sm font-normal">
             Brief information
@@ -126,7 +124,7 @@ function GetTouchForm(props: Props) {
             </span>
           ) : null}
         </label>
-        <hr className="w-full text-[#989898] mb-5" />
+        <hr className="w-full text-[#989898] mb-5 mt-2" />
         <button
           className="bg-orange-main h-[56px] hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
           type="submit"
