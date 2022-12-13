@@ -2,20 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import GetTouchForm from "../BaseComponents/FormInput/GetTouchForm";
 
-interface Props {}
+interface Props { }
 
 function GetTouch(props: Props) {
-  const {} = props;
+  const { } = props;
 
   return (
-
     <section
       id="contact-us"
       className="w-full bg-getTouch_bg_mb md:bg-getTouch_bg bg-cover bg-no-repeat bg-fixed pt-8 md:pb-12 md:py-20 "
     >
-
-    <div className="w-full bg-getTouch_bg_mb md:bg-getTouch_bg bg-cover bg-no-repeat bg-fixed pt-8 pb-5 md:pb-12 md:py-20 ">
-
       <div className="container grid grid-cols-1 md:flex md:items-center md:justify-between">
         <div className="px-16 md:px-0 mb-50 md:mb-0">
           <h1 className=" text-[28px] sm:text-[30px] tablet:text-[38px] text-white leading-10 font-bold">
