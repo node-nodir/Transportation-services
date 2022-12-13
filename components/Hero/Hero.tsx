@@ -5,8 +5,6 @@ import { useState } from "react";
 
 function Hero() {
   const [state, setState] = useState("newyork");
-
-  // const rasm = (
   //   <svg
   //     width="407"
   //     height="308"
@@ -399,10 +397,10 @@ function Hero() {
   // );
 
   return (
-    <section className="hero_bg pt-160 pb-80">
-      <div className="container flex flex-col-reverse lg:flex lg:items-center lg:flex-row lg:justify-between py-24 space-x-5">
-        <div className="max-w-hero_Form_W w-full max-h-[576px] bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-25">
-          <h2 className="font-semibold text-28 text-white mb-2">
+    <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-fixed bg-cover bg-left-right pt-28 md:pt-160 pb-0 md:pb-80">
+      <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
+        <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-4 pb-7 sm:p-25 mb-8">
+          <h2 className="font-semibold text-20 sm:text-28 text-white mb-2">
             Shipping Cost Calculator
           </h2>
           <p className="font-normal text-base text-black-gray">
@@ -411,7 +409,7 @@ function Hero() {
           <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
           <HeroForm />
         </div>
-        <div className="max-w-heroRightW mb-12 lg:mb-0 w-full">
+        <div className=" max-w-heroRightW pb-12 lg:mb-0 !ml-0 md:mt-11 w-full">
           <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
             <Image
               className="mr-10"
@@ -422,7 +420,7 @@ function Hero() {
             />{" "}
             World Top Rated Shipping Company
           </blockquote>
-          <h1 className="font-bold text-35 md:text-56 text-white leading-42 md:leading-68">
+          <h1 className="font-bold text-white text-35 leading-42 md:text-56 md:leading-68">
             Transportation Services that you can trust
           </h1>
           <p className="text-white font-normal text-20 mt-5">
@@ -430,7 +428,6 @@ function Hero() {
           </p>
         </div>
       </div>
-      {/* {rasm}   */}
     </section>
   );
 }
