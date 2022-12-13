@@ -76,6 +76,7 @@ module.exports = {
         166: "166px",
         449: "449px",
         500: "500px",
+        543: "693px",
       },
       maxHeight: {
         197: "197px",
@@ -111,6 +112,7 @@ module.exports = {
         40: "40px",
         60: "60px",
         83: "83px",
+        186: "186px",
       },
       padding: {
         16: "16px",
@@ -125,6 +127,8 @@ module.exports = {
         100: "100px",
         120: "120px",
         30: "30px",
+        114: "114px",
+        136: "136px",
       },
       fontSize: {
         15: "15px",
@@ -141,15 +145,12 @@ module.exports = {
         354: "354px",
         155: "155px",
         166: "166px",
-      },
-      fontSize: {
-        56: "56px",
-        aboutTitle: "38px",
-        28: "28px",
+        38: "38px",
       },
       lineHeight: {
         68: "68px",
         42: "42px",
+        46: "46px",
       },
       borderRadius: {
         3: "3px",

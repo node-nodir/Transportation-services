@@ -10,7 +10,7 @@ function Footer(): any {
           <div className="md:max-w-354 w-full flex-shrink-0 mt-12 md:my-50 justify-start">
             <Link href="/">
               <Image
-                src={'/Images/Footer_Img/main.svg'}
+                src={"/Images/Footer_Img/main.svg"}
                 alt="logo"
                 width={245}
                 height={40}
@@ -65,13 +65,13 @@ function Footer(): any {
             </h1>
             <ul className="text-[#ffffffad] mt-4  md:mt-5">
               <li className="text-sm hover:underline underline-offset-2">
-                <a href="#">Our Company</a>
+                <a href="#about-us">Our Company</a>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#">F.A.Q.</a>
+                <a href="#faq">F.A.Q.</a>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#">Contact us</a>
+                <a href="#contact-us">Contact us</a>
               </li>
             </ul>
           </div>

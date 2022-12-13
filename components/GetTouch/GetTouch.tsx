@@ -1,14 +1,17 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import GetTouchForm from '../BaseComponents/FormInput/GetTouchForm'
+import Image from "next/image";
+import Link from "next/link";
+import GetTouchForm from "../BaseComponents/FormInput/GetTouchForm";
 
-interface Props { }
+interface Props {}
 
 function GetTouch(props: Props) {
-  const { } = props
+  const {} = props;
 
   return (
-    <div className="w-full bg-getTouch_bg_mb md:bg-getTouch_bg bg-cover bg-no-repeat bg-fixed pt-8 md:pb-12 md:py-20 ">
+    <section
+      id="contact-us"
+      className="w-full bg-getTouch_bg_mb md:bg-getTouch_bg bg-cover bg-no-repeat bg-fixed pt-8 md:pb-12 md:py-20 "
+    >
       <div className="container grid grid-cols-1 md:flex md:items-center md:justify-between">
         <div className="px-16 md:px-0 mb-50 md:mb-0">
           <h1 className=" text-[28px] sm:text-[30px] tablet:text-[38px] text-white leading-10 font-bold">
@@ -19,7 +22,7 @@ function GetTouch(props: Props) {
           </p>
           <div className="mt-[40px] tablet:mt-9 flex">
             <Image
-              src={'/Images/getTouch/call.svg'}
+              src={"/Images/getTouch/call.svg"}
               width={38}
               height={38}
               alt="call"
@@ -35,7 +38,7 @@ function GetTouch(props: Props) {
           <hr className="w-full md:w-64 text-[#989898] my-5" />
           <div className="mt-9 flex">
             <Image
-              src={'/Images/getTouch/mail.svg'}
+              src={"/Images/getTouch/mail.svg"}
               width={38}
               height={38}
               alt="call"
@@ -51,8 +54,8 @@ function GetTouch(props: Props) {
         </div>
         <GetTouchForm />
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
-export default GetTouch
+export default GetTouch;
