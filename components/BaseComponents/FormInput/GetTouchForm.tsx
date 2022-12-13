@@ -1,13 +1,13 @@
 import React from 'react'
+import axios from 'axios';
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import axios from 'axios';
 
+const env = process.env.NEXT_PUBLIC_TOKEN
 
-interface Props { }
-
-function GetTouchForm(props: Props) {
-  const { } = props
+function GetTouchForm() {
+  let token = '5702266536:AAFT_kPTv4ZWIJJN1-H5sGH7UmVDLI5bwKc'
+  let chatId = '-1001544371098'
 
   const initialValues = {
     name: '',
@@ -16,9 +16,10 @@ function GetTouchForm(props: Props) {
     comment: ''
   }
 
-  let token = '5702266536:AAFT_kPTv4ZWIJJN1-H5sGH7UmVDLI5bwKc'
-  let chatId = '-1001544371098'
+  // -----> Get Datas
+  // axios.get(`${env}`)
 
+  // -----> Submit Informations
   const onSubmit = (values: any, { resetForm }: any) => {
     let fullText = `\u{2705} Full Name: ${values.name}%0A\u{2705} Email: ${values.email} %0A\u{2705} Phone Number: ${values.number} %0A\u{2705} Comments:${values.comment}`;
 
@@ -44,7 +45,7 @@ function GetTouchForm(props: Props) {
   })
 
   return (
-    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 px-16 md:px-30 pt-6 pb-8">
+    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 px-16 md:px-30 py-6">
       <h1 className="font-bold text-28 sm:text-3xl leading-9 text-white">Contact us</h1>
       <hr className="mt-5 mb-6 text-gray-line" />
       <form
@@ -61,7 +62,7 @@ function GetTouchForm(props: Props) {
             type="text"
             id="name"
             placeholder="Write your full name"
-            className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.name && formik.errors.name ? "border-red-error" : ""}`
+            className={`h-45 mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.name && formik.errors.name ? "border-red-error" : "border-white"}`
             }
             {...formik.getFieldProps('name')}
           />
@@ -80,7 +81,7 @@ function GetTouchForm(props: Props) {
               type="email"
               id="email"
               placeholder="Write your email address"
-              className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.email && formik.errors.email ? "border-red-error" : ""}`
+              className={`h-45 mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.email && formik.errors.email ? "border-red-error" : "border-white"}`
               }
               {...formik.getFieldProps('email')}
             />
@@ -96,7 +97,7 @@ function GetTouchForm(props: Props) {
               type="number"
               id="number"
               placeholder="Your phone number"
-              className={`h-45 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.number && formik.errors.number ? "border-red-error" : ""}`
+              className={`h-45 mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.number && formik.errors.number ? "border-red-error" : "border-white"}`
               }
               {...formik.getFieldProps('number')}
             />
@@ -114,7 +115,7 @@ function GetTouchForm(props: Props) {
           <textarea
             id="comment"
             placeholder="Comment"
-            className={`h-100 mt-2 text-sm md:text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.comment && formik.errors.comment ? "border-red-error" : ""}`
+            className={`h-100 mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${formik.touched.comment && formik.errors.comment ? "border-red-error" : "border-white"}`
             }
             {...formik.getFieldProps('comment')}
           />
