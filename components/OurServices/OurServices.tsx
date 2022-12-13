@@ -1,16 +1,9 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { boolean } from "yup/lib/locale";
 import Link from "next/link";
+import "swiper/css";
 
-type Props = {
-  mobile: boolean;
-};
-
-function OurServices(props: Props) {
-  const { mobile } = props;
-
+function OurServices() {
   const allList: {
     id: number;
     name: string;
@@ -116,10 +109,10 @@ function OurServices(props: Props) {
             </li>
           ))}
         </ul>
-        <div className="w-full flex items-center justify-center sm:hidden">
+        <div className="block mx-auto sm:hidden">
           <Swiper
             slidesPerView={"auto"}
-            spaceBetween={mobile ? 15 : 30}
+            spaceBetween={0}
             className="mySwiper"
           >
             {allList.map((item) => (

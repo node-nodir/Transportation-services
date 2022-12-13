@@ -117,7 +117,7 @@ function HeroForm() {
             <label htmlFor="bordered-radio-1" className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Open</label>
           </div>
           <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
-            <input onChange={(e) => setClose(e.target.value + " " + "close")} checked id="bordered-radio-2" type="radio" name="bordered-radio" className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+            <input onChange={(e) => setClose(e.target.value + " " + "close")} id="bordered-radio-2" type="radio" name="bordered-radio" className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
             <label htmlFor="bordered-radio-2" className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Enclosed</label>
           </div>
         </div>

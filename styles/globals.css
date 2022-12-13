@@ -84,6 +84,10 @@ body {
   padding: 0 16px;
 }
 
+.hero {
+  background-position: 0 60%;
+}
+
 /* -------------------------------- */
 
 .header__nav-link{
