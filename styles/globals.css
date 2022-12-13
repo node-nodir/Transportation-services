@@ -200,7 +200,9 @@ input[type=number]::-webkit-outer-spin-button{
 .swiper-slide{
   width: 354px;
 }
-
+.content-img{
+  clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
+}
 @media only screen and (max-width:1024px){
   .services-img{
     transform: scale(2) translateY(60px);
