@@ -8,23 +8,10 @@ import GetTouch from "../GetTouch/GetTouch";
 import OurServices from "../OurServices/OurServices";
 
 function Main() {
-  const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
-    let details = navigator.userAgent;
-    let regexp = /android|iphone|kindle|ipad/i;
-    let isMobileDevice = regexp.test(details);
-    if (isMobileDevice) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }, []);
-
   return (
     <main>
       <Hero />
-      <OurServices mobile={mobile} />
+      <OurServices />
       <Wedo />
       <AboutUs />
       <Shipping />

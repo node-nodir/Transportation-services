@@ -4,13 +4,7 @@ import "swiper/css";
 import Link from "next/link";
 import { useEffect } from "react";
 
-type Props = {
-  mobile: boolean;
-};
-
-function OurServices(props: Props) {
-  const { mobile } = props;
-
+function OurServices() {
   const allList: {
     id: number;
     name: string;
@@ -192,10 +186,10 @@ function OurServices(props: Props) {
             </li>
           ))}
         </ul>
-        <div className="w-full flex items-center justify-center sm:hidden">
+        <div className="block mx-auto sm:hidden">
           <Swiper
             slidesPerView={"auto"}
-            spaceBetween={mobile ? 15 : 30}
+            spaceBetween={0}
             className="mySwiper"
           >
             {allList.map((item) => (
