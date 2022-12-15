@@ -1,55 +1,30 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { number } from 'yup/lib/locale'
 
 function Header() {
-  const [showModal, setShowModal] = useState(false);
-  const [active, setActive] = useState(false);
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const [active3, setActive3] = useState(false);
-  const [active4, setActive4] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
-  const ActiveClick = () => {
-    setActive(true)
-    setActive1(false)
-    setActive2(false)
-    setActive3(false)
-    setActive4(false)
-  }
-  const ActiveClick1 = () => {
-    setActive1(true)
-    setActive(false)
-    setActive2(false)
-    setActive3(false)
-    setActive4(false)
-  }
-  const ActiveClick2 = () => {
-    setActive2(true)
-    setActive(false)
-    setActive1(false)
-    setActive3(false)
-    setActive4(false)
-  }
-  const ActiveClick3 = () => {
-    setActive3(true)
-    setActive(false)
-    setActive1(false)
-    setActive2(false)
-    setActive4(false)
-  }
-  const ActiveClick4 = () => {
-    setActive4(true)
-    setActive(false)
-    setActive1(false)
-    setActive2(false)
-    setActive3(false)
-  }
+  useEffect(() => {
+    const links = document.querySelectorAll('.links')
+    const section = document.querySelectorAll('.nav_section') as NodeListOf<HTMLElement>
+    function activeMenu() {
+      let len = section.length
+      if(section !== null){
+      while (--len && window.scrollY + 97 < section[len].offsetTop)
+      links.forEach((ltx) => ltx.classList.remove('!text-orange-500'))
+      links[len].classList.add('!text-orange-500')
+      }
+    }
+    activeMenu()
+    window.addEventListener('scroll', activeMenu)
+  }, [])
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black-header_bg backdrop-blur-[25px] py-4 lg:py-5">
       <div className="container flex items-center justify-between">
-        <Link href={"/"}>
+        <Link href={'/'}>
           <Image
             className="w-44 h-8 lg:w-245 lg:h-43"
             src="/Images/Header_Img/site_logo.svg"
@@ -63,45 +38,40 @@ function Header() {
           <ul className="hidden space-x-[25px] lg:flex items-center">
             <li className="header__nav-item">
               <Link
-                href={"/"}
-                onClick={ActiveClick}
-                className={`header__nav-link font-medium text-base text-white uppercase ${active ? "!text-orange-main" : ""}`}
+                href={'/'}
+                className="header__nav-link links font-medium text-base text-white uppercase"
               >
                 Home
               </Link>
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#our-services"}
-                onClick={ActiveClick1}
-                className={`header__nav-link font-medium text-base text-white uppercase ${active1 ? "!text-orange-main" : ""}`}
+                href={'#our-services'}
+                className="header__nav-link links font-medium text-base text-white uppercase"
               >
                 Services
               </Link>
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#about-us"}
-                onClick={ActiveClick2}
-                className={`header__nav-link font-medium text-base text-white uppercase ${active2 ? "!text-orange-main" : ""}`}
+                href={'#about-us'}
+                className="header__nav-link links font-medium text-base text-white uppercase"
               >
                 About Us
               </Link>
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#shipping"}
-                onClick={ActiveClick3}
-                className={`header__nav-link font-medium text-base text-white uppercase ${active3 ? "!text-orange-main" : ""}`}
+                href={'#shipping'}
+                className="header__nav-link links font-medium text-base text-white uppercase"
               >
                 Shipping Methods
               </Link>
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#faq"}
-                onClick={ActiveClick4}
-                className={`header__nav-link font-medium text-base text-white uppercase ${active4 ? "!text-orange-main" : ""}`}
+                href={'#faq'}
+                className="header__nav-link links font-medium text-base text-white uppercase"
               >
                 FAQ
               </Link>
@@ -109,11 +79,11 @@ function Header() {
           </ul>
           <Link
             className="hidden sm:flex items-center space-x-[10px] font-medium text-base text-white"
-            href={"tel:+998970130322"}
+            href={'tel:+998970130322'}
           >
             <Image
               className="w-7 h-7 lg:w-9 lg:h-9"
-              src={"/Images/Header_Img/call.svg"}
+              src={'/Images/Header_Img/call.svg'}
               width={38}
               height={38}
               alt="call-image"
@@ -126,7 +96,7 @@ function Header() {
             className="block lg:hidden cursor-pointer p-1"
           >
             <Image
-              src={"/Images/Header_Img/menu.svg"}
+              src={'/Images/Header_Img/menu.svg'}
               width={30}
               height={25}
               alt="burger-image"
@@ -135,13 +105,14 @@ function Header() {
         </div>
       </div>
       <div
-        className={`absolute duration-300 ${showModal ? "translate-x-0" : "-translate-x-[100%]"
-          } top-0 w-full h-[100vh] bg-white`}
+        className={`absolute duration-300 ${
+          showModal ? 'translate-x-0' : '-translate-x-[100%]'
+        } top-0 w-full h-[100vh] bg-white`}
       >
         <div className="flex p-4 mb-40 items-center justify-between">
-          <Link href={"/"}>
+          <Link href={'/'}>
             <Image
-              src={"/Images/headerModal/logo.svg"}
+              src={'/Images/headerModal/logo.svg'}
               width={200}
               height={40}
               alt="modal logo"
@@ -150,7 +121,7 @@ function Header() {
           <Image
             onClick={() => setShowModal(false)}
             className="cursor-pointer"
-            src={"/Images/headerModal/delete.svg"}
+            src={'/Images/headerModal/delete.svg'}
             width={22}
             height={17}
             alt="modal delte"
@@ -160,35 +131,35 @@ function Header() {
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"/"}
+            href={'/'}
           >
             Home
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#our-services"}
+            href={'#our-services'}
           >
             Service
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#about-us"}
+            href={'#about-us'}
           >
             About us
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#shipping"}
+            href={'#shipping'}
           >
             Shipping methods
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28 border-b-2 pb-30"
-            href={"#faq"}
+            href={'#faq'}
           >
             FAQ
           </Link>
@@ -196,7 +167,7 @@ function Header() {
         <div className="space-y-7 pl-25">
           <a className="flex" href="tel:+15132642969">
             <Image
-              src={"/Images/Header_Img/call.svg"}
+              src={'/Images/Header_Img/call.svg'}
               width={38}
               height={38}
               alt="call img"
@@ -210,7 +181,7 @@ function Header() {
           </a>
           <a className="flex" href="tel:+15132642969">
             <Image
-              src={"/Images/headerModal/email.svg"}
+              src={'/Images/headerModal/email.svg'}
               width={38}
               height={38}
               alt="call img"
@@ -223,12 +194,12 @@ function Header() {
             </strong>
           </a>
         </div>
-        <p className="absolute bottom-0 text-center right-0 left-0 mx-auto">
+        <p className="absolute bottom-10 text-center right-0 left-0 mx-auto">
           Copyright © All rights reserved
         </p>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
