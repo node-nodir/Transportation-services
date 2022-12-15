@@ -67,7 +67,7 @@ function GetTouchForm() {
             {...formik.getFieldProps('name')}
           />
           {formik.touched.name && formik.errors.name ? (
-            <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
+            <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-1 ">
               {formik.errors.name}
             </span>
           ) : null}
@@ -86,7 +86,7 @@ function GetTouchForm() {
               {...formik.getFieldProps('email')}
             />
             {formik.touched.email && formik.errors.email ? (
-              <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
+              <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-1 ">
                 {formik.errors.email}
               </span>
             ) : null}
@@ -102,7 +102,7 @@ function GetTouchForm() {
               {...formik.getFieldProps('number')}
             />
             {formik.touched.number && formik.errors.number ? (
-              <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
+              <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-1 ">
                 {formik.errors.number}
               </span>
             ) : null}
@@ -120,7 +120,7 @@ function GetTouchForm() {
             {...formik.getFieldProps('comment')}
           />
           {formik.touched.comment && formik.errors.comment ? (
-            <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
+            <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-1 ">
               {formik.errors.comment}
             </span>
           ) : null}

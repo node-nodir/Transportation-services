@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import axios from 'axios'
 import Image from 'next/image'
 
-interface Props {}
+function QuoteForm() {
+  const [open, setOpen] = useState("")
+  const [close, setClose] = useState("")
 
-function QuoteForm(props: Props) {
-  const {} = props
   const initialValues = {
     name: '',
     email: '',
@@ -43,101 +43,87 @@ function QuoteForm(props: Props) {
   })
 
   return (
-    <div className="max-w-500 mt-50 tablet:mt-0 tablet:max-w-449 w-full bg-[#1F1F1F] 500:bg-quoteform 500:backdrop-blur-lg 500:rounded-10 px-30 py-6">
-      <div className='flex items-start' >
-        <Image
-          src={'/Images/Quote/direct.svg'}
-          width={38}
-          height={38}
-          alt="call"
-          priority={true}
-          className="mt-2"
+    <form
+      onSubmit={(e) => {
+        formik.handleSubmit(e)
+        formik.values = initialValues
+      }}
+      className="flex flex-col"
+      autoComplete="off"
+    >
+      <label className="mt-1 relative flex flex-col">
+        <span className="text-white text-sm font-normal">Year</span>
+        <input
+          type="text"
+          id="name"
+          placeholder="Select a year"
+          className={`select_input h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.name && formik.errors.name
+            ? 'border-red-error'
+            : ''
+            }`}
+          {...formik.getFieldProps('name')}
         />
-        <h1 className="font-semibold  text-28 leading-9 text-white ml-4">
-          Where should we send your quote?{' '}
-        </h1>
+        {formik.touched.name && formik.errors.name ? (
+          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.name}
+          </span>
+        ) : null}
+      </label>
+      <label className="relative flex flex-col">
+        <span className="text-white text-sm font-normal">Make</span>
+        <input
+          type="email"
+          id="email"
+          placeholder="Select a make"
+          className={`select_input h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.email && formik.errors.email
+            ? 'border-red-error'
+            : ''
+            }`}
+          {...formik.getFieldProps('email')}
+        />
+        {formik.touched.email && formik.errors.email ? (
+          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.email}
+          </span>
+        ) : null}
+      </label>
+      <label className="relative flex flex-col">
+        <span className="text-white text-sm font-normal">Model</span>
+        <input
+          type="number"
+          id="number"
+          placeholder="Select a model"
+          className={`select_input h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.number && formik.errors.number
+            ? 'border-red-error'
+            : ''
+            }`}
+          {...formik.getFieldProps('number')}
+        />
+        {formik.touched.number && formik.errors.number ? (
+          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
+            {formik.errors.number}
+          </span>
+        ) : null}
+      </label>
+      <h3 className='text-15 text-white'>Vehicle</h3>
+      <div className='grid grid-cols-2 gap-4 mt-1'>
+        <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
+          <input onChange={(e) => setOpen(e.currentTarget.value + " " + "open")} id="bordered-radio-1-q" type="radio" name="bordered-radio" className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+          <label htmlFor="bordered-radio-1-q" className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Run</label>
+        </div>
+        <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
+          <input onChange={(e) => setClose(e.currentTarget.value + " " + "close")} id="bordered-radio-2" type="radio" name="bordered-radio" className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+          <label htmlFor="bordered-radio-2" className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Inoperable</label>
+        </div>
       </div>
-
-      <p className="text-base leading-5 text-gray-text font-thin mt-2">
-        Get your estimate quote in seconds
-      </p>
-      <hr className="mt-5 mb-6 text-gray-line" />
-      <form
-        onSubmit={(e) => {
-          formik.handleSubmit(e)
-          formik.values = initialValues
-        }}
-        className=" flex flex-col "
-        autoComplete="off"
+      <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
+      <button
+        className="bg-orange-main h-56 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
+        type="submit"
       >
-        <label className=" mt-2  relative flex flex-col">
-          <span className="text-white text-sm font-normal">Full name</span>
-          <input
-            type="text"
-            id="name"
-            placeholder="Write your full name"
-            className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${
-              formik.touched.name && formik.errors.name
-                ? 'border-red-error'
-                : ''
-            }`}
-            {...formik.getFieldProps('name')}
-          />
-          {formik.touched.name && formik.errors.name ? (
-            <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
-              {formik.errors.name}
-            </span>
-          ) : null}
-        </label>
-
-        <label className=" relative flex flex-col ">
-          <span className="text-white text-sm font-normal">Email address</span>
-          <input
-            type="email"
-            id="email"
-            placeholder="Write your email address"
-            className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${
-              formik.touched.email && formik.errors.email
-                ? 'border-red-error'
-                : ''
-            }`}
-            {...formik.getFieldProps('email')}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
-              {formik.errors.email}
-            </span>
-          ) : null}
-        </label>
-        <label className="relative flex flex-col ">
-          <span className="text-white text-sm font-normal">Phone number</span>
-          <input
-            type="number"
-            id="number"
-            placeholder="Your phone number"
-            className={`h-45 mt-2 text-base rounded-3 p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6 ${
-              formik.touched.number && formik.errors.number
-                ? 'border-red-error'
-                : ''
-            }`}
-            {...formik.getFieldProps('number')}
-          />
-          {formik.touched.number && formik.errors.number ? (
-            <span className="text-red-600 text-xs absolute -bottom-1 sm:bottom-1 ">
-              {formik.errors.number}
-            </span>
-          ) : null}
-        </label>
-
-        <hr className="w-full text-gray-line mb-5" />
-        <button
-          className="bg-orange-main h-56 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
-          type="submit"
-        >
-          Send
-        </button>
-      </form>
-    </div>
+        Send
+      </button>
+    </form>
   )
 }
 

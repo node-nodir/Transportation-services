@@ -107,6 +107,7 @@ module.exports = {
       margin: {
         10: "10px",
         40: "40",
+        16: "16px",
         33: "33px",
         30: "30px",
         50: "50px",
@@ -116,6 +117,7 @@ module.exports = {
         186: "186px",
       },
       padding: {
+        2: "2px",
         16: "16px",
         80: "80px",
         160: "160px",
