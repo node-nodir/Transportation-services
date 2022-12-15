@@ -15,7 +15,6 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #FF7D44; 
-  border-radius: 10px;
 }
 
 /* Handle on hover */
@@ -155,6 +154,12 @@ body {
   right: 0;
   top: 0;
   width: auto;
+}
+
+.select_input {
+  background-image: url("../public//Images/Quote//select.svg");
+  background-repeat: no-repeat;
+  background-position: 97% 15px;
 }
 
 /* -------------------------------------- */
