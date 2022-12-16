@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -37,6 +40,7 @@ module.exports = {
         heroFormMoblie: "#1F1F1F",
         blurForm: "rgba(90, 90, 90, 0.5)",
         quoteform: "rgba(58, 58, 58, 0.5)",
+        bgResImg: "rgba(0, 0, 0, 0.2)",
       },
       colors: {
         orange: {
@@ -77,7 +81,7 @@ module.exports = {
         166: "166px",
         449: "449px",
         500: "500px",
-        543: "693px",
+        543: "655px",
       },
       maxHeight: {
         197: "197px",
@@ -121,6 +125,7 @@ module.exports = {
         160: "160px",
         25: "25px",
         30: "30px",
+        50: "50px",
         70: "70px",
         75: "75px",
         196: "196px",
@@ -131,10 +136,12 @@ module.exports = {
         30: "30px",
         114: "114px",
         136: "136px",
+        120: "120px",
       },
       fontSize: {
         15: "15px",
         28: "28px",
+        30: "30px",
         35: "35px",
         56: "56px",
         35: "35px",
@@ -152,6 +159,7 @@ module.exports = {
       },
       lineHeight: {
         68: "68px",
+        36: "36px",
         42: "42px",
         46: "46px",
       },
