@@ -18,14 +18,14 @@ function AboutUs() {
             </p>
             <Image
               className="w-full hidden sm:flex"
-              src={"/Images/aboutUsImgs/bus.png"}
+              src={"/Images/aboutUsImgs/bus.avif"}
               width={500}
               height={500}
               alt="Site bus img"
             />
             <Image
               className="w-full sm:hidden"
-              src={"/Images/aboutUsImgs/bus-mobile.svg"}
+              src={"/Images/aboutUsImgs/bus-mobile.avif"}
               width={500}
               height={500}
               alt="Site bus img"
@@ -44,14 +44,14 @@ function AboutUs() {
             </div>
             <Image
               className="hidden sm:flex w-full mb-0 sm:mb-50"
-              src={"/Images/aboutUsImgs/misson.png"}
+              src={"/Images/aboutUsImgs/misson.avif"}
               width={500}
               height={500}
               alt="Site bus img"
             />
             <Image
               className="sm:hidden w-full mb-0 sm:mb-50"
-              src={"/Images/aboutUsImgs/misson-molie.svg"}
+              src={"/Images/aboutUsImgs/misson-molie.avif"}
               width={500}
               height={500}
               alt="Site bus img"

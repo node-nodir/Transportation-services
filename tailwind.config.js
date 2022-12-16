@@ -20,17 +20,16 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        servicesBg: "url('/Images/ServicesImg/serBg.png')",
         learnMoreAfterImg: "url('/Images/ServicesImg/turn.svg')",
         learnMoreModalImg: "url('/Images/ServicesImg/turn2.svg')",
         servicesCommonBg: "url('/Images/ServicesImg/triangle.svg')",
         servicesCommonBg2: "url('/Images/ServicesImg/triangle2.svg')",
         shippingBeforeImg: "url('/Images/shippingImgs/beforeImg.svg')",
-        heroBg: "url('/Images/Hero_Img/hero_bg.png')",
-        heroBgMobile: "url('/Images/Hero_Img/hero_bg-mobile.png')",
-        weDoBg: "url('/Images/wedoImgs/weDoBg.png')",
-        getTouch_bg: "url('/Images/getTouch/touch_bg.png')",
-        getTouch_bg_mb: "url('/Images/getTouch/touch_bg_mb.png')",
+        heroBg: "url('/Images/Hero_Img/hero_bg.avif')",
+        heroBgMobile: "url('/Images/Hero_Img/hero_bg-mobile.avif')",
+        weDoBg: "url('/Images/wedoImgs/weDoBg.avif')",
+        getTouch_bg: "url('/Images/getTouch/touch_bg.avif')",
+        getTouch_bg_mb: "url('/Images/getTouch/touch_bg_mb.avif')",
       },
       backgroundColor: {
         bg_color: "#FF7D44",
