@@ -208,19 +208,27 @@ input[type=number]::-webkit-outer-spin-button{
 .content-img{
   clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
 }
-@media only screen and (max-width:1024px){
-  .services-img{
-    transform: scale(2) translateY(60px);
-  }
+@media only screen and (max-width:1326px){
   .content-img{
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    width: 100%;
+    width: 60%;
+    height: 60%;
+  }
+}
+@media only screen and (max-width:1024px){
+  .content-img{
+    width: 60%;
+    height: 60%;
+  }
+}
+@media only screen and (max-width:804px){
+  .content-img{
+    display: none;
   }
 }
 
 @media only screen and (max-width:640px){
   .services{
-    background-image:url("../public//Images/ServicesImg/triangle.svg");
+    background-image:url("../public/Images/ServicesImg/triangle.svg");
     background-repeat: no-repeat;
     background-position: -300px;
   }
