@@ -212,6 +212,10 @@ input[type=number]::-webkit-outer-spin-button{
   .services-img{
     transform: scale(2) translateY(60px);
   }
+  .content-img{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width:640px){
