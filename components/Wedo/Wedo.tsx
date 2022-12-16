@@ -33,7 +33,7 @@ function Wedo() {
                 data-number="10"
               >
 
-                <CountUp start={viewPortEntered ? null : 0} duration={1} end={10}>
+                <CountUp start={viewPortEntered ? 0 : 10} duration={1} end={10}>
                   {({ countUpRef }) => {
                     return (
                       <VisibilitySensor
@@ -66,7 +66,7 @@ function Wedo() {
                 />
               </span>
               <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="23" >
-                <CountUp start={viewPortEntered ? null : 0} duration={1} end={23}>
+                <CountUp start={viewPortEntered ? 0 : 23} duration={1} end={23}>
                   {({ countUpRef }) => {
                     return (
                       <VisibilitySensor
@@ -99,7 +99,7 @@ function Wedo() {
                 />
               </span>
               <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="96">
-                <CountUp start={viewPortEntered ? null : 0} duration={1} end={96}>
+                <CountUp start={viewPortEntered ? 0 : 96} duration={1} end={96}>
                   {({ countUpRef }) => {
                     return (
                       <VisibilitySensor
@@ -132,7 +132,7 @@ function Wedo() {
                 />
               </span>
               <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="7">
-                <CountUp start={viewPortEntered ? null : 0} duration={1} end={7}>
+                <CountUp start={viewPortEntered ? 0 : 7} duration={1} end={7}>
                   {({ countUpRef }) => {
                     return (
                       <VisibilitySensor
