@@ -9,28 +9,20 @@ function Third() {
   let chatId = '-1001544371098'
 
   const initialValues = {
-    name: '',
+    fullName: '',
     email: '',
     number: '',
-    comment: '',
   }
 
   const onSubmit = (values: any, { resetForm }: any) => {
-    let fullText = `\u{2705} Full Name: ${values.name}%0A\u{2705} Email: ${values.email} %0A\u{2705} Phone Number: ${values.number} %0A\u{2705} Comments:${values.comment}`
-
-    // --- Sent Telegram Bot
-    axios.post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`,
-    )
-
+    console.log(values)
     resetForm()
   }
 
   const validationSchema = Yup.object({
-    name: Yup.string().required('Required'),
+    fullName: Yup.string().required('Required'),
     email: Yup.string().required('Required'),
     number: Yup.string().required('Required'),
-    comment: Yup.string().required('Required'),
   })
 
   const formik = useFormik({
@@ -49,33 +41,35 @@ function Third() {
       autoComplete="off"
     >
       <label className="mt-1 relative flex flex-col">
-        <span className="text-white text-sm font-normal">Year</span>
+        <span className="text-white text-sm font-normal">Full name</span>
         <input
           type="text"
-          id="name"
-          placeholder="Select a year"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.name && formik.errors.name
-            ? 'border-red-error'
-            : ''
-            }`}
-          {...formik.getFieldProps('name')}
+          id="fullName"
+          placeholder="Write your  full name"
+          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
+            formik.touched.fullName && formik.errors.fullName
+              ? 'border-red-error'
+              : ''
+          }`}
+          {...formik.getFieldProps('fullName')}
         />
-        {formik.touched.name && formik.errors.name ? (
+        {formik.touched.fullName && formik.errors.fullName ? (
           <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
-            {formik.errors.name}
+            {formik.errors.fullName}
           </span>
         ) : null}
       </label>
       <label className="relative flex flex-col">
-        <span className="text-white text-sm font-normal">Make</span>
+        <span className="text-white text-sm font-normal">Email address</span>
         <input
           type="email"
           id="email"
-          placeholder="Select a make"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.email && formik.errors.email
-            ? 'border-red-error'
-            : ''
-            }`}
+          placeholder="Write your email address"
+          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
+            formik.touched.email && formik.errors.email
+              ? 'border-red-error'
+              : ''
+          }`}
           {...formik.getFieldProps('email')}
         />
         {formik.touched.email && formik.errors.email ? (
@@ -85,15 +79,16 @@ function Third() {
         ) : null}
       </label>
       <label className="relative flex flex-col">
-        <span className="text-white text-sm font-normal">Model</span>
+        <span className="text-white text-sm font-normal">Phone number</span>
         <input
           type="number"
           id="number"
-          placeholder="Select a model"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${formik.touched.number && formik.errors.number
-            ? 'border-red-error'
-            : ''
-            }`}
+          placeholder="Your phone number"
+          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
+            formik.touched.number && formik.errors.number
+              ? 'border-red-error'
+              : ''
+          }`}
           {...formik.getFieldProps('number')}
         />
         {formik.touched.number && formik.errors.number ? (
@@ -107,10 +102,10 @@ function Third() {
         className="bg-orange-main h-56 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
         type="submit"
       >
-        Send
+        Send me the Free Quote Now
       </button>
     </form>
   )
 }
 
-export default Third;
+export default Third
