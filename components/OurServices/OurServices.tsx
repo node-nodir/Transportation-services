@@ -18,7 +18,7 @@ function OurServices() {
       name: "Car Shipments",
       text: "One of the most widely-known segment of the freight industry is Auto Transport. It offers car shipping services to individuals and organizations who require a car to be transferred from one place to another.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/car.jpg",
+      src: "/Images/ServicesImg/car.avif",
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ function OurServices() {
       name: "Motorcycle shipments",
       text: "Motorcycle shipments are as popular as regular vehicles. People might need motorcycle shipments due to some reasons like moving to another state, buying or selling purposes, and the most popular one “Vintage motorcycle shows”.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/moto.jpg",
+      src: "/Images/ServicesImg/moto.avif",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ function OurServices() {
       name: "Heavy Equipment",
       text: "Shipping Heavy equipment is not always an easy process to do. Heavy machinery plays an important role in your business.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/truc.jpg",
+      src: "/Images/ServicesImg/truc.avif",
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ function OurServices() {
       name: "HI / AK Shipments",
       text: "Therefore, it is obvious that you should bring a car with you on your trip to Hawaii. Unavoidably, you may rent a car, use ride-sharing services, or take the dreaded public transportation.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/beach.jpg",
+      src: "/Images/ServicesImg/beach.avif",
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ function OurServices() {
       name: "Boat Shipments",
       text: "You might have purchased a boat after making the trip to a far-off boat show, read about a great offer on a far-off yacht, or purchased a boat directly from the manufacturer.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/boat.jpg",
+      src: "/Images/ServicesImg/boat.avif",
     },
     {
       id: 6,
@@ -58,7 +58,7 @@ function OurServices() {
       name: "Door to Door delivery",
       text: "Optimum Auto Shipping offers Door to Door delivery to all the services we offer to our valuable customers. Regular cars and even Heavy equipment shipping will be delivery to your front door.",
       leanMore: "Подробнее",
-      src: "/Images/ServicesImg/man.jpg",
+      src: "/Images/ServicesImg/man.avif",
     },
   ];
   return (

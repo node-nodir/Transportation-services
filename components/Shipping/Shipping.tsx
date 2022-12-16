@@ -24,7 +24,7 @@ function Shipping() {
           <li className="lg:flex lg:justify-between">
             <Image
               className="w-full md:w-[49%] mx-auto lg:mx-0"
-              src={"/Images/shippingImgs/train.png"}
+              src={"/Images/shippingImgs/train.avif"}
               width={542}
               height={297}
               alt="train"
@@ -45,7 +45,7 @@ function Shipping() {
             <div className="w-full mx-auto lg:mx-0 md:w-[49%] relative">
               <Image
                 className="w-full"
-                src={"/Images/shippingImgs/pupularBus.png"}
+                src={"/Images/shippingImgs/pupularBus.avif"}
                 width={542}
                 height={297}
                 alt="train"
@@ -74,7 +74,7 @@ function Shipping() {
           <li className=" lg:flex lg:justify-between">
             <Image
               className="w-full mx-auto lg:mx-0 md:w-[49%] "
-              src={"/Images/shippingImgs/palane.png"}
+              src={"/Images/shippingImgs/palane.avif"}
               width={542}
               height={297}
               alt="train"

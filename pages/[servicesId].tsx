@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-// import { useEffect, useState } from "react";
 import Image from "next/image";
 interface Item {
   id: number;
@@ -30,8 +29,8 @@ function ServicesId() {
       id: 1,
       findName: "car",
       name: "Car Shipments",
-      carHero: "/Images/singleImgs/car-hero.jpg",
-      carContentImg: "/Images/singleImgs/car-hero2.jpg",
+      carHero: "/Images/singleImgs/car-hero.avif",
+      carContentImg: "/Images/singleImgs/car-hero2.avif",
       fullText: `One of the most widely-known segment of the freight industry is Auto Transport. It offers car shipping services to individuals and organizations who require a car to be transferred from one place to another. This could be because of employment reasons, seasonal travel, or the purchase of a new car.`,
       secoundText:
         "Are you having similar situations and need to ship your car? You are on the right Place; Optimum Auto Shipping offers you all types of auto transport services with full coverage of insurance and Door to Door delivery.",
@@ -42,8 +41,8 @@ function ServicesId() {
       id: 2,
       findName: "moto",
       name: "Motorcycle shipments",
-      carHero: "/Images/singleImgs/moto-hero.jpg",
-      carContentImg: "/Images/singleImgs/moto-hero2.jpg",
+      carHero: "/Images/singleImgs/moto-hero.avif",
+      carContentImg: "/Images/singleImgs/moto-hero2.avif",
       fullText:
         "Motorcycle shipments are as popular as regular vehicles. People might need motorcycle shipments due to some reasons like moving to another state, buying or selling purposes, and the most popular one “Vintage motorcycle shows",
       secoundText:
@@ -54,8 +53,8 @@ function ServicesId() {
       id: 3,
       findName: "heavy",
       name: "Heavy Equipment",
-      carHero: "/Images/singleImgs/heavy-hero.jpg",
-      carContentImg: "/Images/singleImgs/heavy-hero2.jpg",
+      carHero: "/Images/singleImgs/heavy-hero.avif",
+      carContentImg: "/Images/singleImgs/heavy-hero2.avif",
       fullText:
         "Shipping Heavy equipment is not always an easy process to do. Heavy machinery plays an important role in your business. So that’s why you will need a professional heavy equipment transporter to ship your machinery.",
       secoundText:
@@ -66,7 +65,7 @@ function ServicesId() {
       id: 4,
       findName: "hi",
       name: "HI / AK Shipments",
-      carHero: "/Images/singleImgs/hawii-hero.jpg",
+      carHero: "/Images/singleImgs/hawii-hero.avif",
       carContentImg: "",
       fullText:
         "It can be difficult to locate a firm that offers car transportation to Alaska because several auto shippers only cover the lower 48 states. We'll first go over the procedure for transporting a car to Alaska in order to make things clearer before moving on to typical charges and suggestions. ",
@@ -79,8 +78,8 @@ function ServicesId() {
       id: 5,
       findName: "boat",
       name: "Boat Shipments",
-      carHero: "/Images/singleImgs/boat-hero.jpg",
-      carContentImg: "/Images/singleImgs/boat-hero2.jpg",
+      carHero: "/Images/singleImgs/boat-hero.avif",
+      carContentImg: "/Images/singleImgs/boat-hero2.avif",
       fullText:
         "You might have purchased a boat after making the trip to a far-off boat show, read about a great offer on a far-off yacht, or purchased a boat directly from the manufacturer. There's a strong probability that in either of these scenarios, you'll now need to make plans for shipping your boat to your house or marina. Although it might seem like a big deal, long-distance boat deliveries are actually extremely routine and simple to arrange.",
       secoundText:
@@ -88,12 +87,13 @@ function ServicesId() {
       thridText:
         "Optimum Auto Shipping offers professional Boat shipping from any state. Our professional drivers will guarantee you a safe and fast shipment Ship your Boat with PROs anytime and anywhere.",
     },
+    
     {
       id: 6,
       findName: "man",
       name: "Door to Door delivery",
-      carHero: "/Images/singleImgs/man-hero.jpg",
-      carContentImg: "/Images/singleImgs/man-hero2.jpg",
+      carHero: "/Images/singleImgs/man-hero.avif",
+      carContentImg: "/Images/singleImgs/man-hero2.avif",
       fullText:
         "Optimum Auto Shipping offers Door to Door delivery to all the services we offer to our valuable customers. Regular cars and even Heavy equipment shipping will be delivery to your front door.",
       secoundText:
