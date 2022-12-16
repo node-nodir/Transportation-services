@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import Image from 'next/image'
 
-function QuoteForm() {
+function QuoteForm({ setSecond }: any) {
   const [open, setOpen] = useState("")
   const [close, setClose] = useState("")
 

@@ -41,6 +41,10 @@ module.exports = {
         quoteform: "rgba(58, 58, 58, 0.5)",
         bgResImg: "rgba(0, 0, 0, 0.2)",
       },
+      boxShadow: {
+        selectShadow:
+          " 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03)",
+      },
       colors: {
         orange: {
           main: "#FF7D44",
