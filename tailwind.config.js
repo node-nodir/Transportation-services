@@ -33,6 +33,7 @@ module.exports = {
       },
       backgroundColor: {
         bg_color: "#FF7D44",
+        bg_list: "#F8F8F8",
         weDoNumber: "#D9D9D9",
         buttonHover: "rgba(255, 125, 68, 0.15)",
         mostButtonHover: "#C24F1D",
@@ -40,6 +41,7 @@ module.exports = {
         blurForm: "rgba(90, 90, 90, 0.5)",
         quoteform: "rgba(58, 58, 58, 0.5)",
         bgResImg: "rgba(0, 0, 0, 0.2)",
+        color_list: "#EFEFEF",
       },
       boxShadow: {
         selectShadow:
@@ -85,6 +87,7 @@ module.exports = {
         449: "449px",
         500: "500px",
         543: "655px",
+        918: "918px",
       },
       maxHeight: {
         197: "197px",
@@ -100,6 +103,7 @@ module.exports = {
         450: "450px",
         354: "354px",
         330: "330px",
+        306: "306px",
       },
       height: {
         formHeight: "619px",
@@ -167,6 +171,7 @@ module.exports = {
         36: "36px",
         42: "42px",
         46: "46px",
+        19: "19px",
       },
       borderRadius: {
         3: "3px",

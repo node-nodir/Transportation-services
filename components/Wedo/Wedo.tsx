@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Image from 'next/image'
-import CountUp from 'react-countup'
-import VisibilitySensor from 'react-visibility-sensor'
+import { useState } from "react";
+import Image from "next/image";
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 
 function Wedo() {
-  const [viewPortEntered, setViewPortEntered] = useState(false)
+  const [viewPortEntered, setViewPortEntered] = useState(false);
 
   return (
     <section className="bg-weDoBg sm:bg-center py-75 bg-no-repeat bg-cover">
@@ -22,7 +22,7 @@ function Wedo() {
             <li className="flex flex-col">
               <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
                 <Image
-                  src={'/Images/wedoImgs/avatar.svg'}
+                  src={"/Images/wedoImgs/avatar.svg"}
                   width={22}
                   height={25}
                   alt="avatar img"
@@ -32,7 +32,6 @@ function Wedo() {
                 className="  font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2"
                 data-number="10"
               >
-
                 <CountUp start={viewPortEntered ? 0 : 10} duration={1} end={10}>
                   {({ countUpRef }) => {
                     return (
@@ -40,14 +39,14 @@ function Wedo() {
                         active={!viewPortEntered}
                         onChange={(isVisible: any) => {
                           if (isVisible) {
-                            setViewPortEntered(true)
+                            setViewPortEntered(true);
                           }
                         }}
                         delayedCall
                       >
                         <span ref={countUpRef} />
                       </VisibilitySensor>
-                    )
+                    );
                   }}
                 </CountUp>
                 K
@@ -59,13 +58,16 @@ function Wedo() {
             <li className="flex flex-col">
               <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
                 <Image
-                  src={'/Images/wedoImgs/avatar.svg'}
-                  width={22}
-                  height={25}
+                  src={"/Images/wedoImgs/boat.svg"}
+                  width={30}
+                  height={30}
                   alt="avatar img"
                 />
               </span>
-              <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="23" >
+              <strong
+                className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2"
+                data-number="23"
+              >
                 <CountUp start={viewPortEntered ? 0 : 23} duration={1} end={23}>
                   {({ countUpRef }) => {
                     return (
@@ -73,14 +75,14 @@ function Wedo() {
                         active={!viewPortEntered}
                         onChange={(isVisible: any) => {
                           if (isVisible) {
-                            setViewPortEntered(true)
+                            setViewPortEntered(true);
                           }
                         }}
                         delayedCall
                       >
                         <span ref={countUpRef} />
                       </VisibilitySensor>
-                    )
+                    );
                   }}
                 </CountUp>
                 K
@@ -92,13 +94,16 @@ function Wedo() {
             <li className="flex flex-col">
               <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
                 <Image
-                  src={'/Images/wedoImgs/avatar.svg'}
-                  width={22}
-                  height={25}
+                  src={"/Images/wedoImgs/starts.svg"}
+                  width={30}
+                  height={30}
                   alt="avatar img"
                 />
               </span>
-              <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="96">
+              <strong
+                className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2"
+                data-number="96"
+              >
                 <CountUp start={viewPortEntered ? 0 : 96} duration={1} end={96}>
                   {({ countUpRef }) => {
                     return (
@@ -106,14 +111,14 @@ function Wedo() {
                         active={!viewPortEntered}
                         onChange={(isVisible: any) => {
                           if (isVisible) {
-                            setViewPortEntered(true)
+                            setViewPortEntered(true);
                           }
                         }}
                         delayedCall
                       >
                         <span ref={countUpRef} />
                       </VisibilitySensor>
-                    )
+                    );
                   }}
                 </CountUp>
                 %
@@ -125,13 +130,16 @@ function Wedo() {
             <li className="flex flex-col">
               <span className="w-10 h-10 rounded-2xl flex items-center justify-center bg-weDoNumber cursor-pointer mb-2">
                 <Image
-                  src={'/Images/wedoImgs/avatar.svg'}
-                  width={22}
-                  height={25}
+                  src={"/Images/wedoImgs/settings.svg"}
+                  width={30}
+                  height={30}
                   alt="avatar img"
                 />
               </span>
-              <strong className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2" data-number="7">
+              <strong
+                className="font-semibold text-left text-white text-4xl sm:text-5xl leading-numberWeDo mb-2"
+                data-number="7"
+              >
                 <CountUp start={viewPortEntered ? 0 : 7} duration={1} end={7}>
                   {({ countUpRef }) => {
                     return (
@@ -139,14 +147,14 @@ function Wedo() {
                         active={!viewPortEntered}
                         onChange={(isVisible: any) => {
                           if (isVisible) {
-                            setViewPortEntered(true)
+                            setViewPortEntered(true);
                           }
                         }}
                         delayedCall
                       >
                         <span ref={countUpRef} />
                       </VisibilitySensor>
-                    )
+                    );
                   }}
                 </CountUp>
                 +
@@ -159,7 +167,7 @@ function Wedo() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Wedo
+export default Wedo;
