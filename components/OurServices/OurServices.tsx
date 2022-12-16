@@ -78,7 +78,7 @@ function OurServices() {
           {allList.map((item) => (
             <li
               key={item.id}
-              className="w-330 h-450 lg:w-354 lg:h-458 mb-33 mx-auto md:mx-0 shadow-md list overflow-hidden cursor-pointer relative"
+              className="w-330 bg-white h-450 lg:w-354 lg:h-458 mb-33 mx-auto md:mx-0 shadow-md list overflow-hidden cursor-pointer relative"
             >
               <img
                 className="absolute services-img z-10"
@@ -121,7 +121,7 @@ function OurServices() {
               <SwiperSlide key={item.id}>
                 <li
                   key={item.id}
-                  className="w-[321px] mb-33 shadow-md list cursor-pointer h-[448px] relative"
+                  className="w-[321px] bg-white mb-33 shadow-md list cursor-pointer h-[448px] relative"
                 >
                   <Image
                     className="absolute z-10"
