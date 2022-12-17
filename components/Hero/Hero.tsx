@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
-import Third from '../BaseComponents/FormInput/Third'
-import HeroForm from '../BaseComponents/FormInput/HeroForm'
-import QuoteForm from '../BaseComponents/FormInput/QuoteForm'
+import Image from "next/image";
+import React, { useState } from "react";
+import Third from "../BaseComponents/FormInput/Third";
+import HeroForm from "../BaseComponents/FormInput/HeroForm";
+import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
 
 function Hero() {
-  const [first, setFirst] = useState(false)
-  const [second, setSecond] = useState(false)
-  const [three, setThree] = useState(true)
+  const [first, setFirst] = useState(true);
+  const [second, setSecond] = useState(false);
+  const [three, setThree] = useState(false);
 
   return (
     <>
@@ -32,11 +32,11 @@ function Hero() {
               <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
                 <Image
                   className="mr-10"
-                  src={'/Images/Hero_Img/star.svg'}
+                  src={"/Images/Hero_Img/star.svg"}
                   width={24}
                   height={24}
                   alt="star"
-                />{' '}
+                />{" "}
                 World Top Rated Shipping Company
               </blockquote>
               <h1 className="font-bold text-white text-35 leading-42 md:text-56 md:leading-68">
@@ -57,11 +57,11 @@ function Hero() {
               <h2 className="flex items-center font-semibold text-20 sm:text-28 text-white mb-2">
                 <Image
                   className="mr-16"
-                  src={'/Images/Quote/direct.svg'}
+                  src={"/Images/Quote/direct.svg"}
                   width={25}
                   height={25}
                   alt="arrow-left"
-                />{' '}
+                />{" "}
                 Shipping Cost Calculator
               </h2>
               <p className="font-normal text-base text-black-gray">
@@ -74,11 +74,11 @@ function Hero() {
               <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
                 <Image
                   className="mr-10"
-                  src={'/Images/Hero_Img/star.svg'}
+                  src={"/Images/Hero_Img/star.svg"}
                   width={24}
                   height={24}
                   alt="star"
-                />{' '}
+                />{" "}
                 World Top Rated Shipping Company
               </blockquote>
               <h1 className="font-bold text-white text-35 leading-42 md:text-56 md:leading-68">
@@ -88,7 +88,7 @@ function Hero() {
                 Transport your vehicle with PROs.
               </p>
               <Image
-                src={'/Images/Quote/us.png'}
+                src={"/Images/Quote/us.png"}
                 width={443}
                 height={336}
                 alt="us"
@@ -105,11 +105,11 @@ function Hero() {
               <h2 className="flex items-start font-semibold text-20 sm:text-28 text-white mb-2">
                 <Image
                   className="mr-16 mt-2"
-                  src={'/Images/Quote/direct.svg'}
+                  src={"/Images/Quote/direct.svg"}
                   width={23}
                   height={23}
                   alt="arrow-left"
-                />{' '}
+                />{" "}
                 Where should we send your quote?
               </h2>
               <p className="font-normal text-base leading-5 text-black-gray">
@@ -124,7 +124,7 @@ function Hero() {
               </h3>
               <div className="flex items-start">
                 <Image
-                  src={'/Images/Quote/us.png'}
+                  src={"/Images/Quote/us.png"}
                   width={407}
                   height={308}
                   alt="us"
@@ -134,7 +134,7 @@ function Hero() {
                 <div className="flex flex-col items-start ml-8 mt-9">
                   <section className="flex text-white font-thin">
                     <Image
-                      src={'/Images/Hero_Img/location.svg'}
+                      src={"/Images/Hero_Img/location.svg"}
                       width={24}
                       height={24}
                       alt="call img"
@@ -143,7 +143,7 @@ function Hero() {
                   </section>
 
                   <Image
-                    src={'/Images/Hero_Img/line.svg'}
+                    src={"/Images/Hero_Img/line.svg"}
                     width={6}
                     height={10}
                     alt="call img"
@@ -151,7 +151,7 @@ function Hero() {
                   />
                   <section className="flex text-white font-thin">
                     <Image
-                      src={'/Images/Hero_Img/location.svg'}
+                      src={"/Images/Hero_Img/location.svg"}
                       width={24}
                       height={24}
                       alt="call img"
@@ -184,16 +184,16 @@ function Hero() {
                   </section>
                 </section>
                 <h3 className="text-2xl text-white font-semibold">
-                Shipping Details
+                  Shipping Details
                 </h3>
-                <p className='text-xl text-white mt-3'>$2500</p>
+                <p className="text-xl text-white mt-3">$2500</p>
               </div>
             </div>
           </div>
         </section>
       ) : null}
     </>
-  )
+  );
 }
 
-export default Hero
+export default Hero;
