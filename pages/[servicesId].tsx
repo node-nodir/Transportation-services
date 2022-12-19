@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
+import HeavyConst from "../components/HeavyConst/HeavyConst";
 interface Item {
   id: number;
   name: string;
@@ -87,7 +88,7 @@ function ServicesId() {
       thridText:
         "Optimum Auto Shipping offers professional Boat shipping from any state. Our professional drivers will guarantee you a safe and fast shipment Ship your Boat with PROs anytime and anywhere.",
     },
-    
+
     {
       id: 6,
       findName: "man",
@@ -104,6 +105,7 @@ function ServicesId() {
   const resultData: Item | undefined = allList.find(
     (item: Item) => item.findName === servicesId
   );
+
   return (
     <>
       <section
@@ -116,7 +118,7 @@ function ServicesId() {
           </h2>
         </div>
       </section>
-      <section className="pt-50 pb-120 lg:pt-114 lg:h-[744px] lg:pb-136 relative flex items-center justify-between">
+      <section className="pt-50 pb-50 sm:pb-120 lg:pt-114 lg:h-[744px] lg:pb-136 relative flex items-center justify-between">
         <div className="container">
           <div
             className={`${
@@ -146,6 +148,7 @@ function ServicesId() {
           />
         )}
       </section>
+      {servicesId === "heavy" ? <HeavyConst /> : ""}
     </>
   );
 }

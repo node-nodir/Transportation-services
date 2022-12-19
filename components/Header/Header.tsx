@@ -74,7 +74,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#our-services"}
+                href={"/#our-services"}
                 onClick={ActiveClick1}
                 className={`header__nav-link font-medium text-base text-white uppercase ${
                   active1 ? "!text-orange-main" : ""
@@ -85,7 +85,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#about-us"}
+                href={"/#about-us"}
                 onClick={ActiveClick2}
                 className={`header__nav-link font-medium text-base text-white uppercase ${
                   active2 ? "!text-orange-main" : ""
@@ -96,7 +96,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#shipping"}
+                href={"/#shipping"}
                 onClick={ActiveClick3}
                 className={`header__nav-link font-medium text-base text-white uppercase ${
                   active3 ? "!text-orange-main" : ""
@@ -107,7 +107,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-                href={"#faq"}
+                href={"/#faq"}
                 onClick={ActiveClick4}
                 className={`header__nav-link font-medium text-base text-white uppercase ${
                   active4 ? "!text-orange-main" : ""
@@ -178,28 +178,28 @@ function Header() {
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#our-services"}
+            href={"/#our-services"}
           >
             Service
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#about-us"}
+            href={"/#about-us"}
           >
             About us
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28"
-            href={"#shipping"}
+            href={"/#shipping"}
           >
             Shipping methods
           </Link>
           <Link
             onClick={() => setShowModal(false)}
             className="font-bold text-28 border-b-2 pb-30"
-            href={"#faq"}
+            href={"/#faq"}
           >
             FAQ
           </Link>
