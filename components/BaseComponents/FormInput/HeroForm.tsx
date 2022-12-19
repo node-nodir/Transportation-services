@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Item {
-  id: number,
+  id?: number,
   zip?: string,
-  primary_city: string,
+  primary_city?: string,
   acceptable_cities?: string | null,
   state: string,
   county?: string,
@@ -21,19 +21,20 @@ function HeroForm({ setFirst, setSecond }: any) {
   const [country, setCountry] = useState("");
   const [render, setRender] = useState(false);
   const [booleon, setBooleon] = useState(true);
-  const [fromValue, setFromValue] = useState<Item>();
   // ---------> Secon Input
   const [data1, setData1] = useState([]);
   const [zipCode1, setZipCode1] = useState("");
   const [country1, setCountry1] = useState("");
   const [render1, setRender1] = useState(false);
   const [booleon1, setBooleon1] = useState(true);
-  const [fromValue1, setFromValue1] = useState<Item>();
   // --------->
   const [date, setDate] = useState("");
   const [open, setOpen] = useState("");
   const [close, setClose] = useState("");
   const [checked, setChecked] = useState(false);
+  // ------> Ref
+  const inputFromRef = useRef<HTMLInputElement>(null!);
+  const inputToRef = useRef<HTMLInputElement>(null!);
 
   // -----> Get Zip Codes
   useEffect(() => {
@@ -51,6 +52,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       .finally(() => { })
   }, [country1, zipCode1, booleon1]);
 
+  // ------> Submit Data
   const SubmitData = (e: any) => {
     e.preventDefault();
 
@@ -64,15 +66,15 @@ function HeroForm({ setFirst, setSecond }: any) {
       transport_type: checked ? open : close
     }
 
-    if (Object.keys(firstData).length > 0) {
+    window.localStorage.setItem("data", JSON.stringify(firstData));
+    if (JSON.parse(window.localStorage.getItem("data") || "") !== null) {
       setFirst();
       setSecond();
     }
-
-    window.localStorage.setItem("data", JSON.stringify(firstData));
     e.target.reset();
   };
 
+  // ------> Day Before
   function dayBefore() {
     let date = new Date();
     let day = date.getUTCDate();
@@ -90,10 +92,11 @@ function HeroForm({ setFirst, setSecond }: any) {
       <label className="relative text-15 flex flex-col text-white">
         From
         <input
+          ref={inputFromRef}
           id="from"
           name="from"
           type="text"
-          value={fromValue?.primary_city}
+          required
           placeholder="Select ZIP code or location"
           onChange={(e) => {
             if (e.target.value.match(/[0-9]/g)) {
@@ -108,22 +111,21 @@ function HeroForm({ setFirst, setSecond }: any) {
               setRender(false);
             }
           }}
-          onClick={() => setFromValue({})}
           className={
             `input_bg h-45 w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`
           }
         />
         {
           render ? (
-            <div className='w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[73px] shadow-selectShadow'>
+            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[73px] shadow-selectShadow'>
               {
-                data?.map((item: Item) => (
+                data?.map((item: Item, id) => (
                   <p
                     onClick={() => {
-                      setFromValue(item);
                       setRender(false);
+                      inputFromRef.current.value = (item?.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state) + ", USA")
                     }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={item?.id}>{item.zip} {item.primary_city} {item.state} USA</p>
+                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={id}>{`${item.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state + ", USA")}`}</p>
                 ))
               }
             </div>
@@ -133,10 +135,11 @@ function HeroForm({ setFirst, setSecond }: any) {
       <label className="text-15 relative flex flex-col text-white">
         To
         <input
+          ref={inputToRef}
           id="name"
           name="to"
           type="text"
-          value={fromValue1?.primary_city}
+          required
           placeholder="Select ZIP code or location"
           className={
             `input_bg h-45 w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`
@@ -154,19 +157,18 @@ function HeroForm({ setFirst, setSecond }: any) {
               setRender1(false);
             }
           }}
-          onClick={() => setFromValue1({})}
         />
         {
           render1 ? (
-            <div className='w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow'>
+            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow'>
               {
-                data1?.map((item: Item) => (
+                data1?.map((item: Item, id) => (
                   <p
                     onClick={() => {
-                      setFromValue1(item);
                       setRender1(false);
+                      inputToRef.current.value = (item?.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state) + ", USA")
                     }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={item?.id}>{item.zip} {item.primary_city} {item.state} USA</p>
+                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={id}>{`${item.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state + ", USA")}`}</p>
                 ))
               }
             </div>
@@ -178,6 +180,7 @@ function HeroForm({ setFirst, setSecond }: any) {
         <input
           id="date"
           type="date"
+          required
           min={dayBefore()}
           placeholder="Select estimate time"
           onChange={(e) => setDate(e.target.value)}
@@ -192,6 +195,7 @@ function HeroForm({ setFirst, setSecond }: any) {
           <input
             type="radio"
             value={"open"}
+            required
             id="bordered-radio-1"
             name="bordered-radio"
             onChange={(e) => {
@@ -206,6 +210,7 @@ function HeroForm({ setFirst, setSecond }: any) {
         <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
           <input
             type="radio"
+            required
             value={"enclose"}
             id="bordered-radio-2"
             name="bordered-radio"

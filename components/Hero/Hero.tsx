@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Third from "../BaseComponents/FormInput/Third";
 import HeroForm from "../BaseComponents/FormInput/HeroForm";
 import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
@@ -7,7 +7,6 @@ import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
 function Hero() {
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
-  const [three, setThree] = useState(false);
 
   return (
     <>
@@ -53,13 +52,24 @@ function Hero() {
             <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
               <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-4 pb-7 sm:p-25 mb-8">
                 <h2 className="flex items-center font-semibold text-20 sm:text-28 text-white mb-2">
-                  <Image className="mr-16" src={"/Images/Quote/direct.svg"} width={25} height={25} alt="arrow-left" /> Shipping Cost Calculator
+                  <Image
+                    width={25}
+                    height={25}
+                    alt="arrow-left"
+                    className="mr-16 cursor-pointer"
+                    src={"/Images/Quote/direct.svg"}
+                    onClick={() => {
+                      setFirst(true);
+                      setSecond(false);
+                    }}
+                  />
+                  Shipping Cost Calculator
                 </h2>
                 <p className="font-normal text-base text-black-gray">
                   Information about your car
                 </p>
                 <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-                <QuoteForm setSecond={() => setSecond(true)} />
+                <QuoteForm />
               </div>
               <div className="text-start md:text-center lg:text-start max-w-heroRightW pb-12 lg:mb-0 !ml-0 w-full">
                 <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
@@ -84,7 +94,7 @@ function Hero() {
           ) : null
         }
         {/* ----- Thrird ----- */}
-        {
+        {/* {
           three ? (
             <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
               <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-quoteform backdrop-blur-lg rounded-10 p-4 pb-7 sm:p-25 mb-8">
@@ -118,7 +128,7 @@ function Hero() {
               </div>
             </div>
           ) : null
-        }
+        } */}
       </section>
     </>
   );

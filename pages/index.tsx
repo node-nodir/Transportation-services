@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>Optimum Car Services</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content="Transportation Services that you can trust" />
         <meta name="description" content="Optimum auto shipping" />
         <meta name="description" content="Transportation services" />
