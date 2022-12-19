@@ -1,111 +1,159 @@
-import React, { useState } from 'react'
-import * as Yup from 'yup'
-import { useFormik } from 'formik'
-import axios from 'axios'
-import Image from 'next/image'
+import React, { useRef, useState } from "react";
 
 function Third() {
-  let token = '5702266536:AAFT_kPTv4ZWIJJN1-H5sGH7UmVDLI5bwKc'
-  let chatId = '-1001544371098'
+  const [loc, setLoc] = useState(false);
+  const [loc3, setLoc3] = useState(false);
+  const [loc2, setLoc2] = useState(false);
+  const [btnLoc1, setBtnLoc1] = useState(false);
+  const [btnLoc2, setBtnLoc2] = useState(false);
+  const [btnLoc3, setBtnLoc3] = useState(false);
+  const [locErrorName, setErrorName] = useState("There should be no head left");
 
-  const initialValues = {
-    fullName: '',
-    email: '',
-    number: '',
-  }
+  const handleBlur = (e: any) => {
+    if (e.target.value) {
+      setLoc(false);
+    } else {
+      setLoc(true);
+      setBtnLoc1(false);
+    }
+  };
 
-  const onSubmit = (values: any, { resetForm }: any) => {
-    console.log(values)
-    resetForm()
-  }
+  const handleBlur2 = (e: any) => {
+    if (e.target.value) {
+      setLoc2(false);
+    } else {
+      setLoc2(true);
+      setBtnLoc2(false);
+    }
+  };
 
-  const validationSchema = Yup.object({
-    fullName: Yup.string().required('Required'),
-    email: Yup.string().required('Required'),
-    number: Yup.string().required('Required'),
-  })
+  const handleBlur3 = (e: any) => {
+    if (e.target.value) {
+      setLoc3(false);
+    } else {
+      setLoc3(true);
+      setBtnLoc3(false);
+    }
+  };
+  const nameRef: any = useRef();
+  const emailRef: any = useRef();
+  const phoneRef: any = useRef();
+  const handleValid = () => {
+    console.log(nameRef.current.value);
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    validationSchema,
-  })
-
+    if (
+      nameRef.current.value &&
+      emailRef.current.value &&
+      phoneRef.current.value
+    ) {
+    } else {
+      setLoc(true);
+      setLoc2(true);
+      setLoc3(true);
+    }
+  };
+  const handleSubmit = (evt: any) => {
+    evt.preventDefault();
+  };
   return (
-    <form
-      onSubmit={(e) => {
-        formik.handleSubmit(e)
-        formik.values = initialValues
-      }}
-      className="flex flex-col"
-      autoComplete="off"
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
         <span className="text-white text-sm font-normal">Full name</span>
         <input
           type="text"
           id="fullName"
-          placeholder="Write your  full name"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
-            formik.touched.fullName && formik.errors.fullName
-              ? 'border-red-error'
-              : ''
-          }`}
-          {...formik.getFieldProps('fullName')}
+          ref={nameRef}
+          onBlur={handleBlur}
+          onChange={(e) => {
+            if (e.target.value === "") {
+              setLoc(true);
+              setBtnLoc1(false);
+            } else {
+              setLoc(false);
+              setBtnLoc1(true);
+            }
+          }}
+          placeholder="Write your full name"
+          className={`h-45 mt-1 ${
+            loc ? "border-red-500" : ""
+          } relative text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb- border-white`}
         />
-        {formik.touched.fullName && formik.errors.fullName ? (
-          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
-            {formik.errors.fullName}
-          </span>
-        ) : null}
+        {loc ? (
+          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
       </label>
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Email address</span>
         <input
           type="email"
           id="email"
+          ref={emailRef}
+          onChange={(e) => {
+            if (e.target.value === "") {
+              setLoc2(true);
+              setBtnLoc2(false);
+            } else {
+              setLoc2(false);
+              setBtnLoc2(true);
+            }
+          }}
+          onBlur={handleBlur2}
           placeholder="Write your email address"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
-            formik.touched.email && formik.errors.email
-              ? 'border-red-error'
-              : ''
-          }`}
-          {...formik.getFieldProps('email')}
+          className={`h-45 ${
+            loc2 ? "border-red-500" : ""
+          } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
-            {formik.errors.email}
-          </span>
-        ) : null}
+        {loc2 ? (
+          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
       </label>
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Phone number</span>
         <input
+          ref={phoneRef}
           type="number"
           id="number"
+          onChange={(e) => {
+            if (e.target.value === "") {
+              setLoc3(true);
+              setBtnLoc3(false);
+            } else {
+              setLoc3(false);
+              setBtnLoc3(true);
+            }
+          }}
+          onBlur={handleBlur3}
           placeholder="Your phone number"
-          className={`h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 ${
-            formik.touched.number && formik.errors.number
-              ? 'border-red-error'
-              : ''
-          }`}
-          {...formik.getFieldProps('number')}
+          className={`h-45 ${
+            loc3 ? "border-red-500" : ""
+          } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
-        {formik.touched.number && formik.errors.number ? (
-          <span className="text-red-error text-xs absolute -bottom-1 sm:bottom-0 left-1">
-            {formik.errors.number}
-          </span>
-        ) : null}
+        {loc3 ? (
+          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
       </label>
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
       <button
+        onClick={handleValid}
         className="bg-orange-main h-56 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
-        type="submit"
+        type={`${btnLoc1 && btnLoc2 && btnLoc3 ? "submit" : "button"}`}
       >
         Send me the Free Quote Now
       </button>
     </form>
-  )
+  );
 }
 
-export default Third
+export default Third;

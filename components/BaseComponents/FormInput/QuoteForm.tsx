@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function QuoteForm() {
+function QuoteForm({ setHeroPage }: any) {
   // ---------->
   const [render, setRender] = useState(false);
   const [yearVal, setYearVal] = useState<string>();
@@ -172,7 +172,16 @@ function QuoteForm() {
   // ------> Submit Form
   const SubmitData = (e: any) => {
     e.preventDefault();
-    const secondData = {};
+    const secoundData = {
+      year: e.target.elements[0].value,
+      make: e.target.elements[1].value,
+      model: e.target.elements[2].value,
+      vehicle: e.target.elements[3].checked ? "running" : "inoperable",
+    };
+
+    window.localStorage.setItem("seconData", JSON.stringify(secoundData));
+    window.localStorage.setItem("second", "thrid");
+    setHeroPage("thrid");
   };
 
   // ------> Search Product
@@ -424,6 +433,7 @@ function QuoteForm() {
           <input
             required
             type="radio"
+            value={"running"}
             id="bordered-radio-1-q"
             name="bordered-radio"
             onChange={(e) => setOpen(e.currentTarget.value + " " + "open")}
@@ -441,6 +451,7 @@ function QuoteForm() {
             required
             type="radio"
             id="bordered-radio-2"
+            value={"inoperable"}
             name="bordered-radio"
             onChange={(e) => setClose(e.currentTarget.value + " " + "close")}
             className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
