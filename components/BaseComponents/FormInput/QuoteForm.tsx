@@ -1,8 +1,8 @@
-import axios from 'axios'
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import axios from "axios";
+import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 
-const env = process.env.NEXT_PUBLIC_TOKEN
+const env = process.env.NEXT_PUBLIC_TOKEN;
 
 function QuoteForm() {
   // ---------->
@@ -145,7 +145,7 @@ function QuoteForm() {
     { year: "1903" },
     { year: "1902" },
     { year: "1901" },
-    { year: "1900" }
+    { year: "1900" },
   ]);
   const inputYearRef = useRef<HTMLInputElement>(null!);
   const inputMakeRef = useRef<HTMLInputElement>(null!);
@@ -153,26 +153,26 @@ function QuoteForm() {
 
   // -----> Get Make
   useEffect(() => {
-    axios.get(`${env}make`)
-      .then(res => setData(res.data))
-      .catch(err => console.error(err))
-      .finally(() => { })
+    axios
+      .get(`${env}make`)
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err))
+      .finally(() => {});
   }, []);
 
   // -----> Get Model
   useEffect(() => {
-    axios.get(`${env}models?company_id=${foundId}`)
-      .then(res => setModelData(res.data))
-      .catch(err => console.error(err))
-      .finally(() => { })
+    axios
+      .get(`${env}models?company_id=${foundId}`)
+      .then((res) => setModelData(res.data))
+      .catch((err) => console.error(err))
+      .finally(() => {});
   }, [foundId]);
 
   // ------> Submit Form
   const SubmitData = (e: any) => {
     e.preventDefault();
-    const secondData = {
-
-    }
+    const secondData = {};
   };
 
   // ------> Search Product
@@ -204,13 +204,42 @@ function QuoteForm() {
 
     return filterInput;
   }
-
+  const [locErrorName, setErrorName] = useState("There should be no head left");
+  const [year1, setYear1] = useState(true);
+  const [year2, setYear2] = useState(true);
+  const [year3, setYear3] = useState(true);
+  const [btn1, setBtn1] = useState(false);
+  const [btn2, setBtn2] = useState(false);
+  const [btn3, setBtn3] = useState(false);
+  const handleBlur1 = (evt: any) => {
+    if (evt.target.value) {
+      setYear1(true);
+      setBtn1(true);
+    } else {
+      setYear1(false);
+      setBtn1(false);
+    }
+  };
+  const handleBlur2 = (evt: any) => {
+    if (evt.target.value) {
+      setYear2(true);
+      setBtn2(true);
+    } else {
+      setYear2(false);
+      setBtn1(false);
+    }
+  };
+  const handleBlur3 = (evt: any) => {
+    if (evt.target.value) {
+      setYear3(true);
+      setBtn3(true);
+    } else {
+      setYear3(false);
+      setBtn3(false);
+    }
+  };
   return (
-    <form
-      onSubmit={SubmitData}
-      className="flex flex-col"
-      autoComplete="off"
-    >
+    <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
         <span className="text-white text-sm font-normal">Year</span>
         <input
@@ -218,42 +247,57 @@ function QuoteForm() {
           type="number"
           ref={inputYearRef}
           placeholder="Select a year"
+          onBlur={handleBlur1}
           onChange={(e) => {
-            setYearVal(e.target.value || '');
+            setYearVal(e.target.value || "");
             setRender(true);
             if (e.target.value === "") {
               setRender(false);
+              setYear1(false);
+              setBtn1(false);
+            } else {
+              setYear1(true);
+              setBtn1(true);
             }
           }}
-          className={`relative h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year1 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
+        {year1 ? (
+          ""
+        ) : (
+          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+            {locErrorName}
+          </label>
+        )}
         <Image
           width={15}
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${yearVal!?.length > 0 ? "rotate-180" : ""} ${render ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            yearVal!?.length > 0 ? "rotate-180" : ""
+          } ${render ? "" : "rotate-0"}`}
         />
-        {
-          render ? (
-            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[68px] shadow-selectShadow'>
-              {
-                searchProduct(yearVal || '', yearData).map((item: any, id: any) => (
-                  <p
-                    key={id}
-                    onClick={() => {
-                      setRender(false);
-                      inputYearRef.current.value = item?.year;
-                    }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-[#f5f5f5] hover:text-orange-main duration-100'
-                  >
-                    {item?.year}
-                  </p>
-                ))
-              }
-            </div>
-          ) : null
-        }
+        {render ? (
+          <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[68px] shadow-selectShadow">
+            {searchProduct(yearVal || "", yearData).map(
+              (item: any, id: any) => (
+                <p
+                  key={id}
+                  onClick={() => {
+                    setRender(false);
+                    inputYearRef.current.value = item?.year;
+                  }}
+                  className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-[#f5f5f5] hover:text-orange-main duration-100"
+                >
+                  {item?.year}
+                </p>
+              )
+            )}
+          </div>
+        ) : null}
       </label>
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Make</span>
@@ -262,43 +306,58 @@ function QuoteForm() {
           type="text"
           ref={inputMakeRef}
           placeholder="Select a year"
+          onBlur={handleBlur2}
           onChange={(e) => {
-            setMakeVal(e.target.value || '');
+            setMakeVal(e.target.value || "");
             setRender1(true);
             if (e.target.value === "") {
               setRender1(false);
+              setYear2(false);
+              setBtn1(false);
+            } else {
+              setYear2(true);
+              setBtn1(true);
             }
           }}
-          className={`relative h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year2 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
+        {year2 ? (
+          ""
+        ) : (
+          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+            {locErrorName}
+          </label>
+        )}
         <Image
           width={15}
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${makeVal!?.length > 0 ? "rotate-180" : ""} ${render1 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            makeVal!?.length > 0 ? "rotate-180" : ""
+          } ${render1 ? "" : "rotate-0"}`}
         />
-        {
-          render1 ? (
-            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[68px] shadow-selectShadow'>
-              {
-                searchMakeProduct(makeVal || '', data).map((item: any, id: any) => (
-                  <p
-                    key={id}
-                    onClick={() => {
-                      setRender1(false);
-                      setFoundId(item?.id);
-                      inputMakeRef.current.value = item?.company_name;
-                    }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100'
-                  >
-                    {item?.company_name}
-                  </p>
-                ))
-              }
-            </div>
-          ) : null
-        }
+        {render1 ? (
+          <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[68px] shadow-selectShadow">
+            {searchMakeProduct(makeVal || "", data).map(
+              (item: any, id: any) => (
+                <p
+                  key={id}
+                  onClick={() => {
+                    setRender1(false);
+                    setFoundId(item?.id);
+                    inputMakeRef.current.value = item?.company_name;
+                  }}
+                  className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                >
+                  {item?.company_name}
+                </p>
+              )
+            )}
+          </div>
+        ) : null}
       </label>
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Model</span>
@@ -307,45 +366,60 @@ function QuoteForm() {
           type="text"
           ref={inputModelRef}
           placeholder="Select a year"
+          onBlur={handleBlur3}
           onChange={(e) => {
-            setModelVal(e.target.value || '');
+            setModelVal(e.target.value || "");
             setRender2(true);
             if (e.target.value === "") {
               setRender2(false);
+              setYear3(false);
+              setBtn1(false);
+            } else {
+              setYear3(true);
+              setBtn1(true);
             }
           }}
-          className={`relative h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year3 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
+        {year3 ? (
+          ""
+        ) : (
+          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+            {locErrorName}
+          </label>
+        )}
         <Image
           width={15}
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${modelVal!?.length > 0 ? "rotate-180" : ""} ${render2 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            modelVal!?.length > 0 ? "rotate-180" : ""
+          } ${render2 ? "" : "rotate-0"}`}
         />
-        {
-          render2 ? (
-            <div className='w-full max-h-[130px] overflow-y-scroll rounded absolute bg-white z-30 top-[68px] shadow-selectShadow'>
-              {
-                searchModelProduct(modelVal || '', modelData).map((item: any, id: any) => (
-                  <p
-                    key={id}
-                    onClick={() => {
-                      setRender2(false);
-                      inputModelRef.current.value = item?.model_name;
-                    }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100'
-                  >
-                    {item?.model_name}
-                  </p>
-                ))
-              }
-            </div>
-          ) : null
-        }
+        {render2 ? (
+          <div className="w-full max-h-[130px] overflow-y-scroll rounded absolute bg-white z-30 top-[68px] shadow-selectShadow">
+            {searchModelProduct(modelVal || "", modelData).map(
+              (item: any, id: any) => (
+                <p
+                  key={id}
+                  onClick={() => {
+                    setRender2(false);
+                    inputModelRef.current.value = item?.model_name;
+                  }}
+                  className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                >
+                  {item?.model_name}
+                </p>
+              )
+            )}
+          </div>
+        ) : null}
       </label>
-      <h3 className='text-15 text-white'>Vehicle</h3>
-      <div className='grid grid-cols-2 gap-4 mt-1'>
+      <h3 className="text-15 text-white">Vehicle</h3>
+      <div className="grid grid-cols-2 gap-4 mt-1">
         <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
           <input
             required
@@ -353,10 +427,14 @@ function QuoteForm() {
             id="bordered-radio-1-q"
             name="bordered-radio"
             onChange={(e) => setOpen(e.currentTarget.value + " " + "open")}
-            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
+          />
           <label
             htmlFor="bordered-radio-1-q"
-            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Run</label>
+            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer"
+          >
+            Run
+          </label>
         </div>
         <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
           <input
@@ -365,21 +443,25 @@ function QuoteForm() {
             id="bordered-radio-2"
             name="bordered-radio"
             onChange={(e) => setClose(e.currentTarget.value + " " + "close")}
-            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
+          />
           <label
             htmlFor="bordered-radio-2"
-            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Inoperable</label>
+            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer"
+          >
+            Inoperable
+          </label>
         </div>
       </div>
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
       <button
         className="bg-orange-main h-45 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
-        type="submit"
+        type={`${btn1 && btn2 && btn3 ? "submit" : "button"}`}
       >
         Send
       </button>
     </form>
-  )
+  );
 }
 
-export default QuoteForm
+export default QuoteForm;
