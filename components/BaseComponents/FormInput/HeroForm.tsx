@@ -1,17 +1,18 @@
-import axios from 'axios'
-import { useEffect, useRef, useState } from 'react'
+import React from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 interface Item {
-  id?: number,
-  zip?: string,
-  primary_city?: string,
-  acceptable_cities?: string | null,
-  state: string,
-  county?: string,
-  country?: string,
-  latitude?: string,
-  longitude?: string
-  }
+  id?: number;
+  zip?: string;
+  primary_city?: string;
+  acceptable_cities?: string | null;
+  state: string;
+  county?: string;
+  country?: string;
+  latitude?: string;
+  longitude?: string;
+}
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
@@ -46,7 +47,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       )
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, [country, zipCode, booleon]);
 
   // -----> Get Zip Codes
@@ -59,7 +60,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       )
       .then((res) => setData1(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, [country1, zipCode1, booleon1]);
 
   // ------> Submit Data
@@ -97,7 +98,8 @@ function HeroForm({ setFirst, setSecond }: any) {
   const [btnLoc1, setBtnLoc1] = useState(false);
   const [btnLoc2, setBtnLoc2] = useState(false);
   const [btnLoc3, setBtnLoc3] = useState(false);
-  const handleBlur = (e: any) => {
+
+const handleBlur = (e: any) => {
     if (e.target.value) {
       setLoc(false);
     } else {
@@ -105,7 +107,8 @@ function HeroForm({ setFirst, setSecond }: any) {
       setBtnLoc1(false);
     }
   };
-  const [loc2, setLoc2] = useState(false);
+
+const [loc2, setLoc2] = useState(false);
   const handleBlur2 = (e: any) => {
     if (e.target.value) {
       setLoc2(false);
@@ -114,6 +117,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       setBtnLoc2(false);
     }
   };
+  
   const [loc3, setLoc3] = useState(false);
   const handleBlur3 = (e: any) => {
     if (e.target.value) {
@@ -123,6 +127,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       setBtnLoc3(false);
     }
   };
+  
   const handleCheckType = (e: any) => {
     if (e.target.type == "button") {
       setLoc(true);
@@ -132,16 +137,19 @@ function HeroForm({ setFirst, setSecond }: any) {
   };
   return (
     <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
+      <label className="text-15 relative flex flex-col text-white">
       <label className="relative text-15 flex flex-col text-white">
         From
         <input
           ref={inputFromRef}
-          id="from"
+          id="name"
           name="from"
           type="text"
           required
           placeholder="Select ZIP code or location"
           onBlur={handleBlur}
+          className={`input_bg ${loc ? "border-red-500" : ""
+            } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
           onChange={(e) => {
             if (e.target.value) {
               setLoc(false);
@@ -160,31 +168,36 @@ function HeroForm({ setFirst, setSecond }: any) {
               setBtnLoc1(false);
             }
           }}
-          className={
-            `input_bg h-45 w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`
-          }
         />
-        {
-          render ? (
-            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[73px] shadow-selectShadow'>
-              {
-                data?.map((item: Item, id) => (
-                  <p
-                    onClick={() => {
-                      setRender(false);
-                      inputFromRef.current.value = (item?.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state) + ", USA")
-                    }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={id}>{`${item.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state + ", USA")}`}</p>
-                ))
-              }
-            </div>
-          ) : null
-        }
-          onClick={() => setFromValue({})}
-          className={`input_bg ${
-            loc ? "border-red-600" : ""
-          } h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
-        />
+        {render ? (
+          <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow">
+            {data?.map((item: Item, id) => (
+              <p
+                onClick={() => {
+                  setRender(false);
+                  inputFromRef.current.value = item?.zip
+                    ? item.zip +
+                    ", " +
+                    item?.primary_city +
+                    ", " +
+                    item.state +
+                    ", USA"
+                    : item?.primary_city + ", " + item.state + ", USA";
+                }}
+                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                key={id}
+              >{`${item.zip
+                ? item.zip +
+                ", " +
+                item?.primary_city +
+                ", " +
+                item.state +
+                ", USA"
+                : item?.primary_city + ", " + item.state + ", USA"
+                }`}</p>
+            ))}
+          </div>
+        ) : null}
         {loc ? (
           <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
             {locErrorName}
@@ -192,22 +205,6 @@ function HeroForm({ setFirst, setSecond }: any) {
         ) : (
           ""
         )}
-        {render ? (
-          <div className="w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[73px] shadow-selectShadow">
-            {data?.map((item: Item) => (
-              <p
-                onClick={() => {
-                  setFromValue(item);
-                  setRender(false);
-                }}
-                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
-                key={item?.id}
-              >
-                {item.zip} {item.primary_city} {item.state} USA
-              </p>
-            ))}
-          </div>
-        ) : null}
       </label>
       <label className="text-15 relative flex flex-col text-white">
         To
@@ -219,6 +216,8 @@ function HeroForm({ setFirst, setSecond }: any) {
           required
           placeholder="Select ZIP code or location"
           onBlur={handleBlur2}
+          className={`input_bg ${loc2 ? "border-red-500" : ""
+            } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
           className={`input_bg ${
             loc2 ? "border-red-500" : ""
           } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
@@ -241,22 +240,35 @@ function HeroForm({ setFirst, setSecond }: any) {
             }
           }}
         />
-        {
-          render1 ? (
-            <div className='w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow'>
-              {
-                data1?.map((item: Item, id) => (
-                  <p
-                    onClick={() => {
-                      setRender1(false);
-                      inputToRef.current.value = (item?.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state) + ", USA")
-                    }}
-                    className='text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100' key={id}>{`${item.zip ? (item.zip + ", " + item?.primary_city + ", " + item.state + ", USA") : (item?.primary_city + ", " + item.state + ", USA")}`}</p>
-                ))
-              }
-            </div>
-          ) : null
-        }
+        {render1 ? (
+          <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow">
+            {data1?.map((item: Item, id) => (
+              <p
+                onClick={() => {
+                  setRender1(false);
+                  inputToRef.current.value = item?.zip
+                    ? item.zip +
+                    ", " +
+                    item?.primary_city +
+                    ", " +
+                    item.state +
+                    ", USA"
+                    : item?.primary_city + ", " + item.state + ", USA";
+                }}
+                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                key={id}
+              >{`${item.zip
+                ? item.zip +
+                ", " +
+                item?.primary_city +
+                ", " +
+                item.state +
+                ", USA"
+                : item?.primary_city + ", " + item.state + ", USA"
+                }`}</p>
+            ))}
+          </div>
+        ) : null}
         {loc2 ? (
           <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
             {locErrorName}
@@ -264,22 +276,6 @@ function HeroForm({ setFirst, setSecond }: any) {
         ) : (
           ""
         )}
-        {render1 ? (
-          <div className="w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow">
-            {data1?.map((item: Item) => (
-              <p
-                onClick={() => {
-                  setFromValue1(item);
-                  setRender1(false);
-                }}
-                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
-                key={item?.id}
-              >
-                {item.zip} {item.primary_city} {item.state} USA
-              </p>
-            ))}
-          </div>
-        ) : null}
       </label>
       <label
         className="text-15 relative flex flex-col text-white"
@@ -302,9 +298,8 @@ function HeroForm({ setFirst, setSecond }: any) {
             }
             setDate(e.target.value);
           }}
-          className={`date_bg ${
-            loc3 ? "border-red-500" : ""
-          } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 border-white`}
+          className={`date_bg ${loc3 ? "border-red-500" : ""
+            } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 border-white`}
         />
         {loc3 ? (
           <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
@@ -321,7 +316,6 @@ function HeroForm({ setFirst, setSecond }: any) {
             type="radio"
             required
             value={"open"}
-            required
             id="bordered-radio-1"
             name="bordered-radio"
             onChange={(e) => {
