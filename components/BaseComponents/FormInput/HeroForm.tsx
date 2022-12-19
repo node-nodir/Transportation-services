@@ -99,7 +99,7 @@ function HeroForm({ setFirst, setSecond }: any) {
   const [btnLoc2, setBtnLoc2] = useState(false);
   const [btnLoc3, setBtnLoc3] = useState(false);
 
-const handleBlur = (e: any) => {
+  const handleBlur = (e: any) => {
     if (e.target.value) {
       setLoc(false);
     } else {
@@ -108,7 +108,7 @@ const handleBlur = (e: any) => {
     }
   };
 
-const [loc2, setLoc2] = useState(false);
+  const [loc2, setLoc2] = useState(false);
   const handleBlur2 = (e: any) => {
     if (e.target.value) {
       setLoc2(false);
@@ -117,7 +117,7 @@ const [loc2, setLoc2] = useState(false);
       setBtnLoc2(false);
     }
   };
-  
+
   const [loc3, setLoc3] = useState(false);
   const handleBlur3 = (e: any) => {
     if (e.target.value) {
@@ -127,7 +127,7 @@ const [loc2, setLoc2] = useState(false);
       setBtnLoc3(false);
     }
   };
-  
+
   const handleCheckType = (e: any) => {
     if (e.target.type == "button") {
       setLoc(true);
@@ -137,7 +137,6 @@ const [loc2, setLoc2] = useState(false);
   };
   return (
     <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
-      <label className="text-15 relative flex flex-col text-white">
       <label className="relative text-15 flex flex-col text-white">
         From
         <input
@@ -218,9 +217,6 @@ const [loc2, setLoc2] = useState(false);
           onBlur={handleBlur2}
           className={`input_bg ${loc2 ? "border-red-500" : ""
             } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
-          className={`input_bg ${
-            loc2 ? "border-red-500" : ""
-          } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
           onChange={(e) => {
             if (e.target.value) {
               setLoc2(false);
