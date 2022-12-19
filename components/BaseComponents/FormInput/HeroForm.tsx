@@ -16,7 +16,7 @@ interface Item {
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function HeroForm({ setFirst, setSecond }: any) {
+function HeroForm({ setHeroPage }: any) {
   const [data, setData] = useState([]);
   const [zipCode, setZipCode] = useState("");
   const [country, setCountry] = useState("");
@@ -36,6 +36,14 @@ function HeroForm({ setFirst, setSecond }: any) {
   // ------> Ref
   const inputFromRef = useRef<HTMLInputElement>(null!);
   const inputToRef = useRef<HTMLInputElement>(null!);
+  // ------> Validation
+  const [loc, setLoc] = useState(false);
+  const [loc3, setLoc3] = useState(false);
+  const [loc2, setLoc2] = useState(false);
+  const [btnLoc1, setBtnLoc1] = useState(false);
+  const [btnLoc2, setBtnLoc2] = useState(false);
+  const [btnLoc3, setBtnLoc3] = useState(false);
+  const [locErrorName, setErrorName] = useState("There should be no head left");
 
   // -----> Get Zip Codes
   useEffect(() => {
@@ -78,11 +86,9 @@ function HeroForm({ setFirst, setSecond }: any) {
     };
 
     window.localStorage.setItem("data", JSON.stringify(firstData));
-    if (JSON.parse(window.localStorage.getItem("data") || "") !== null) {
-      setFirst();
-      setSecond();
-    }
-    e.target.reset();
+    window.localStorage.setItem("second", "second");
+    setHeroPage("second");
+    // e.target.reset();
   };
 
   // ------> Day Before
@@ -93,11 +99,6 @@ function HeroForm({ setFirst, setSecond }: any) {
     let year = date.getUTCFullYear();
     return year + "-" + month + "-" + day;
   }
-  const [loc, setLoc] = useState(false);
-  const [locErrorName, setErrorName] = useState("There should be no head left");
-  const [btnLoc1, setBtnLoc1] = useState(false);
-  const [btnLoc2, setBtnLoc2] = useState(false);
-  const [btnLoc3, setBtnLoc3] = useState(false);
 
   const handleBlur = (e: any) => {
     if (e.target.value) {
@@ -108,7 +109,6 @@ function HeroForm({ setFirst, setSecond }: any) {
     }
   };
 
-  const [loc2, setLoc2] = useState(false);
   const handleBlur2 = (e: any) => {
     if (e.target.value) {
       setLoc2(false);
@@ -118,7 +118,6 @@ function HeroForm({ setFirst, setSecond }: any) {
     }
   };
 
-  const [loc3, setLoc3] = useState(false);
   const handleBlur3 = (e: any) => {
     if (e.target.value) {
       setLoc3(false);
@@ -135,6 +134,7 @@ function HeroForm({ setFirst, setSecond }: any) {
       setLoc3(true);
     }
   };
+
   return (
     <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
       <label className="relative text-15 flex flex-col text-white">
