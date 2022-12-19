@@ -30,16 +30,16 @@ function Footer(): any {
             </h1>
             <ul className="text-[#ffffffad] mt-4  md:mt-5">
               <li className="text-sm hover:underline underline-offset-2">
-                <a href="#">Car Shipments</a>
+                <Link href={`/car`}>Car Shipments</Link>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#">Motorcycle shipments</a>
+                <Link href={`/moto`}>Motorcycle shipments</Link>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#">Heavy Equipment</a>
+                <Link href={"/heavy"}>Heavy Equipment</Link>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#"></a>All Services
+                <Link href="/#our-services">All Services</Link>
               </li>
             </ul>
           </div>
@@ -65,13 +65,13 @@ function Footer(): any {
             </h1>
             <ul className="text-[#ffffffad] mt-4  md:mt-5">
               <li className="text-sm hover:underline underline-offset-2">
-                <a href="#about-us">Our Company</a>
+                <Link href="/#about-us">Our Company</Link>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#faq">F.A.Q.</a>
+                <Link href="/#faq">F.A.Q.</Link>
               </li>
               <li className="mt-3 text-sm hover:underline underline-offset-2">
-                <a href="#contact-us">Contact us</a>
+                <Link href="/#contact-us">Contact us</Link>
               </li>
             </ul>
           </div>

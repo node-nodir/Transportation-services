@@ -11,9 +11,9 @@ interface Item {
   country?: string,
   latitude?: string,
   longitude?: string
-}
+  }
 
-const env = process.env.NEXT_PUBLIC_TOKEN
+const env = process.env.NEXT_PUBLIC_TOKEN;
 
 function HeroForm({ setFirst, setSecond }: any) {
   const [data, setData] = useState([]);
@@ -38,18 +38,28 @@ function HeroForm({ setFirst, setSecond }: any) {
 
   // -----> Get Zip Codes
   useEffect(() => {
-    axios.get(booleon ? `${env}zip-codes?primary_city=${country}` : `${env}zip-codes?zip=${zipCode}`)
-      .then(res => setData(res.data))
-      .catch(err => console.error(err))
-      .finally(() => { })
+    axios
+      .get(
+        booleon
+          ? `${env}zip-codes?primary_city=${country}`
+          : `${env}zip-codes?zip=${zipCode}`
+      )
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err))
+      .finally(() => {});
   }, [country, zipCode, booleon]);
 
   // -----> Get Zip Codes
   useEffect(() => {
-    axios.get(booleon1 ? `${env}zip-codes?primary_city=${country1}` : `${env}zip-codes?zip=${zipCode1}`)
-      .then(res => setData1(res.data))
-      .catch(err => console.error(err))
-      .finally(() => { })
+    axios
+      .get(
+        booleon1
+          ? `${env}zip-codes?primary_city=${country1}`
+          : `${env}zip-codes?zip=${zipCode1}`
+      )
+      .then((res) => setData1(res.data))
+      .catch((err) => console.error(err))
+      .finally(() => {});
   }, [country1, zipCode1, booleon1]);
 
   // ------> Submit Data
@@ -63,8 +73,8 @@ function HeroForm({ setFirst, setSecond }: any) {
       from: from,
       to: to,
       estimate_time: date,
-      transport_type: checked ? open : close
-    }
+      transport_type: checked ? open : close,
+    };
 
     window.localStorage.setItem("data", JSON.stringify(firstData));
     if (JSON.parse(window.localStorage.getItem("data") || "") !== null) {
@@ -80,15 +90,48 @@ function HeroForm({ setFirst, setSecond }: any) {
     let day = date.getUTCDate();
     let month = date.getUTCMonth() + 1;
     let year = date.getUTCFullYear();
-    return year + '-' + month + '-' + day
+    return year + "-" + month + "-" + day;
   }
-
+  const [loc, setLoc] = useState(false);
+  const [locErrorName, setErrorName] = useState("There should be no head left");
+  const [btnLoc1, setBtnLoc1] = useState(false);
+  const [btnLoc2, setBtnLoc2] = useState(false);
+  const [btnLoc3, setBtnLoc3] = useState(false);
+  const handleBlur = (e: any) => {
+    if (e.target.value) {
+      setLoc(false);
+    } else {
+      setLoc(true);
+      setBtnLoc1(false);
+    }
+  };
+  const [loc2, setLoc2] = useState(false);
+  const handleBlur2 = (e: any) => {
+    if (e.target.value) {
+      setLoc2(false);
+    } else {
+      setLoc2(true);
+      setBtnLoc2(false);
+    }
+  };
+  const [loc3, setLoc3] = useState(false);
+  const handleBlur3 = (e: any) => {
+    if (e.target.value) {
+      setLoc3(false);
+    } else {
+      setLoc3(true);
+      setBtnLoc3(false);
+    }
+  };
+  const handleCheckType = (e: any) => {
+    if (e.target.type == "button") {
+      setLoc(true);
+      setLoc2(true);
+      setLoc3(true);
+    }
+  };
   return (
-    <form
-      onSubmit={SubmitData}
-      className="flex flex-col"
-      autoComplete="off"
-    >
+    <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
       <label className="relative text-15 flex flex-col text-white">
         From
         <input
@@ -98,7 +141,12 @@ function HeroForm({ setFirst, setSecond }: any) {
           type="text"
           required
           placeholder="Select ZIP code or location"
+          onBlur={handleBlur}
           onChange={(e) => {
+            if (e.target.value) {
+              setLoc(false);
+              setBtnLoc1(true);
+            }
             if (e.target.value.match(/[0-9]/g)) {
               setBooleon(false);
               setZipCode(e.target.value.trim());
@@ -109,6 +157,7 @@ function HeroForm({ setFirst, setSecond }: any) {
             setRender(true);
             if (e.target.value === "") {
               setRender(false);
+              setBtnLoc1(false);
             }
           }}
           className={
@@ -131,6 +180,34 @@ function HeroForm({ setFirst, setSecond }: any) {
             </div>
           ) : null
         }
+          onClick={() => setFromValue({})}
+          className={`input_bg ${
+            loc ? "border-red-600" : ""
+          } h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
+        />
+        {loc ? (
+          <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
+        {render ? (
+          <div className="w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[73px] shadow-selectShadow">
+            {data?.map((item: Item) => (
+              <p
+                onClick={() => {
+                  setFromValue(item);
+                  setRender(false);
+                }}
+                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                key={item?.id}
+              >
+                {item.zip} {item.primary_city} {item.state} USA
+              </p>
+            ))}
+          </div>
+        ) : null}
       </label>
       <label className="text-15 relative flex flex-col text-white">
         To
@@ -141,10 +218,15 @@ function HeroForm({ setFirst, setSecond }: any) {
           type="text"
           required
           placeholder="Select ZIP code or location"
-          className={
-            `input_bg h-45 w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`
-          }
+          onBlur={handleBlur2}
+          className={`input_bg ${
+            loc2 ? "border-red-500" : ""
+          } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
           onChange={(e) => {
+            if (e.target.value) {
+              setLoc2(false);
+              setBtnLoc2(true);
+            }
             if (e.target.value.match(/[0-9]/g)) {
               setBooleon1(false);
               setZipCode1(e.target.value.trim());
@@ -155,6 +237,7 @@ function HeroForm({ setFirst, setSecond }: any) {
             setRender1(true);
             if (e.target.value === "") {
               setRender1(false);
+              setBtnLoc2(false);
             }
           }}
         />
@@ -174,8 +257,34 @@ function HeroForm({ setFirst, setSecond }: any) {
             </div>
           ) : null
         }
+        {loc2 ? (
+          <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
+        {render1 ? (
+          <div className="w-full h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[73px] shadow-selectShadow">
+            {data1?.map((item: Item) => (
+              <p
+                onClick={() => {
+                  setFromValue1(item);
+                  setRender1(false);
+                }}
+                className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
+                key={item?.id}
+              >
+                {item.zip} {item.primary_city} {item.state} USA
+              </p>
+            ))}
+          </div>
+        ) : null}
       </label>
-      <label className="text-15 relative flex flex-col text-white" htmlFor="date">
+      <label
+        className="text-15 relative flex flex-col text-white"
+        htmlFor="date"
+      >
         Estimate time
         <input
           id="date"
@@ -183,17 +292,34 @@ function HeroForm({ setFirst, setSecond }: any) {
           required
           min={dayBefore()}
           placeholder="Select estimate time"
-          onChange={(e) => setDate(e.target.value)}
-          className={
-            `date_bg date h-45 w-full text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 border-white`
-          }
+          onBlur={handleBlur3}
+          onChange={(e) => {
+            if (e.target.value) {
+              setLoc3(false);
+              setBtnLoc3(true);
+            } else {
+              setBtnLoc3(false);
+            }
+            setDate(e.target.value);
+          }}
+          className={`date_bg ${
+            loc3 ? "border-red-500" : ""
+          } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 border-white`}
         />
+        {loc3 ? (
+          <label className="absolute bottom-0 text-[12px] text-red-500 leading-3">
+            {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
       </label>
-      <h3 className='text-15 text-white'>Vehicle</h3>
-      <div className='grid grid-cols-2 gap-4 mt-1'>
+      <h3 className="text-15 text-white">Vehicle</h3>
+      <div className="grid grid-cols-2 gap-4 mt-1">
         <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
           <input
             type="radio"
+            required
             value={"open"}
             required
             id="bordered-radio-1"
@@ -202,10 +328,14 @@ function HeroForm({ setFirst, setSecond }: any) {
               setOpen(e.target.value);
               setChecked(true);
             }}
-            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
+          />
           <label
             htmlFor="bordered-radio-1"
-            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Open</label>
+            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer"
+          >
+            Open
+          </label>
         </div>
         <div className="flex items-center pl-4 rounded-xl border-2 h-45 border-white bg-white cursor-pointer">
           <input
@@ -218,21 +348,26 @@ function HeroForm({ setFirst, setSecond }: any) {
               setClose(e.target.value);
               setChecked(false);
             }}
-            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer" />
+            className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
+          />
           <label
             htmlFor="bordered-radio-2"
-            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer">Enclosed</label>
+            className="py-4 ml-2 w-full text-base font-medium text-gray-900 cursor-pointer"
+          >
+            Enclosed
+          </label>
         </div>
       </div>
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4"></span>
       <button
+        onClick={handleCheckType}
         className="h-45 w-full rounded-lg bg-bg_color mt-5 text-white text-base"
-        type="submit"
+        type={`${btnLoc1 && btnLoc2 && btnLoc3 ? "submit" : "button"}`}
       >
         Get Shipment estimate
       </button>
     </form>
-  )
+  );
 }
 
 export default HeroForm;
