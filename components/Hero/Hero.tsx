@@ -5,15 +5,23 @@ import HeroForm from "../BaseComponents/FormInput/HeroForm";
 import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
 
 function Hero() {
-  const [first, setFirst] = useState(true);
-  const [second, setSecond] = useState(false);
+  const [heroPage, setHeroPage] = useState<string>("first");
+
+  useEffect(() => {
+    if (window.localStorage.getItem("second")) {
+      setHeroPage(window.localStorage.getItem("second") || "");
+    } else {
+      window.localStorage.setItem("second", "first");
+      setHeroPage("first");
+    }
+  }, [])
 
   return (
     <>
       <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-28 md:pt-160 pb-0 md:pb-80">
         {/* ----- First ----- */}
         {
-          first ? (
+          heroPage === "first" ? (
             <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
               <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-4 pb-7 sm:p-25 mb-8">
                 <h2 className="font-semibold text-20 sm:text-28 text-white mb-2">
@@ -23,7 +31,7 @@ function Hero() {
                   Get your estimate quote in seconds
                 </p>
                 <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-                <HeroForm setFirst={() => setFirst(false)} setSecond={() => setSecond(true)} />
+                <HeroForm setHeroPage={setHeroPage} />
               </div>
               <div className="text-start md:text-center lg:text-start max-w-heroRightW pb-12 lg:mb-0 !ml-0 md:mt-0 lg:mt-11 w-full">
                 <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">
@@ -48,7 +56,7 @@ function Hero() {
         }
         {/* ----- Second ----- */}
         {
-          second ? (
+          heroPage === "second" ? (
             <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
               <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-black-hero_Form_Bg backdrop-blur-[15px] rounded-10 p-4 pb-7 sm:p-25 mb-8">
                 <h2 className="flex items-center font-semibold text-20 sm:text-28 text-white mb-2">
@@ -58,10 +66,6 @@ function Hero() {
                     alt="arrow-left"
                     className="mr-16 cursor-pointer"
                     src={"/Images/Quote/direct.svg"}
-                    onClick={() => {
-                      setFirst(true);
-                      setSecond(false);
-                    }}
                   />
                   Shipping Cost Calculator
                 </h2>
@@ -94,8 +98,8 @@ function Hero() {
           ) : null
         }
         {/* ----- Thrird ----- */}
-        {/* {
-          three ? (
+        {
+          heroPage == "thrid" ? (
             <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
               <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-quoteform backdrop-blur-lg rounded-10 p-4 pb-7 sm:p-25 mb-8">
                 <h2 className="flex items-start font-semibold text-20 sm:text-28 text-white mb-2">
@@ -128,7 +132,7 @@ function Hero() {
               </div>
             </div>
           ) : null
-        } */}
+        }
       </section>
     </>
   );
