@@ -13,7 +13,7 @@ function Hero() {
   useEffect(() => {
     setFrom(window.localStorage.getItem("from") || "");
     setTo(window.localStorage.getItem("to") || "");
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (window.localStorage.getItem("second")) {
@@ -458,10 +458,29 @@ function Hero() {
       );
     });
   }
-
+  interface firstDoc {
+    from: String;
+    to: String;
+    estimate_time: String;
+  }
+  interface secoundDoc {
+    year: String;
+    make: String;
+    model: String;
+  }
+  const [firstData, setFirstData] = useState<firstDoc>();
+  useEffect(() => {
+    setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
+  }, []);
+  const [secoundData, setSecoundData] = useState<secoundDoc>();
+  useEffect(() => {
+    setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
+  }, []);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   return (
     <>
-      <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-28 md:pt-160 pb-0 md:pb-80">
+      <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[300px] md:pt-160 pb-0 md:pb-80">
         {/* ----- First ----- */}
         {heroPage === "first" ? (
           <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
@@ -562,8 +581,8 @@ function Hero() {
         ) : null}
         {/* ----- Thrird ----- */}
         {heroPage == "thrid" ? (
-          <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
-            <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-quoteform backdrop-blur-lg rounded-10 p-4 pb-7 sm:p-25 mb-8">
+          <div className="container-hero flex flex-col items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
+            <div className="sm:max-w-hero_Form_W  w-full bg-[#1F1F1F] sm:bg-quoteform backdrop-blur-lg lg:rounded-10 p-4 pb-7 sm:p-25 lg:mb-8">
               <h2 className="flex items-start font-semibold text-20 sm:text-28 text-white mb-2">
                 <Image
                   className="mr-16 mt-[10px] cursor-pointer"
@@ -582,15 +601,16 @@ function Hero() {
                 Get your estimate quote in seconds
               </p>
               <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-              <Third />
+              <Third setSuccess={setSuccess} setError={setError} />
             </div>
-            <div className="w-screen sm:w-[100%] px-4 sm:px-0 text-center lg:text-start bg-[#1F1F1F] sm:bg-transparent sm:ml-14 pb-12 lg:mb-0 border-2 border-black-servicesTextColor">
+            <div className="w-screen !ml-0 lg:w-[55%] px-4 sm:px-0 text-center lg:text-start bg-[#1F1F1F] sm:bg-transparent pb-12 lg:mb-0">
               <h3 className="font-semibold text-white text-2xl mt-5 md:mt-0">
                 Estimation Details
               </h3>
               <div className="flex flex-col sm:flex-row items-start">
-                <div className="w-[70%] border">
+                <div className="w-[100%] mx-auto">
                   <svg
+                    // className="w-[407px] h-[308px]"
                     id="WW"
                     viewBox="0 0 407 308"
                     fill="none"
@@ -606,38 +626,44 @@ function Hero() {
                     </defs>
                   </svg>
                 </div>
-                <div className="flex flex-col w-[30%]  md:items-start md:ml-8 mt-9">
-                  <div className="flex flex-row items-end md:items-start justify-between md:flex-col">
+                <div className="flex flex-col w-full  md:items-start md:ml-6 mt-9">
+                  <div className="flex flex-row items-end sm:items-center justify-between sm:flex-col">
                     <section className="flex flex-col md:flex-row items-center text-white font-thin">
                       <Image
-                        src={'/Images/Hero_Img/location.svg'}
+                        src={"/Images/Hero_Img/location.svg"}
                         width={24}
                         height={24}
                         alt="call img"
                       />
-                      <p className="ml-3 mt-2 md:mt-0">Rome, Italy</p>
+                      <p className="ml-3 text-[12px] sm:text-lg mt-3 sm:mt-2 md:mt-0">
+                        {firstData?.from}
+                      </p>
                     </section>
 
                     <Image
-                      src={'/Images/Hero_Img/line.svg'}
+                      src={"/Images/Hero_Img/line.svg"}
                       width={6}
                       height={10}
                       alt="call img"
-                      className="py-1 ml-2 md:rotate-0 rotate-90 "
+                      className="sm:py-1 sm:mb-5 sm:ml-2 sm:rotate-0 rotate-90 "
                     />
                     <section className="flex flex-col md:flex-row items-center text-white font-thin">
                       <Image
-                        src={'/Images/Hero_Img/location.svg'}
+                        src={"/Images/Hero_Img/location.svg"}
                         width={24}
                         height={24}
                         alt="call img"
                       />
-                      <p className="ml-3 mt-2 md:mt-0">Paris, France</p>
+                      <p className="ml-3 mt-3 text-[12px] sm:text-lg sm:mt-2 md:mt-0">
+                        {firstData?.to}
+                      </p>
                     </section>
                   </div>
                   <section className="mt-8 font-semibold md:ml-4 flex flex-row justify-between md:justify-start md:flex-col text-white text-base">
                     Estimate time:
-                    <span className="font-thin text-base">10.12.2022</span>
+                    <span className="font-thin text-base">
+                      {firstData?.estimate_time}
+                    </span>
                   </section>
                 </div>
               </div>
@@ -648,15 +674,15 @@ function Hero() {
                 <section className="border-y-2 border-gray-line my-4  flex flex-col gap-3 py-3 md:px-3 text-base text-white">
                   <section className="flex justify-between">
                     Year:
-                    <span>2020</span>
+                    <span>{secoundData?.year}</span>
                   </section>
                   <section className="flex justify-between">
                     Make:
-                    <span>BMW</span>
+                    <span>{secoundData?.make}</span>
                   </section>
                   <section className="flex justify-between">
                     Model:
-                    <span>X6 M</span>
+                    <span>{secoundData?.model}</span>
                   </section>
                 </section>
                 <h3 className="text-2xl text-start text-white font-semibold">
@@ -671,6 +697,54 @@ function Hero() {
           </div>
         ) : null}
       </section>
+      <div
+        className={`w-449 ${
+          success ? "scale-100" : "scale-0"
+        } duration-200 p-6 h-225 fixed top-0 bottom-0 left-0 right-0 m-auto bg-white rounded-xl`}
+      >
+        <Image
+          className="mx-auto mt-3 mb-40"
+          src={"/Images/thirdPageImgs/successFully.svg"}
+          width={87}
+          height={87}
+          alt="successfully"
+        />
+        <h2 className="font-bold text-[25px] text-center">
+          Your quote has been sent!
+        </h2>
+        <Image
+          onClick={() => setSuccess(false)}
+          className={`absolute top-6 cursor-pointer right-6`}
+          src={"/Images/thirdPageImgs/delete.svg"}
+          width={13}
+          height={13}
+          alt="delete icon"
+        />
+      </div>
+      <div
+        className={`w-449 ${
+          error ? "scale-100" : "scale-0"
+        } duration-200 p-6 h-225 fixed top-0 bottom-0 left-0 right-0 m-auto bg-white rounded-xl`}
+      >
+        <Image
+          className="mx-auto mb-40"
+          src={"/Images/thirdPageImgs/error.png"}
+          width={87}
+          height={87}
+          alt="successfully"
+        />
+        <h2 className="font-bold text-[25px] text-center">
+          Your invitation has not been sent!
+        </h2>
+        <Image
+          onClick={() => setError(false)}
+          className={`absolute top-6 cursor-pointer right-6`}
+          src={"/Images/thirdPageImgs/delete.svg"}
+          width={13}
+          height={13}
+          alt="delete icon"
+        />
+      </div>
     </>
   );
 }
