@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect, useRef } from "react";
 
-function Third() {
+function Third({ setSuccess, setError }: any) {
   const [loc, setLoc] = useState(false);
   const [loc3, setLoc3] = useState(false);
   const [loc2, setLoc2] = useState(false);
@@ -8,7 +9,10 @@ function Third() {
   const [btnLoc2, setBtnLoc2] = useState(false);
   const [btnLoc3, setBtnLoc3] = useState(false);
   const [locErrorName, setErrorName] = useState("There should be no head left");
-
+  const nameRef: any = useRef();
+  const emailRef: any = useRef();
+  const phoneRef: any = useRef();
+  const env = process.env.NEXT_PUBLIC_TOKEN;
   const handleBlur = (e: any) => {
     if (e.target.value) {
       setLoc(false);
@@ -35,12 +39,7 @@ function Third() {
       setBtnLoc3(false);
     }
   };
-  const nameRef: any = useRef();
-  const emailRef: any = useRef();
-  const phoneRef: any = useRef();
   const handleValid = () => {
-    console.log(nameRef.current.value);
-
     if (
       nameRef.current.value &&
       emailRef.current.value &&
@@ -52,8 +51,55 @@ function Third() {
       setLoc3(true);
     }
   };
+  interface FirstData {
+    estimate_time: String;
+    from: String;
+    to: String;
+    transport_type: String;
+  }
+  interface SecondData {
+    make: String;
+    model: String;
+    year: String;
+    vehicle: String;
+  }
+  const [firstData, setFirstData] = useState<FirstData>();
+  const [secoundData, setSecoundData] = useState<SecondData>();
+
+  useEffect(() => {
+    setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
+  }, []);
+  useEffect(() => {
+    setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
+  }, []);
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
+    const thirdData = {
+      name: evt.target.elements[0].value,
+      email: evt.target.elements[1].value,
+      phone: evt.target.elements[2].value,
+    };
+
+    const resultData = {
+      ...firstData,
+      ...secoundData,
+      ...thirdData,
+    };
+    axios
+      .post(`${env}orders`, resultData, {})
+      .then((res) => {
+        if (res.status === 201) {
+          setSuccess(true);
+          console.log(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
+    evt.target.elements[0].value = "";
+    evt.target.elements[1].value = "";
+    evt.target.elements[2].value = "";
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col" autoComplete="off">
@@ -118,9 +164,9 @@ function Third() {
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Phone number</span>
         <input
-          ref={phoneRef}
           type="number"
           id="number"
+          ref={phoneRef}
           onChange={(e) => {
             if (e.target.value === "") {
               setLoc3(true);
