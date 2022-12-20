@@ -14,6 +14,7 @@ function Hero() {
     setFrom(window.localStorage.getItem("from") || "");
     setTo(window.localStorage.getItem("to") || "");
   }, []);
+  
 
   useEffect(() => {
     if (window.localStorage.getItem("second")) {
