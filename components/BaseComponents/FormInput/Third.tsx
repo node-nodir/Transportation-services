@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 
-function Third({ setSuccess, setError }: any) {
+function Third({ setSuccess, setError, setHeroPage }: any) {
   const [loc, setLoc] = useState(false);
   const [loc3, setLoc3] = useState(false);
   const [loc2, setLoc2] = useState(false);
@@ -12,7 +12,9 @@ function Third({ setSuccess, setError }: any) {
   const nameRef: any = useRef();
   const emailRef: any = useRef();
   const phoneRef: any = useRef();
+
   const env = process.env.NEXT_PUBLIC_TOKEN;
+
   const handleBlur = (e: any) => {
     if (e.target.value) {
       setLoc(false);
@@ -39,6 +41,7 @@ function Third({ setSuccess, setError }: any) {
       setBtnLoc3(false);
     }
   };
+
   const handleValid = () => {
     if (
       nameRef.current.value &&
@@ -51,27 +54,18 @@ function Third({ setSuccess, setError }: any) {
       setLoc3(true);
     }
   };
-  interface FirstData {
-    estimate_time: String;
-    from: String;
-    to: String;
-    transport_type: String;
-  }
-  interface SecondData {
-    make: String;
-    model: String;
-    year: String;
-    vehicle: String;
-  }
-  const [firstData, setFirstData] = useState<FirstData>();
-  const [secoundData, setSecoundData] = useState<SecondData>();
+
+  const [firstData, setFirstData] = useState<any>();
+  const [secoundData, setSecoundData] = useState<any>();
 
   useEffect(() => {
     setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
   }, []);
+
   useEffect(() => {
     setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
   }, []);
+
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
     const thirdData = {
@@ -100,7 +94,11 @@ function Third({ setSuccess, setError }: any) {
     evt.target.elements[0].value = "";
     evt.target.elements[1].value = "";
     evt.target.elements[2].value = "";
+    localStorage.clear();
+    window.localStorage.setItem("second", "first");
+    setHeroPage("first");
   };
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
@@ -120,9 +118,8 @@ function Third({ setSuccess, setError }: any) {
             }
           }}
           placeholder="Write your full name"
-          className={`h-45 mt-1 ${
-            loc ? "border-red-500" : ""
-          } relative text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb- border-white`}
+          className={`h-45 mt-1 ${loc ? "border-red-500" : ""
+            } relative text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb- border-white`}
         />
         {loc ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -149,9 +146,8 @@ function Third({ setSuccess, setError }: any) {
           }}
           onBlur={handleBlur2}
           placeholder="Write your email address"
-          className={`h-45 ${
-            loc2 ? "border-red-500" : ""
-          } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+          className={`h-45 ${loc2 ? "border-red-500" : ""
+            } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
         {loc2 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -178,9 +174,8 @@ function Third({ setSuccess, setError }: any) {
           }}
           onBlur={handleBlur3}
           placeholder="Your phone number"
-          className={`h-45 ${
-            loc3 ? "border-red-500" : ""
-          } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+          className={`h-45 ${loc3 ? "border-red-500" : ""
+            } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
         {loc3 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
