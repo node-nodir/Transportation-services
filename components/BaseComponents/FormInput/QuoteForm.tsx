@@ -7,7 +7,7 @@ const env = process.env.NEXT_PUBLIC_TOKEN;
 function QuoteForm({ setHeroPage }: any) {
   // ---------->
   const [render, setRender] = useState(false);
-  const [yearVal, setYearVal] = useState<string>();
+  const [yearVal, setYearVal] = useState<string>("");
   // ---------->
   const [render1, setRender1] = useState(false);
   const [makeVal, setMakeVal] = useState<string>();
@@ -163,7 +163,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}make`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => { });
+      .finally(() => {});
   }, []);
 
   // -----> Get Model
@@ -172,7 +172,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}models?company_id=${foundId}`)
       .then((res) => setModelData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => { });
+      .finally(() => {});
   }, [foundId]);
 
   // ------> Submit Form
@@ -294,6 +294,12 @@ function QuoteForm({ setHeroPage }: any) {
           ref={inputYearRef}
           placeholder="Select a year"
           onBlur={handleBlur1}
+          onClick={() => {
+            setRender(true);
+            if (inputYearRef.current.value) {
+              setRender(false);
+            }
+          }}
           onChange={(e) => {
             setYearVal(e.target.value || "");
             setRender(true);
@@ -321,8 +327,9 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${yearVal!?.length > 0 ? "rotate-180" : ""
-            } ${render ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            yearVal!?.length > 0 ? "rotate-180" : ""
+          } ${render ? "" : "rotate-0"}`}
         />
         {render ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[68px] shadow-selectShadow">
@@ -331,7 +338,6 @@ function QuoteForm({ setHeroPage }: any) {
                 <p
                   key={id}
                   onClick={() => {
-                    setRender(false);
                     inputYearRef.current.value = item?.year;
                   }}
                   className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-[#f5f5f5] hover:text-orange-main duration-100"
@@ -351,6 +357,12 @@ function QuoteForm({ setHeroPage }: any) {
           ref={inputMakeRef}
           placeholder="Select a year"
           onBlur={handleBlur2}
+          onClick={() => {
+            setRender1(true);
+            if (inputMakeRef.current.value) {
+              setRender1(false);
+            }
+          }}
           onChange={(e) => {
             setMakeVal(e.target.value || "");
             setRender1(true);
@@ -378,8 +390,9 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${makeVal!?.length > 0 ? "rotate-180" : ""
-            } ${render1 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            makeVal!?.length > 0 ? "rotate-180" : ""
+          } ${render1 ? "" : "rotate-0"}`}
         />
         {render1 ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[68px] shadow-selectShadow">
@@ -388,7 +401,6 @@ function QuoteForm({ setHeroPage }: any) {
                 <p
                   key={id}
                   onClick={() => {
-                    setRender1(false);
                     setFoundId(item?.id);
                     inputMakeRef.current.value = item?.company_name;
                   }}
@@ -409,6 +421,12 @@ function QuoteForm({ setHeroPage }: any) {
           ref={inputModelRef}
           placeholder="Select a year"
           onBlur={handleBlur3}
+          onClick={() => {
+            setRender2(true);
+            if (inputModelRef.current.value) {
+              setRender2(false);
+            }
+          }}
           onChange={(e) => {
             setModelVal(e.target.value || "");
             setRender2(true);
@@ -436,8 +454,9 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${modelVal!?.length > 0 ? "rotate-180" : ""
-            } ${render2 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${
+            modelVal!?.length > 0 ? "rotate-180" : ""
+          } ${render2 ? "" : "rotate-0"}`}
         />
         {render2 ? (
           <div className="w-full max-h-[130px] overflow-y-scroll rounded absolute bg-white z-30 top-[68px] shadow-selectShadow">
@@ -446,7 +465,6 @@ function QuoteForm({ setHeroPage }: any) {
                 <p
                   key={id}
                   onClick={() => {
-                    setRender2(false);
                     inputModelRef.current.value = item?.model_name;
                   }}
                   className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
