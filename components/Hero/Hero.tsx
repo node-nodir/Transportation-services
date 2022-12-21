@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Third from "../BaseComponents/FormInput/Third";
 import HeroForm from "../BaseComponents/FormInput/HeroForm";
 import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
+import toast, { Toaster } from "react-hot-toast";
 
 function Hero() {
   const [heroPage, setHeroPage] = useState<string>("first");
@@ -12,6 +13,17 @@ function Hero() {
   const [rev, setRev] = useState<boolean>(false);
   const [firstData, setFirstData] = useState<any>();
   const [secoundData, setSecoundData] = useState<any>();
+  const [success, setSuccess] = useState<any>();
+  const [error, setError] = useState<any>();
+
+  // ------> Successfully Sent
+  useEffect(() => {
+    if (success) {
+      toast.success('Successfully toasted!')
+    } else if (error) {
+      toast.error('No!')
+    }
+  }, [success, error])
 
   useEffect(() => {
     setFrom(window.localStorage.getItem("from") || "");
@@ -476,7 +488,9 @@ function Hero() {
 
   return (
     <>
-      <section id="hero" className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[300px] md:pt-160 pb-0 md:pb-80">
+      <section id="hero" className={`hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[100px] md:pt-160 pb-0 md:pb-80`}>
+        <Toaster position="top-center" reverseOrder={false}
+        />
         {/* ----- First ----- */}
         {heroPage === "first" ? (
           <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
@@ -563,7 +577,7 @@ function Hero() {
                 viewBox="0 0 407 308"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="max-w-449 w-full mt-11"
+                className="max-w-449 w-full mt-5"
               >
                 <g clipPath="url(#clip0_346_8795)">
                   {renderSvgImages(svgImages, from, to)}
@@ -579,8 +593,8 @@ function Hero() {
         ) : null}
         {/* ----- Thrird ----- */}
         {heroPage == "thrid" ? (
-          <div className="container-hero flex flex-col items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
-            <div className="sm:max-w-hero_Form_W  w-full bg-[#1F1F1F] sm:bg-quoteform backdrop-blur-lg lg:rounded-10 p-4 pb-7 sm:p-25 lg:mb-8">
+          <div className="container flex flex-col items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
+            <div className="max-w-hero_Form_W w-full bg-heroFormMoblie sm:bg-quoteform backdrop-blur-lg rounded-10 p-4 pb-7 sm:p-25 lg:mb-8">
               <h2 className="flex items-start font-semibold text-20 sm:text-28 text-white mb-2">
                 <Image
                   className="mr-16 mt-[10px] cursor-pointer"
@@ -599,9 +613,9 @@ function Hero() {
                 Get your estimate quote in seconds
               </p>
               <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-              <Third setHeroPage={setHeroPage} />
+              <Third setHeroPage={setHeroPage} setSuccess={setSuccess} setError={setError} />
             </div>
-            <div className="w-screen !ml-0 lg:w-[55%] px-4 sm:px-0 text-center lg:text-start bg-[#1F1F1F] sm:bg-transparent pb-12 lg:mb-0">
+            <div className="w-full !ml-0 lg:w-[55%] px-4 sm:px-0 text-center lg:text-start bg-transparent pb-12 lg:mb-0">
               <h3 className="font-semibold text-white text-2xl mt-5 md:mt-0">
                 Estimation Details
               </h3>
@@ -624,16 +638,16 @@ function Hero() {
                     </defs>
                   </svg>
                 </div>
-                <div className="flex flex-col w-full  md:items-start md:ml-6 mt-9">
-                  <div className="flex flex-row items-end sm:items-center justify-between sm:flex-col">
+                <div className="flex flex-col w-full  md:items-start md:ml-11 mt-9">
+                  <div className="flex flex-row items-end sm:items-start justify-between sm:flex-col">
                     <section className="flex flex-col md:flex-row items-center text-white font-thin">
                       <Image
                         src={"/Images/Hero_Img/location.svg"}
-                        width={24}
-                        height={24}
+                        width={25}
+                        height={25}
                         alt="call img"
                       />
-                      <p className="ml-3 text-[12px] sm:text-lg mt-3 sm:mt-2 md:mt-0">
+                      <p className="ml-3 text-[14px] sm:text-lg mt-3 sm:mt-2 md:mt-0">
                         {firstData?.from}
                       </p>
                     </section>
@@ -643,7 +657,7 @@ function Hero() {
                       width={6}
                       height={10}
                       alt="call img"
-                      className="sm:py-1 sm:mb-5 sm:ml-2 sm:rotate-0 rotate-90 "
+                      className="sm:my-2 sm:ml-[10px] sm:rotate-0 rotate-90 "
                     />
                     <section className="flex flex-col md:flex-row items-center text-white font-thin">
                       <Image
@@ -652,7 +666,7 @@ function Hero() {
                         height={24}
                         alt="call img"
                       />
-                      <p className="ml-3 mt-3 text-[12px] sm:text-lg sm:mt-2 md:mt-0">
+                      <p className="ml-3 mt-3 text-[14px] sm:text-lg sm:mt-2 md:mt-0">
                         {firstData?.to}
                       </p>
                     </section>
