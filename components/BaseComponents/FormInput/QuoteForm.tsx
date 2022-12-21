@@ -176,7 +176,7 @@ function QuoteForm({ setHeroPage }: any) {
       year: e.target.elements[0].value,
       make: e.target.elements[1].value,
       model: e.target.elements[2].value,
-      vehicle: e.target.elements[3].checked ? "running" : "inoperable",
+      vehicle: e.target.elements[3].checked ? "run" : "inoperable",
     };
 
     window.localStorage.setItem("seconData", JSON.stringify(secoundData));
@@ -468,7 +468,7 @@ function QuoteForm({ setHeroPage }: any) {
           <input
             required
             type="radio"
-            value={"running"}
+            value={"run"}
             id="bordered-radio-1-q"
             name="bordered-radio"
             onChange={(e) => setOpen(e.currentTarget.value + " " + "open")}
