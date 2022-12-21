@@ -16,7 +16,7 @@ interface Item {
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function HeroForm({ setHeroPage, svgImages, from, to, }: any) {
+function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to, }: any) {
   const [data, setData] = useState([]);
   const [zipCode, setZipCode] = useState("");
   const [country, setCountry] = useState("");
@@ -77,6 +77,7 @@ function HeroForm({ setHeroPage, svgImages, from, to, }: any) {
 
     const from = e.target.elements.from.value;
     const to = e.target.elements.to.value;
+    setRev(!rev)
 
     const firstData = {
       from: from,

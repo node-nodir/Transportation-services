@@ -14,7 +14,7 @@ function Hero() {
     setFrom(window.localStorage.getItem("from") || "");
     setTo(window.localStorage.getItem("to") || "");
   }, []);
-  
+
 
   useEffect(() => {
     if (window.localStorage.getItem("second")) {
@@ -459,26 +459,26 @@ function Hero() {
       );
     });
   }
-  interface firstDoc {
-    from: String;
-    to: String;
-    estimate_time: String;
-  }
-  interface secoundDoc {
-    year: String;
-    make: String;
-    model: String;
-  }
-  const [firstData, setFirstData] = useState<firstDoc>();
+  const [rev, setRev] = useState<boolean>(false);
+  const [firstData, setFirstData] = useState<any>();
   useEffect(() => {
-    setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
-  }, []);
-  const [secoundData, setSecoundData] = useState<secoundDoc>();
+    if (window.localStorage.getItem("data")) {
+      setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
+    }
+  }, [rev]);
+
+
+  const [secoundData, setSecoundData] = useState<any>();
   useEffect(() => {
-    setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
-  }, []);
+    if (window.localStorage.getItem("seconData")) {
+      setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
+    }
+  }, [rev]);
+
+
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+
   return (
     <>
       <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[300px] md:pt-160 pb-0 md:pb-80">
@@ -496,6 +496,8 @@ function Hero() {
               <HeroForm
                 setHeroPage={setHeroPage}
                 svgImages={svgImages}
+                setRev={setRev}
+                rev={rev}
                 from={setFrom}
                 to={setTo}
               />
@@ -602,7 +604,7 @@ function Hero() {
                 Get your estimate quote in seconds
               </p>
               <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-              <Third setSuccess={setSuccess} setError={setError} />
+              <Third setSuccess={setSuccess} setError={setError} setHeroPage={setHeroPage} />
             </div>
             <div className="w-screen !ml-0 lg:w-[55%] px-4 sm:px-0 text-center lg:text-start bg-[#1F1F1F] sm:bg-transparent pb-12 lg:mb-0">
               <h3 className="font-semibold text-white text-2xl mt-5 md:mt-0">
@@ -698,54 +700,6 @@ function Hero() {
           </div>
         ) : null}
       </section>
-      <div
-        className={`w-449 ${
-          success ? "scale-100" : "scale-0"
-        } duration-200 p-6 h-225 fixed top-0 bottom-0 left-0 right-0 m-auto bg-white rounded-xl`}
-      >
-        <Image
-          className="mx-auto mt-3 mb-40"
-          src={"/Images/thirdPageImgs/successFully.svg"}
-          width={87}
-          height={87}
-          alt="successfully"
-        />
-        <h2 className="font-bold text-[25px] text-center">
-          Your quote has been sent!
-        </h2>
-        <Image
-          onClick={() => setSuccess(false)}
-          className={`absolute top-6 cursor-pointer right-6`}
-          src={"/Images/thirdPageImgs/delete.svg"}
-          width={13}
-          height={13}
-          alt="delete icon"
-        />
-      </div>
-      <div
-        className={`w-449 ${
-          error ? "scale-100" : "scale-0"
-        } duration-200 p-6 h-225 fixed top-0 bottom-0 left-0 right-0 m-auto bg-white rounded-xl`}
-      >
-        <Image
-          className="mx-auto mb-40"
-          src={"/Images/thirdPageImgs/error.png"}
-          width={87}
-          height={87}
-          alt="successfully"
-        />
-        <h2 className="font-bold text-[25px] text-center">
-          Your invitation has not been sent!
-        </h2>
-        <Image
-          onClick={() => setError(false)}
-          className={`absolute top-6 cursor-pointer right-6`}
-          src={"/Images/thirdPageImgs/delete.svg"}
-          width={13}
-          height={13}
-          alt="delete icon"
-        />
-      </div>
     </>
   );
 }
