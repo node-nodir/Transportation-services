@@ -23,11 +23,19 @@ function GetTouchForm() {
   const onSubmit = (values: any, { resetForm }: any) => {
     let fullText = `\u{2705} Full Name: ${values.name}%0A\u{2705} Email: ${values.email} %0A\u{2705} Phone Number: ${values.number} %0A\u{2705} Comments:${values.comment}`;
 
+    const obj = {
+      name: values.name,
+      email: values.email,
+      phone: String(values.number),
+      comment: values.comment
+    }
+    console.log(obj)
     // --- Sent Telegram Bot
     axios.post(
-      `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${fullText}`
-    );
-
+      `https://car-shipment-production.up.railway.app/contacts`,
+      obj
+    ).then(()=>console.log('Contact sended'))
+      .catch(err=>console.log(err))
     resetForm();
   }
 

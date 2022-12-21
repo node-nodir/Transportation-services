@@ -173,7 +173,7 @@ function QuoteForm({ setHeroPage }: any) {
       year: e.target.elements[0].value,
       make: e.target.elements[1].value,
       model: e.target.elements[2].value,
-      vehicle: e.target.elements[3].checked ? "running" : "inoperable",
+      vehicle: e.target.elements[3].checked ? "run" : "inoperable",
     };
 
     window.localStorage.setItem("seconData", JSON.stringify(secoundData));
@@ -242,6 +242,41 @@ function QuoteForm({ setHeroPage }: any) {
     } else {
       setYear3(false);
       setBtn3(false);
+    }
+  };
+  const handleCheckType = () => {
+    if (
+      inputYearRef.current.value === "" &&
+      inputMakeRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(false);
+      setYear3(true);
+    }
+    if (
+      inputYearRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(true);
+      setYear3(false);
+    }
+    if (
+      inputMakeRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(true);
+      setYear2(false);
+      setYear3(false);
+    }
+    if (
+      inputYearRef.current.value === "" &&
+      inputMakeRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(false);
+      setYear3(false);
     }
   };
   return (
@@ -424,7 +459,7 @@ function QuoteForm({ setHeroPage }: any) {
           <input
             required
             type="radio"
-            value={"running"}
+            value={"run"}
             id="bordered-radio-1-q"
             name="bordered-radio"
             className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
@@ -455,6 +490,7 @@ function QuoteForm({ setHeroPage }: any) {
       </div>
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
       <button
+        onClick={handleCheckType}
         className="bg-orange-main h-45 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
         type={`${btn1 && btn2 && btn3 ? "submit" : "button"}`}
       >
