@@ -481,7 +481,7 @@ function Hero() {
 
   return (
     <>
-      <section className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[300px] md:pt-160 pb-0 md:pb-80">
+      <section id="hero" className="hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[300px] md:pt-160 pb-0 md:pb-80">
         {/* ----- First ----- */}
         {heroPage === "first" ? (
           <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
