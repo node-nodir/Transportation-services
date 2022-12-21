@@ -144,9 +144,18 @@ function QuoteForm({ setHeroPage }: any) {
     { year: "1901" },
     { year: "1900" },
   ]);
+  // ------> Input Refs
   const inputYearRef = useRef<HTMLInputElement>(null!);
   const inputMakeRef = useRef<HTMLInputElement>(null!);
   const inputModelRef = useRef<HTMLInputElement>(null!);
+  // ------> Validation
+  const [locErrorName, setErrorName] = useState("There should be no head left");
+  const [year1, setYear1] = useState(true);
+  const [year2, setYear2] = useState(true);
+  const [year3, setYear3] = useState(true);
+  const [btn1, setBtn1] = useState(false);
+  const [btn2, setBtn2] = useState(false);
+  const [btn3, setBtn3] = useState(false);
 
   // -----> Get Make
   useEffect(() => {
@@ -210,13 +219,8 @@ function QuoteForm({ setHeroPage }: any) {
 
     return filterInput;
   }
-  const [locErrorName, setErrorName] = useState("There should be no head left");
-  const [year1, setYear1] = useState(true);
-  const [year2, setYear2] = useState(true);
-  const [year3, setYear3] = useState(true);
-  const [btn1, setBtn1] = useState(false);
-  const [btn2, setBtn2] = useState(false);
-  const [btn3, setBtn3] = useState(false);
+
+  // ------> Validation
   const handleBlur1 = (evt: any) => {
     if (evt.target.value) {
       setYear1(true);
@@ -279,6 +283,7 @@ function QuoteForm({ setHeroPage }: any) {
       setYear3(false);
     }
   };
+
   return (
     <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
@@ -302,12 +307,12 @@ function QuoteForm({ setHeroPage }: any) {
             }
           }}
           className={`relative ${year1 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year1 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
             {locErrorName}
           </label>
         )}
@@ -359,12 +364,12 @@ function QuoteForm({ setHeroPage }: any) {
             }
           }}
           className={`relative ${year2 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year2 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
             {locErrorName}
           </label>
         )}
@@ -417,12 +422,12 @@ function QuoteForm({ setHeroPage }: any) {
             }
           }}
           className={`relative ${year3 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year3 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[2px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
             {locErrorName}
           </label>
         )}
