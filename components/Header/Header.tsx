@@ -227,6 +227,7 @@ function Header() {
         </div>
         <p className="absolute bottom-0 text-center right-0 left-0 mx-auto">
           Copyright © All rights reserved
+          
         </p>
       </div>
     </header>
