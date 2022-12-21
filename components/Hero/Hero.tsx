@@ -7,14 +7,16 @@ import QuoteForm from "../BaseComponents/FormInput/QuoteForm";
 function Hero() {
   const [heroPage, setHeroPage] = useState<string>("first");
   // ------>
-  const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const [from, setFrom] = useState("");
+  const [rev, setRev] = useState<boolean>(false);
+  const [firstData, setFirstData] = useState<any>();
+  const [secoundData, setSecoundData] = useState<any>();
 
   useEffect(() => {
     setFrom(window.localStorage.getItem("from") || "");
     setTo(window.localStorage.getItem("to") || "");
   }, []);
-
 
   useEffect(() => {
     if (window.localStorage.getItem("second")) {
@@ -459,25 +461,18 @@ function Hero() {
       );
     });
   }
-  const [rev, setRev] = useState<boolean>(false);
-  const [firstData, setFirstData] = useState<any>();
+
   useEffect(() => {
     if (window.localStorage.getItem("data")) {
       setFirstData(JSON.parse(window.localStorage.getItem("data") || ""));
     }
   }, [rev]);
 
-
-  const [secoundData, setSecoundData] = useState<any>();
   useEffect(() => {
     if (window.localStorage.getItem("seconData")) {
       setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
     }
   }, [rev]);
-
-
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
 
   return (
     <>
@@ -604,7 +599,7 @@ function Hero() {
                 Get your estimate quote in seconds
               </p>
               <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-              <Third setSuccess={setSuccess} setError={setError} setHeroPage={setHeroPage} />
+              <Third setHeroPage={setHeroPage} />
             </div>
             <div className="w-screen !ml-0 lg:w-[55%] px-4 sm:px-0 text-center lg:text-start bg-[#1F1F1F] sm:bg-transparent pb-12 lg:mb-0">
               <h3 className="font-semibold text-white text-2xl mt-5 md:mt-0">

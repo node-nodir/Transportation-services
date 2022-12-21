@@ -29,6 +29,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/react-scroll": "^1.8.5",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
