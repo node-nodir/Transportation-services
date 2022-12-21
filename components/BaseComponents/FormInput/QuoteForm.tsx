@@ -247,6 +247,41 @@ function QuoteForm({ setHeroPage }: any) {
       setBtn3(false);
     }
   };
+  const handleCheckType = () => {
+    if (
+      inputYearRef.current.value === "" &&
+      inputMakeRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(false);
+      setYear3(true);
+    }
+    if (
+      inputYearRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(true);
+      setYear3(false);
+    }
+    if (
+      inputMakeRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(true);
+      setYear2(false);
+      setYear3(false);
+    }
+    if (
+      inputYearRef.current.value === "" &&
+      inputMakeRef.current.value === "" &&
+      inputModelRef.current.value === ""
+    ) {
+      setYear1(false);
+      setYear2(false);
+      setYear3(false);
+    }
+  };
   return (
     <form onSubmit={SubmitData} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
@@ -466,6 +501,7 @@ function QuoteForm({ setHeroPage }: any) {
       </div>
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
       <button
+        onClick={handleCheckType}
         className="bg-orange-main h-45 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
         type={`${btn1 && btn2 && btn3 ? "submit" : "button"}`}
       >
