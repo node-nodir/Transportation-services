@@ -73,30 +73,23 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
       email: evt.target.elements[1].value,
       phone: evt.target.elements[2].value,
     };
-
     const resultData = {
       ...firstData,
       ...secoundData,
       ...thirdData,
     };
+    // ------> Post data
     axios
       .post(`${env}orders`, resultData, {})
       .then((res) => {
         if (res.status === 201) {
-          setSuccess(true);
-          console.log(res);
+          localStorage.clear();
+          window.localStorage.setItem("second", "first");
+          setHeroPage("first");
         }
       })
-      .catch((err) => {
-        console.log(err);
-        setError(true);
-      });
-    evt.target.elements[0].value = "";
-    evt.target.elements[1].value = "";
-    evt.target.elements[2].value = "";
-    localStorage.clear();
-    window.localStorage.setItem("second", "first");
-    setHeroPage("first");
+      .catch((err) => { })
+      .finally(() => evt.target.reset())
   };
 
   return (

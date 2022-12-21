@@ -18,9 +18,6 @@ function QuoteForm({ setHeroPage }: any) {
   // --------->
   const [data, setData] = useState([]);
   const [modelData, setModelData] = useState([]);
-  const [open, setOpen] = useState("");
-  const [close, setClose] = useState("");
-  const [checked, setChecked] = useState(false);
   const [yearData, setYearData] = useState([
     { year: "2023" },
     { year: "2022" },
@@ -157,7 +154,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}make`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, []);
 
   // -----> Get Model
@@ -166,7 +163,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}models?company_id=${foundId}`)
       .then((res) => setModelData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, [foundId]);
 
   // ------> Submit Form
@@ -269,9 +266,8 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn1(true);
             }
           }}
-          className={`relative ${
-            year1 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year1 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year1 ? (
           ""
@@ -285,9 +281,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            yearVal!?.length > 0 ? "rotate-180" : ""
-          } ${render ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${yearVal!?.length > 0 ? "rotate-180" : ""
+            } ${render ? "" : "rotate-0"}`}
         />
         {render ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[68px] shadow-selectShadow">
@@ -328,9 +323,8 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn1(true);
             }
           }}
-          className={`relative ${
-            year2 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year2 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year2 ? (
           ""
@@ -344,9 +338,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            makeVal!?.length > 0 ? "rotate-180" : ""
-          } ${render1 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${makeVal!?.length > 0 ? "rotate-180" : ""
+            } ${render1 ? "" : "rotate-0"}`}
         />
         {render1 ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[68px] shadow-selectShadow">
@@ -388,9 +381,8 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn1(true);
             }
           }}
-          className={`relative ${
-            year3 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year3 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year3 ? (
           ""
@@ -404,9 +396,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            modelVal!?.length > 0 ? "rotate-180" : ""
-          } ${render2 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${modelVal!?.length > 0 ? "rotate-180" : ""
+            } ${render2 ? "" : "rotate-0"}`}
         />
         {render2 ? (
           <div className="w-full max-h-[130px] overflow-y-scroll rounded absolute bg-white z-30 top-[68px] shadow-selectShadow">
@@ -436,7 +427,6 @@ function QuoteForm({ setHeroPage }: any) {
             value={"running"}
             id="bordered-radio-1-q"
             name="bordered-radio"
-            onChange={(e) => setOpen(e.currentTarget.value + " " + "open")}
             className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
           />
           <label
@@ -453,7 +443,6 @@ function QuoteForm({ setHeroPage }: any) {
             id="bordered-radio-2"
             value={"inoperable"}
             name="bordered-radio"
-            onChange={(e) => setClose(e.currentTarget.value + " " + "close")}
             className="w-7 h-7 border border-[#D3D3D3] accent-amber-600 cursor-pointer"
           />
           <label
