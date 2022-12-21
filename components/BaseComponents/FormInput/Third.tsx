@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function Third({ setSuccess, setError, setHeroPage }: any) {
   const [loc, setLoc] = useState(false);
@@ -68,28 +69,38 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
 
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
+
     const thirdData = {
       name: evt.target.elements[0].value,
       email: evt.target.elements[1].value,
       phone: evt.target.elements[2].value,
     };
-    const resultData = {
-      ...firstData,
-      ...secoundData,
-      ...thirdData,
-    };
+
     // ------> Post data
     axios
-      .post(`${env}orders`, resultData, {})
+      .post(`${env}orders`, {
+        ...firstData,
+        ...secoundData,
+        ...thirdData,
+      })
       .then((res) => {
         if (res.status === 201) {
-          localStorage.clear();
-          window.localStorage.setItem("second", "first");
-          setHeroPage("first");
+          setSuccess(true);
+          setTimeout(() => {
+            window.localStorage.setItem("second", "first");
+            setHeroPage("first");
+          }, 2500)
         }
       })
-      .catch((err) => { })
-      .finally(() => evt.target.reset())
+      .catch((err) => {
+        if (err.status === 201) {
+          setError(true);
+        }
+      })
+      .finally(() => {
+        evt.target.reset()
+        localStorage.clear();
+      })
   };
 
   return (
@@ -112,7 +123,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           }}
           placeholder="Write your full name"
           className={`h-45 mt-1 ${loc ? "border-red-500" : ""
-            } relative text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb- border-white`}
+            } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb- border-white`}
         />
         {loc ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -140,7 +151,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           onBlur={handleBlur2}
           placeholder="Write your email address"
           className={`h-45 ${loc2 ? "border-red-500" : ""
-            } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
         {loc2 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -168,7 +179,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           onBlur={handleBlur3}
           placeholder="Your phone number"
           className={`h-45 ${loc3 ? "border-red-500" : ""
-            } mt-1 text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
         />
         {loc3 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -181,7 +192,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
       <span className="w-full h-[1px] inline-block bg-black-line_bg mt-6 mb-5"></span>
       <button
         onClick={handleValid}
-        className="bg-orange-main h-56 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
+        className="bg-orange-main h-45 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
         type={`${btnLoc1 && btnLoc2 && btnLoc3 ? "submit" : "button"}`}
       >
         Send me the Free Quote Now
