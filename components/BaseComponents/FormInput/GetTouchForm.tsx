@@ -4,11 +4,11 @@ import axios from "axios";
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
 function GetTouchForm() {
-  let token = "5702266536:AAFT_kPTv4ZWIJJN1-H5sGH7UmVDLI5bwKc";
-  let chatId = "-1001544371098";
+  // ------> Input Refs
   const inputFromRef = useRef<HTMLInputElement>(null!);
   const inputToRef = useRef<HTMLInputElement>(null!);
   const inputDateRef = useRef<HTMLInputElement>(null!);
+  // -------> Validations
   const [loc, setLoc] = useState(false);
   const [loc3, setLoc3] = useState(false);
   const [loc2, setLoc2] = useState(false);
@@ -19,6 +19,7 @@ function GetTouchForm() {
   const [validTel, setValidTel] = useState(false);
   const [focus, setFocus] = useState(false);
   const [locErrorName, setErrorName] = useState("There should be no head left");
+
   // -----> Submit Informations
   const onSubmitFom = (evt: any) => {
     evt.preventDefault();
@@ -32,10 +33,11 @@ function GetTouchForm() {
     };
     axios
       .post(`${env}contacts`, obj)
-      .then((res) => {})
+      .then((res) => { })
       .catch((err) => console.log(err));
   };
 
+  // ------> Validation
   const handleBlur = (e: any) => {
     if (e.target.value) {
       setLoc(false);
@@ -44,7 +46,6 @@ function GetTouchForm() {
       setBtnLoc1(false);
     }
   };
-
   const handleBlur2 = (e: any) => {
     if (e.target.value) {
       setLoc2(false);
@@ -53,7 +54,6 @@ function GetTouchForm() {
       setBtnLoc2(false);
     }
   };
-
   const handleBlur3 = (e: any) => {
     if (e.target.value) {
       setLoc3(false);
@@ -94,8 +94,9 @@ function GetTouchForm() {
   const handeFocusNumber = () => {
     setFocus(true);
   };
+
   return (
-    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 px-16 md:px-30 py-6">
+    <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 mb-11 md:mb-0 px-16 md:px-30 py-6">
       <h1 className="font-bold text-28 sm:text-3xl leading-9 text-white">
         Contact us
       </h1>
@@ -126,21 +127,19 @@ function GetTouchForm() {
             }}
             onBlur={handleBlur}
             placeholder="Write your full name"
-            className={`h-45 mt-2 text-sm ${
-              errorName ? "border-red-500" : ""
-            }  ${
-              loc ? "border-red-500" : ""
-            } md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
+            className={`h-45 mt-2 text-sm ${errorName ? "border-red-500" : ""
+              }  ${loc ? "border-red-500" : ""
+              } md:text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-6`}
           />
           {loc ? (
-            <label className="absolute bottom-2 text-red-500 text-[11px]">
+            <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
               {locErrorName}
             </label>
           ) : (
             ""
           )}
           {errorName ? (
-            <span className="absolute bottom-2 text-red-500 text-[11px]">
+            <span className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
               Enter only name
             </span>
           ) : (
@@ -167,12 +166,11 @@ function GetTouchForm() {
               }}
               onBlur={handleBlur2}
               placeholder="Write your email address"
-              className={`h-45 mt-2 ${
-                loc2 ? "border-red-500" : ""
-              } text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
+              className={`h-45 mt-2 ${loc2 ? "border-red-500" : ""
+                } text-sm md:text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-6`}
             />
             {loc2 ? (
-              <label className="absolute bottom-2 text-red-500 text-[11px]">
+              <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
                 {locErrorName}
               </label>
             ) : (
@@ -205,19 +203,18 @@ function GetTouchForm() {
               onBlur={handleBlur3}
               id="number"
               placeholder="Your phone number"
-              className={`h-45 ${validTel ? "border-red-500" : ""} ${
-                loc3 ? "border-red-500" : ""
-              } mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
+              className={`h-45 ${validTel ? "border-red-500" : ""} ${loc3 ? "border-red-500" : ""
+                } mt-2 text-sm md:text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-6`}
             />
             {loc3 ? (
-              <label className="absolute bottom-2 text-red-500 text-[11px]">
+              <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
                 {locErrorName}
               </label>
             ) : (
               ""
             )}
             {validTel ? (
-              <label className="absolute bottom-2 text-red-500 text-[11px]">
+              <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
                 Enter only Number
               </label>
             ) : (
@@ -232,13 +229,13 @@ function GetTouchForm() {
           <textarea
             id="comment"
             placeholder="Comment"
-            className={`h-100 mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
+            className={`h-100 mt-2 text-sm md:text-base rounded-md px-3 pt-[8px] outline-none border-2 mb-3 sm:mb-6`}
           />
         </label>
         <hr className="w-full text-[#989898] mb-5 mt-2" />
         <button
           onClick={handleCheckType}
-          className="bg-orange-main h-[56px] hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
+          className="bg-orange-main h-45 hover:bg-orange-500 transition-all ease-in-out rounded-lg text-base text-white "
           type={`${btnLoc1 && btnLoc2 && btnLoc3 ? "submit" : "button"}`}
         >
           Send
