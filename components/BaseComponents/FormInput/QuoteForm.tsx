@@ -236,7 +236,7 @@ function QuoteForm({ setHeroPage }: any) {
       setBtn2(true);
     } else {
       setYear2(false);
-      setBtn1(false);
+      setBtn2(false);
     }
   };
   const handleBlur3 = (evt: any) => {
@@ -312,8 +312,9 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn1(true);
             }
           }}
-          className={`relative ${year1 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year1 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year1 ? (
           ""
@@ -339,6 +340,8 @@ function QuoteForm({ setHeroPage }: any) {
                   key={id}
                   onClick={() => {
                     inputYearRef.current.value = item?.year;
+                    setYear1(true);
+                    setBtn1(true);
                   }}
                   className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-[#f5f5f5] hover:text-orange-main duration-100"
                 >
@@ -369,14 +372,15 @@ function QuoteForm({ setHeroPage }: any) {
             if (e.target.value === "") {
               setRender1(false);
               setYear2(false);
-              setBtn1(false);
+              setBtn2(false);
             } else {
               setYear2(true);
-              setBtn1(true);
+              setBtn2(true);
             }
           }}
-          className={`relative ${year2 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year2 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year2 ? (
           ""
@@ -403,6 +407,8 @@ function QuoteForm({ setHeroPage }: any) {
                   onClick={() => {
                     setFoundId(item?.id);
                     inputMakeRef.current.value = item?.company_name;
+                    setYear2(true);
+                    setBtn2(true);
                   }}
                   className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
                 >
@@ -433,14 +439,15 @@ function QuoteForm({ setHeroPage }: any) {
             if (e.target.value === "") {
               setRender2(false);
               setYear3(false);
-              setBtn1(false);
+              setBtn3(false);
             } else {
               setYear3(true);
-              setBtn1(true);
+              setBtn3(true);
             }
           }}
-          className={`relative ${year3 ? "" : "border-red-500"
-            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${
+            year3 ? "" : "border-red-500"
+          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year3 ? (
           ""
@@ -466,6 +473,8 @@ function QuoteForm({ setHeroPage }: any) {
                   key={id}
                   onClick={() => {
                     inputModelRef.current.value = item?.model_name;
+                    setYear3(true);
+                    setBtn3(true);
                   }}
                   className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
                 >

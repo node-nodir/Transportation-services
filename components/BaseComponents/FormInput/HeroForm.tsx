@@ -57,7 +57,7 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
       )
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => { });
+      .finally(() => {});
   }, [country, zipCode, booleon]);
 
   // -----> Get Zip Codes
@@ -70,7 +70,7 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
       )
       .then((res) => setData1(res.data))
       .catch((err) => console.error(err))
-      .finally(() => { });
+      .finally(() => {});
   }, [country1, zipCode1, booleon1]);
 
   // ------> Submit Data
@@ -169,8 +169,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
           required
           placeholder="Select ZIP code or location"
           onBlur={handleBlur}
-          className={`input_bg ${loc ? "border-red-500" : ""
-            } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
+          className={`input_bg ${
+            loc ? "border-red-500" : ""
+          } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4`}
           onChange={(e) => {
             if (e.target.value) {
               setLoc(false);
@@ -198,11 +199,11 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
                   setRender(false);
                   inputFromRef.current.value = item?.zip
                     ? item.zip +
-                    ", " +
-                    item?.primary_city +
-                    ", " +
-                    item.state +
-                    ", USA"
+                      ", " +
+                      item?.primary_city +
+                      ", " +
+                      item.state +
+                      ", USA"
                     : item?.primary_city + ", " + item.state + ", USA";
                   svgImages.map((i: any) => {
                     if (item.state === i?.name) {
@@ -215,15 +216,16 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
                 }}
                 className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
                 key={id}
-              >{`${item.zip
-                ? item.zip +
-                ", " +
-                item?.primary_city +
-                ", " +
-                item.state +
-                ", USA"
-                : item?.primary_city + ", " + item.state + ", USA"
-                }`}</p>
+              >{`${
+                item.zip
+                  ? item.zip +
+                    ", " +
+                    item?.primary_city +
+                    ", " +
+                    item.state +
+                    ", USA"
+                  : item?.primary_city + ", " + item.state + ", USA"
+              }`}</p>
             ))}
           </div>
         ) : null}
@@ -244,8 +246,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
           required
           placeholder="Select ZIP code or location"
           onBlur={handleBlur2}
-          className={`input_bg ${loc2 ? "border-red-500" : ""
-            } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 border-white`}
+          className={`input_bg ${
+            loc2 ? "border-red-500" : ""
+          } h-45 relative w-full text-black-inputPlaceholderColor text-15 rounded-md pl-9 mt-1 outline-none border-2 mb-4 `}
           onChange={(e) => {
             if (e.target.value) {
               setLoc2(false);
@@ -273,11 +276,11 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
                   setRender1(false);
                   inputToRef.current.value = item?.zip
                     ? item.zip +
-                    ", " +
-                    item?.primary_city +
-                    ", " +
-                    item.state +
-                    ", USA"
+                      ", " +
+                      item?.primary_city +
+                      ", " +
+                      item.state +
+                      ", USA"
                     : item?.primary_city + ", " + item.state + ", USA";
                   svgImages.map((i: any) => {
                     if (item.state === i?.name) {
@@ -290,15 +293,16 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
                 }}
                 className="text-black-servicesTextColor pl-3 py-2 cursor-pointer hover:bg-black-line_bg hover:text-orange-main duration-100"
                 key={id}
-              >{`${item.zip
-                ? item.zip +
-                ", " +
-                item?.primary_city +
-                ", " +
-                item.state +
-                ", USA"
-                : item?.primary_city + ", " + item.state + ", USA"
-                }`}</p>
+              >{`${
+                item.zip
+                  ? item.zip +
+                    ", " +
+                    item?.primary_city +
+                    ", " +
+                    item.state +
+                    ", USA"
+                  : item?.primary_city + ", " + item.state + ", USA"
+              }`}</p>
             ))}
           </div>
         ) : null}
@@ -332,8 +336,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
             }
             setDate(e.target.value);
           }}
-          className={`date_bg ${loc3 ? "border-red-500" : ""
-            } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 border-white`}
+          className={`date_bg ${
+            loc3 ? "border-red-500" : ""
+          } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 `}
         />
         {loc3 ? (
           <label className="absolute bottom-1 text-[12px] text-red-500 leading-3">

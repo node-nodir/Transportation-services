@@ -15,6 +15,9 @@ function GetTouchForm() {
   const [btnLoc1, setBtnLoc1] = useState(false);
   const [btnLoc2, setBtnLoc2] = useState(false);
   const [btnLoc3, setBtnLoc3] = useState(false);
+  const [errorName, setNameError] = useState(false);
+  const [validTel, setValidTel] = useState(false);
+  const [focus, setFocus] = useState(false);
   const [locErrorName, setErrorName] = useState("There should be no head left");
   // -----> Submit Informations
   const onSubmitFom = (evt: any) => {
@@ -88,6 +91,9 @@ function GetTouchForm() {
       setLoc3(true);
     }
   };
+  const handeFocusNumber = () => {
+    setFocus(true);
+  };
   return (
     <div className="md:max-w-500 w-full bg-heroFormMoblie md:bg-blurForm backdrop-blur-lg rounded-10 px-16 md:px-30 py-6">
       <h1 className="font-bold text-28 sm:text-3xl leading-9 text-white">
@@ -105,14 +111,24 @@ function GetTouchForm() {
               if (e.target.value === "") {
                 setLoc(true);
                 setBtnLoc1(false);
+                setNameError(false);
               } else {
                 setLoc(false);
                 setBtnLoc1(true);
+                if (Number(e.target.value) > 0) {
+                  setNameError(true);
+                  setBtnLoc1(false);
+                } else {
+                  setBtnLoc1(true);
+                  setNameError(false);
+                }
               }
             }}
             onBlur={handleBlur}
             placeholder="Write your full name"
-            className={`h-45 mt-2 text-sm  ${
+            className={`h-45 mt-2 text-sm ${
+              errorName ? "border-red-500" : ""
+            }  ${
               loc ? "border-red-500" : ""
             } md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
           />
@@ -120,6 +136,13 @@ function GetTouchForm() {
             <label className="absolute bottom-2 text-red-500 text-[11px]">
               {locErrorName}
             </label>
+          ) : (
+            ""
+          )}
+          {errorName ? (
+            <span className="absolute bottom-2 text-red-500 text-[11px]">
+              Enter only name
+            </span>
           ) : (
             ""
           )}
@@ -159,7 +182,9 @@ function GetTouchForm() {
           <label className="relative flex flex-col">
             <span className="text-white text-sm font-normal">Phone number</span>
             <input
-              type="number"
+              type="tel"
+              onFocus={handeFocusNumber}
+              defaultValue={`${focus ? "+1" : ""}`}
               ref={inputDateRef}
               onChange={(e) => {
                 if (e.target.value === "") {
@@ -168,18 +193,32 @@ function GetTouchForm() {
                 } else {
                   setLoc3(false);
                   setBtnLoc3(true);
+                  if (Number(e.target.value) > 0) {
+                    setValidTel(false);
+                    setBtnLoc3(true);
+                  } else {
+                    setBtnLoc3(false);
+                    setValidTel(true);
+                  }
                 }
               }}
               onBlur={handleBlur3}
               id="number"
               placeholder="Your phone number"
-              className={`h-45 ${
+              className={`h-45 ${validTel ? "border-red-500" : ""} ${
                 loc3 ? "border-red-500" : ""
               } mt-2 text-sm md:text-base rounded-md p-2 sm:p-3 outline-none border-2 mb-3 sm:mb-6`}
             />
             {loc3 ? (
               <label className="absolute bottom-2 text-red-500 text-[11px]">
                 {locErrorName}
+              </label>
+            ) : (
+              ""
+            )}
+            {validTel ? (
+              <label className="absolute bottom-2 text-red-500 text-[11px]">
+                Enter only Number
               </label>
             ) : (
               ""
