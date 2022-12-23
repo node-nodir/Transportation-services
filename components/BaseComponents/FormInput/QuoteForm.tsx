@@ -163,7 +163,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}make`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, []);
 
   // -----> Get Model
@@ -172,7 +172,7 @@ function QuoteForm({ setHeroPage }: any) {
       .get(`${env}models?company_id=${foundId}`)
       .then((res) => setModelData(res.data))
       .catch((err) => console.error(err))
-      .finally(() => {});
+      .finally(() => { });
   }, [foundId]);
 
   // ------> Submit Form
@@ -312,14 +312,13 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn1(true);
             }
           }}
-          className={`relative ${
-            year1 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year1 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year1 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
           </label>
         )}
@@ -328,9 +327,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            yearVal!?.length > 0 ? "rotate-180" : ""
-          } ${render ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${yearVal!?.length > 0 ? "rotate-180" : ""
+            } ${render ? "" : "rotate-0"}`}
         />
         {render ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-50 top-[68px] shadow-selectShadow">
@@ -378,14 +376,13 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn2(true);
             }
           }}
-          className={`relative ${
-            year2 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year2 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year2 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
           </label>
         )}
@@ -394,9 +391,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            makeVal!?.length > 0 ? "rotate-180" : ""
-          } ${render1 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${makeVal!?.length > 0 ? "rotate-180" : ""
+            } ${render1 ? "" : "rotate-0"}`}
         />
         {render1 ? (
           <div className="w-full max-h-[200px] overflow-y-scroll rounded absolute bg-white z-40 top-[68px] shadow-selectShadow">
@@ -445,14 +441,13 @@ function QuoteForm({ setHeroPage }: any) {
               setBtn3(true);
             }
           }}
-          className={`relative ${
-            year3 ? "" : "border-red-500"
-          } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`relative ${year3 ? "" : "border-red-500"
+            } h-45 mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {year3 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-[4px]">
+          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
           </label>
         )}
@@ -461,9 +456,8 @@ function QuoteForm({ setHeroPage }: any) {
           height={10}
           alt="select-icon"
           src={"/Images/Quote/select.svg"}
-          className={`absolute top-10 right-3 duration-100 ${
-            modelVal!?.length > 0 ? "rotate-180" : ""
-          } ${render2 ? "" : "rotate-0"}`}
+          className={`absolute top-10 right-3 duration-100 ${modelVal!?.length > 0 ? "rotate-180" : ""
+            } ${render2 ? "" : "rotate-0"}`}
         />
         {render2 ? (
           <div className="w-full max-h-[130px] overflow-y-scroll rounded absolute bg-white z-30 top-[68px] shadow-selectShadow">
