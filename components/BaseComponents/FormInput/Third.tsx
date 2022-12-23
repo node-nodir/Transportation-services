@@ -9,7 +9,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
   const [btnLoc1, setBtnLoc1] = useState(false);
   const [btnLoc2, setBtnLoc2] = useState(false);
   const [btnLoc3, setBtnLoc3] = useState(false);
+  const [nameErr, setNameErr] = useState(false);
   const [locErrorName, setErrorName] = useState("There should be no head left");
+  const [focusTel, setFocusTel] = useState(false);
   const nameRef: any = useRef();
   const emailRef: any = useRef();
   const phoneRef: any = useRef();
@@ -89,7 +91,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           setTimeout(() => {
             window.localStorage.setItem("second", "first");
             setHeroPage("first");
-          }, 2500)
+          }, 2500);
         }
       })
       .catch((err) => {
@@ -98,11 +100,13 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
         }
       })
       .finally(() => {
-        evt.target.reset()
+        evt.target.reset();
         localStorage.clear();
-      })
+      });
   };
-
+  const handleFocus = () => {
+    setFocusTel(true);
+  };
   return (
     <form onSubmit={handleSubmit} className="flex flex-col" autoComplete="off">
       <label className="mt-1 relative flex flex-col">
@@ -116,18 +120,35 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             if (e.target.value === "") {
               setLoc(true);
               setBtnLoc1(false);
+              setNameErr(false);
             } else {
               setLoc(false);
               setBtnLoc1(true);
+              if (Number(e.target.value)) {
+                setBtnLoc1(false);
+                setNameErr(true);
+              } else {
+                setBtnLoc1(true);
+                setNameErr(true);
+                setNameErr(false);
+              }
             }
           }}
           placeholder="Write your full name"
-          className={`h-45 mt-1 ${loc ? "border-red-500" : ""
-            } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb- border-white`}
+          className={`h-45 mt-1 ${nameErr ? "border-red-500" : ""} ${
+            loc ? "border-red-500" : ""
+          } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
             {locErrorName}
+          </label>
+        ) : (
+          ""
+        )}
+        {nameErr ? (
+          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+            Dont write number
           </label>
         ) : (
           ""
@@ -150,8 +171,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           }}
           onBlur={handleBlur2}
           placeholder="Write your email address"
-          className={`h-45 ${loc2 ? "border-red-500" : ""
-            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+          className={`h-45 ${
+            loc2 ? "border-red-500" : ""
+          } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc2 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -164,7 +186,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Phone number</span>
         <input
-          type="number"
+          type="tel"
+          onFocus={handleFocus}
+          defaultValue={`${focusTel ? "+1" : ""}`}
           id="number"
           ref={phoneRef}
           onChange={(e) => {
@@ -174,12 +198,20 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             } else {
               setLoc3(false);
               setBtnLoc3(true);
+              if (Number(e.target.value)) {
+                setLoc3(false);
+                setBtnLoc3(true);
+              } else {
+                setLoc3(true);
+                setBtnLoc3(false);
+              }
             }
           }}
           onBlur={handleBlur3}
           placeholder="Your phone number"
-          className={`h-45 ${loc3 ? "border-red-500" : ""
-            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4 border-white`}
+          className={`h-45 ${
+            loc3 ? "border-red-500" : ""
+          } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc3 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
