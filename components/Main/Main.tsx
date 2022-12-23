@@ -25,7 +25,6 @@ function Main() {
       </section>
       <section className="nav_section">
         <Frequently />
-
         <GetTouch />
       </section>
     </main>
