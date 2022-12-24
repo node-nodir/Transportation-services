@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
-import toast, { Toaster } from "react-hot-toast";
 
 function Third({ setSuccess, setError, setHeroPage }: any) {
   const [loc, setLoc] = useState(false);
@@ -95,9 +94,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
         }
       })
       .catch((err) => {
-        if (err.status === 201) {
-          setError(true);
-        }
+        setError(true);
       })
       .finally(() => {
         evt.target.reset();
@@ -135,9 +132,8 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             }
           }}
           placeholder="Write your full name"
-          className={`h-45 mt-1 ${nameErr ? "border-red-500" : ""} ${
-            loc ? "border-red-500" : ""
-          } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`h-45 mt-1 ${nameErr ? "border-red-500" : ""} ${loc ? "border-red-500" : ""
+            } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -171,9 +167,8 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           }}
           onBlur={handleBlur2}
           placeholder="Write your email address"
-          className={`h-45 ${
-            loc2 ? "border-red-500" : ""
-          } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`h-45 ${loc2 ? "border-red-500" : ""
+            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc2 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">
@@ -186,11 +181,13 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
       <label className="relative flex flex-col">
         <span className="text-white text-sm font-normal">Phone number</span>
         <input
+          id="number"
           type="tel"
+          maxLength={12}
+          minLength={12}
+          ref={phoneRef}
           onFocus={handleFocus}
           defaultValue={`${focusTel ? "+1" : ""}`}
-          id="number"
-          ref={phoneRef}
           onChange={(e) => {
             if (e.target.value === "") {
               setLoc3(true);
@@ -209,9 +206,8 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           }}
           onBlur={handleBlur3}
           placeholder="Your phone number"
-          className={`h-45 ${
-            loc3 ? "border-red-500" : ""
-          } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
+          className={`h-45 ${loc3 ? "border-red-500" : ""
+            } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc3 ? (
           <label className="absolute -bottom-1 text-red-500 text-[11px]">

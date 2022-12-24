@@ -91,7 +91,6 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
     window.localStorage.setItem("data", JSON.stringify(firstData));
     window.localStorage.setItem("second", "second");
     setHeroPage("second");
-    // e.target.reset();
   };
 
   // ------> Day Before

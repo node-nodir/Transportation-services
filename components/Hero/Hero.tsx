@@ -11,6 +11,7 @@ function Hero() {
   const [to, setTo] = useState("");
   const [from, setFrom] = useState("");
   const [rev, setRev] = useState<boolean>(false);
+  const [rev2, setRev2] = useState<boolean>(false);
   const [firstData, setFirstData] = useState<any>();
   const [secoundData, setSecoundData] = useState<any>();
   const [success, setSuccess] = useState<any>();
@@ -19,9 +20,9 @@ function Hero() {
   // ------> Successfully Sent
   useEffect(() => {
     if (success) {
-      toast.success('Successfully toasted!')
+      toast.success('Successfully sent!')
     } else if (error) {
-      toast.error('No!')
+      toast.error('Sending failed!')
     }
   }, [success, error])
 
@@ -484,13 +485,14 @@ function Hero() {
     if (window.localStorage.getItem("seconData")) {
       setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
     }
-  }, [rev]);
+  }, [rev2]);
+  console.log(secoundData);
+
 
   return (
     <>
-      <section id="hero" className={`hero bg-heroBgMobile sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[100px] md:pt-160 pb-0 md:pb-80`}>
-        <Toaster position="top-center" reverseOrder={false}
-        />
+      <section id="hero" className={`hero bg-heroBgMobile ${heroPage === "thrid" ? "" : ""} sm:bg-heroBg bg-no-repeat bg-bottom-left bg-fixed bg-cover bg-left-right pt-[100px] md:pt-160 pb-0 md:pb-80`}>
+        <Toaster position="top-center" reverseOrder={false} />
         {/* ----- First ----- */}
         {heroPage === "first" ? (
           <div className="container flex flex-col-reverse items-center lg:flex lg:items-start lg:flex-row lg:justify-between py-24 space-x-5">
@@ -553,7 +555,10 @@ function Hero() {
                 Information about your car
               </p>
               <span className="w-full h-[1px] inline-block bg-black-line_bg mt-4 mb-3"></span>
-              <QuoteForm setHeroPage={setHeroPage} />
+              <QuoteForm
+                setHeroPage={setHeroPage}
+                setRev={setRev2}
+                rev={rev2} />
             </div>
             <div className="text-start md:text-center lg:text-start max-w-heroRightW pb-12 lg:mb-0 !ml-0 w-full">
               <blockquote className="hidden lg:flex items-center font-medium text-sm text-white uppercase">

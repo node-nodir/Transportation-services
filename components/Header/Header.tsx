@@ -4,47 +4,6 @@ import { useState } from "react";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
-  const [active, setActive] = useState(false);
-  const [active1, setActive1] = useState(false);
-  const [active2, setActive2] = useState(false);
-  const [active3, setActive3] = useState(false);
-  const [active4, setActive4] = useState(false);
-
-  const ActiveClick = () => {
-    setActive(true);
-    setActive1(false);
-    setActive2(false);
-    setActive3(false);
-    setActive4(false);
-  };
-  const ActiveClick1 = () => {
-    setActive1(true);
-    setActive(false);
-    setActive2(false);
-    setActive3(false);
-    setActive4(false);
-  };
-  const ActiveClick2 = () => {
-    setActive2(true);
-    setActive(false);
-    setActive1(false);
-    setActive3(false);
-    setActive4(false);
-  };
-  const ActiveClick3 = () => {
-    setActive3(true);
-    setActive(false);
-    setActive1(false);
-    setActive2(false);
-    setActive4(false);
-  };
-  const ActiveClick4 = () => {
-    setActive4(true);
-    setActive(false);
-    setActive1(false);
-    setActive2(false);
-    setActive3(false);
-  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black-header_bg backdrop-blur-[25px] py-4 lg:py-5">
@@ -87,7 +46,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-               href={'/#shipping'}
+                href={'/#shipping'}
                 className="header__nav-link font-medium text-base cursor-pointer text-white uppercase"
               >
                 Shipping Methods
@@ -95,7 +54,7 @@ function Header() {
             </li>
             <li className="header__nav-item">
               <Link
-               href={'/#faq'}
+                href={'/#faq'}
                 className="header__nav-link font-medium text-base cursor-pointer text-white uppercase"
               >
                 FAQ
@@ -130,9 +89,8 @@ function Header() {
         </div>
       </div>
       <div
-        className={`absolute duration-300 ${
-          showModal ? "translate-x-0" : "-translate-x-[100%]"
-        } top-0 w-full h-[100vh] bg-white`}
+        className={`absolute duration-300 ${showModal ? "translate-x-0" : "-translate-x-[100%]"
+          } top-0 w-full h-[100vh] bg-white`}
       >
         <div className="flex p-4 mb-40 items-center justify-between">
           <Link href={"/"}>
@@ -219,7 +177,7 @@ function Header() {
             </strong>
           </a>
         </div>
-        <p className="absolute bottom-0 text-center right-0 left-0 mx-auto">
+        <p className="absolute bottom-5 text-center right-0 left-0 mx-auto">
           Copyright © All rights reserved
         </p>
       </div>

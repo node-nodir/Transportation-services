@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function QuoteForm({ setHeroPage }: any) {
+function QuoteForm({ setHeroPage, setRev, rev }: any) {
   // ---------->
   const [render, setRender] = useState(false);
   const [yearVal, setYearVal] = useState<string>("");
@@ -179,11 +179,12 @@ function QuoteForm({ setHeroPage }: any) {
   const SubmitData = (e: any) => {
     e.preventDefault();
     const secoundData = {
-      year: e.target.elements[0].value,
-      make: e.target.elements[1].value,
-      model: e.target.elements[2].value,
+      year: e.target.elements.year.value,
+      make: e.target.elements.make.value,
+      model: e.target.elements.modal.value,
       vehicle: e.target.elements[3].checked ? "run" : "inoperable",
     };
+    setRev(!rev);
 
     window.localStorage.setItem("seconData", JSON.stringify(secoundData));
     window.localStorage.setItem("second", "thrid");
@@ -291,6 +292,7 @@ function QuoteForm({ setHeroPage }: any) {
         <input
           required
           type="number"
+          name="year"
           ref={inputYearRef}
           placeholder="Select a year"
           onBlur={handleBlur1}
@@ -355,6 +357,7 @@ function QuoteForm({ setHeroPage }: any) {
         <input
           required
           type="text"
+          name="make"
           ref={inputMakeRef}
           placeholder="Select a year"
           onBlur={handleBlur2}
@@ -420,6 +423,7 @@ function QuoteForm({ setHeroPage }: any) {
         <input
           required
           type="text"
+          name="modal"
           ref={inputModelRef}
           placeholder="Select a year"
           onBlur={handleBlur3}
