@@ -320,9 +320,9 @@ function QuoteForm({ setHeroPage, setRev, rev }: any) {
         {year1 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
+          <span className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
-          </label>
+          </span>
         )}
         <Image
           width={15}
@@ -385,9 +385,9 @@ function QuoteForm({ setHeroPage, setRev, rev }: any) {
         {year2 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
+          <span className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
-          </label>
+          </span>
         )}
         <Image
           width={15}
@@ -451,9 +451,9 @@ function QuoteForm({ setHeroPage, setRev, rev }: any) {
         {year3 ? (
           ""
         ) : (
-          <label className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
+          <span className="text-red-500 text-[12px] absolute -bottom-1 md:-bottom-[1px]">
             {locErrorName}
-          </label>
+          </span>
         )}
         <Image
           width={15}

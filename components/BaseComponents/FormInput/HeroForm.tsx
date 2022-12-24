@@ -227,9 +227,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
           </div>
         ) : null}
         {loc ? (
-          <label className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
+          <span className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}
@@ -302,9 +302,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
           </div>
         ) : null}
         {loc2 ? (
-          <label className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
+          <span className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}
@@ -335,9 +335,9 @@ function HeroForm({ setHeroPage, svgImages, setRev, rev, from, to }: any) {
             } date h-45 w-full relative text-black-inputPlaceholderColor text-15 rounded-md pl-10 pr-3 mt-1 outline-none border-2 mb-4 `}
         />
         {loc3 ? (
-          <label className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
+          <span className="absolute bottom-[2px] text-[12px] text-red-500 leading-3">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}

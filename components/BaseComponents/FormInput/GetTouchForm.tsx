@@ -136,9 +136,9 @@ function GetTouchForm({ setSuccess, setError }: any) {
               } md:text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-6`}
           />
           {loc ? (
-            <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
+            <span className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
               {locErrorName}
-            </label>
+            </span>
           ) : (
             ""
           )}
@@ -174,9 +174,9 @@ function GetTouchForm({ setSuccess, setError }: any) {
                 } text-sm md:text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-6`}
             />
             {loc2 ? (
-              <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
+              <span className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
                 {locErrorName}
-              </label>
+              </span>
             ) : (
               ""
             )}
@@ -220,9 +220,9 @@ function GetTouchForm({ setSuccess, setError }: any) {
               ""
             )}
             {validTel ? (
-              <label className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
+              <span className="absolute -bottom-1 md:bottom-2 text-red-500 text-[11px]">
                 Enter only Number
-              </label>
+              </span>
             ) : (
               ""
             )}

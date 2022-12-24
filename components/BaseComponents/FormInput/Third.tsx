@@ -136,9 +136,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             } relative text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc ? (
-          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+          <span className="absolute -bottom-1 text-red-500 text-[11px]">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}
@@ -171,9 +171,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc2 ? (
-          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+          <span className="absolute -bottom-1 text-red-500 text-[11px]">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}
@@ -210,9 +210,9 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
             } mt-1 text-base rounded-md px-3 outline-none border-2 mb-3 sm:mb-4`}
         />
         {loc3 ? (
-          <label className="absolute -bottom-1 text-red-500 text-[11px]">
+          <span className="absolute -bottom-1 text-red-500 text-[11px]">
             {locErrorName}
-          </label>
+          </span>
         ) : (
           ""
         )}
