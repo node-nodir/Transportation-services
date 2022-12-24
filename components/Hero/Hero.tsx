@@ -486,8 +486,6 @@ function Hero() {
       setSecoundData(JSON.parse(window.localStorage.getItem("seconData") || ""));
     }
   }, [rev2]);
-  console.log(secoundData);
-
 
   return (
     <>

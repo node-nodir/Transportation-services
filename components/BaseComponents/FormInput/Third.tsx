@@ -93,7 +93,7 @@ function Third({ setSuccess, setError, setHeroPage }: any) {
           }, 2500);
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setError(true);
       })
       .finally(() => {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const env = process.env.NEXT_PUBLIC_TOKEN;
 
-function GetTouchForm() {
+function GetTouchForm({ setSuccess, setError }: any) {
   // ------> Input Refs
   const inputFromRef = useRef<HTMLInputElement>(null!);
   const inputToRef = useRef<HTMLInputElement>(null!);
@@ -23,7 +23,6 @@ function GetTouchForm() {
   // -----> Submit Informations
   const onSubmitFom = (evt: any) => {
     evt.preventDefault();
-    // let fullText = `\u{2705} Full Name: ${values.name}%0A\u{2705} Email: ${values.email} %0A\u{2705} Phone Number: ${values.number} %0A\u{2705} Comments:${values.comment}`;
 
     const obj = {
       name: evt.target.elements[0].value,
@@ -33,8 +32,13 @@ function GetTouchForm() {
     };
     axios
       .post(`${env}contacts`, obj)
-      .then((res) => { })
-      .catch((err) => console.log(err));
+      .then((res) => {
+        if (res.status === 201) {
+          setSuccess(true);
+        }
+      })
+      .catch(() => setError(true))
+      .finally(() => evt.target.reset())
   };
 
   // ------> Validation
@@ -181,6 +185,8 @@ function GetTouchForm() {
             <span className="text-white text-sm font-normal">Phone number</span>
             <input
               type="tel"
+              maxLength={12}
+              minLength={12}
               onFocus={handeFocusNumber}
               defaultValue={`${focus ? "+1" : ""}`}
               ref={inputDateRef}

@@ -1,11 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import GetTouchForm from "../BaseComponents/FormInput/GetTouchForm";
 
 interface Props { }
 
 function GetTouch(props: Props) {
   const { } = props;
+
+  const [success, setSuccess] = useState<any>();
+  const [error, setError] = useState<any>();
+
+  // ------> Successfully Sent
+  useEffect(() => {
+    if (success) {
+      toast.success('Successfully sent!')
+    } else if (error) {
+      toast.error('Sending failed!')
+    }
+  }, [success, error])
 
   return (
     <section
@@ -52,7 +66,7 @@ function GetTouch(props: Props) {
             </Link>
           </div>
         </div>
-        <GetTouchForm />
+        <GetTouchForm setSuccess={setSuccess} setError={setError} />
       </div>
     </section>
   );
