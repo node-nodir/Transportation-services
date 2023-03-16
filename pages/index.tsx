@@ -6,10 +6,19 @@ export default function Home() {
     <>
       <Head>
         <title>Optimum Car Services</title>
+        <meta name='title' content='Optimum Car Services' />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="description" content="Transportation Services that you can trust" />
-        <meta name="description" content="Optimum auto shipping" />
         <meta name="description" content="Transportation services" />
+        <meta name="description" content="Optimum auto shipping logistic website" />
+        <meta name="description" content="Transportation Services that you can trust" />
+
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Optimum Car Services' />
+        <meta property='og:url' content='https://transportation-services.vercel.app/' />
+        <meta property='og:description' content='Transportation services' />
+        <meta property='og:description' content='Optimum auto shipping logistic website' />
+        <meta property='og:description' content='Transportation Services that you can trust' />
+
         <link rel="icon" href="/Images/Header_Img/logo.svg" />
       </Head>
       <Main />
